@@ -1,0 +1,7 @@
+{
+  "name": "mortups",
+  "private": true,
+  "scripts": {
+    "build": "echo sitio estatico, sin build"
+  }
+}
