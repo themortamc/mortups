@@ -5,7 +5,7 @@
 **Catálogos web y pedidos armados por WhatsApp para negocios de Argentina.**
 <br>Sitio comercial propio: estático, liviano y medible, con un Worker que envía conversiones al servidor y un banner de consentimiento que respeta la decisión del visitante.
 
-[![Ver en vivo](https://img.shields.io/badge/ver%20en%20vivo-8B2CFF?style=for-the-badge)](https://mortups.lautaby12.workers.dev)
+[![Ver en vivo](https://img.shields.io/badge/ver%20en%20vivo-8B2CFF?style=for-the-badge)](https://mortups.com.ar)
 ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
 ![Sin framework](https://img.shields.io/badge/HTML%20%C2%B7%20CSS%20%C2%B7%20JS-sin%20framework-111111?style=for-the-badge)
 ![Sin dependencias](https://img.shields.io/badge/dependencias-0-2ea44f?style=for-the-badge)
@@ -114,4 +114,4 @@ A production sales site for my web and WhatsApp-ordering service in Argentina. S
 
 © 2026 Lautaro Mortarotti. Código publicado para mostrar mi trabajo; todos los derechos reservados.
 
-Hecho en Mendoza, Argentina · [@themortamc](https://github.com/themortamc) · [mortups.lautaby12.workers.dev](https://mortups.lautaby12.workers.dev)
+Hecho en Mendoza, Argentina · [@themortamc](https://github.com/themortamc) · [mortups.com.ar](https://mortups.com.ar)

@@ -1,3 +1,14 @@
+# Buscadores y buscadores de IA permitidos.
 User-agent: *
 Allow: /
-Sitemap: https://mortups.lautaby12.workers.dev/sitemap.xml
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://mortups.com.ar/sitemap.xml
