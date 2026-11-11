@@ -2,7 +2,7 @@
 
 # mortups
 
-**Catálogos web y pedidos armados por WhatsApp para negocios de Argentina.**
+**Diseño web y marketing online para negocios de Argentina: catálogos, menús con QR y pedidos por WhatsApp.**
 <br>Sitio comercial propio: estático, liviano y medible, con un Worker que envía conversiones al servidor y un banner de consentimiento que respeta la decisión del visitante.
 
 [![Ver en vivo](https://img.shields.io/badge/ver%20en%20vivo-8B2CFF?style=for-the-badge)](https://mortups.com.ar)
@@ -16,11 +16,11 @@
 
 ## ¿Qué es?
 
-mortups es mi emprendimiento: armo catálogos web, menús y pedidos por WhatsApp para comercios, distribuidoras y gastronomía. Este repo es **el sitio con el que lo vendo**, y también un caso real de producto: oferta, precios, textos legales para Argentina y medición, todo en producción.
+mortups es mi emprendimiento: diseño web y marketing online para negocios de Argentina (catálogos, menús con QR, sistemas de registro y pedidos por WhatsApp). Este repo es **el sitio con el que lo vendo**, y también un caso real de producto: oferta, precios, textos legales para Argentina y medición, todo en producción.
 
 ## Qué tiene
 
-- **Rápido y simple.** Menos de 0,5 MB en total, sin framework, sin paso de build y con un solo archivo JavaScript propio.
+- **Rápido y simple.** Menos de 0,5 MB en total, sin framework, sin paso de build y con dos archivos JavaScript propios (`track.js` y `demo.js`).
 - **Medición con consentimiento.** Google Analytics, Google Ads, Meta Pixel y TikTok Pixel no se cargan hasta que el visitante acepta. Si rechaza, no se activa nada.
 - **Conversiones del lado del servidor.** Un Worker de Cloudflare envía el evento a la Conversions API de Meta y a la Events API de TikTok, con el mismo `event_id` que el navegador para que no se cuente dos veces.
 - **Atribución de ventas por WhatsApp.** Cada clic agrega un código `Ref` al mensaje; cuando se cierra la venta, ese código permite subirla como conversión offline.
@@ -63,6 +63,9 @@ Si el visitante rechaza las cookies, no se envía ningún evento, ni del navegad
 public/
   index.html        página principal
   track.js          consentimiento + eventos
+  demo.js           ejemplos interactivos de la portada
+  catalogo-web/ menu-digital-qr/   guías por servicio
+  sitemap.xml robots.txt
   _headers          CSP y cabeceras de seguridad
   cookies/ privacidad/ terminos/
   img/
@@ -104,7 +107,7 @@ Abre `http://localhost:8787`. Necesita Node.js.
 - Mide clics a WhatsApp, no ventas; la importación de conversiones offline es manual.
 - No hay tests automatizados todavía.
 - Los IDs de medición no están cargados en este repo público.
-- Próximo: páginas por rubro, testimonios de clientes y dominio propio.
+- Próximo: testimonios de clientes y cargar los IDs de medición.
 
 ## English summary
 
