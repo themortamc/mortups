@@ -1,0 +1,20 @@
+# mortups - Diseño Web y Marketing Online en Argentina
+
+> Sitio comercial de diseño web y marketing online para negocios de Argentina. Ofrecemos catálogos digitales, menús QR y sistemas de pedidos por WhatsApp optimizados para alta conversión.
+
+## Propuesta de Valor
+- **Velocidad extrema:** Sitios estáticos de <0.5 MB (carga instantánea).
+- **Enfoque en Ventas:** Sistema de pedidos por WhatsApp con tracking de conversiones (servidor a servidor vía CAPI de Meta/TikTok).
+- **Transparencia:** Sin comisiones por venta, precios públicos, sin contratos de permanencia.
+- **Cumplimiento:** Adaptado a leyes de protección de datos de Argentina.
+
+## Servicios y Precios (Noviembre 2026)
+- **Presencia en 72 hs:** $120.000 (pago único).
+- **Paquete Web:** $200.000 inicial + $30.000/mes.
+- **Paquete Ventas:** $550.000 inicial + $60.000/mes (Oferta lanzamiento: $450.000 hasta 31/12/2026).
+- **Paquete Crecimiento:** A consultar.
+
+## Contacto
+- Sitio: https://mortups.com.ar
+- WhatsApp: +54 9 2634 279451
+- Fundación: Lautaro Mortarotti, Mendoza, Argentina.
