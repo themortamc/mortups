@@ -13,6 +13,9 @@
 - **Paquete Web:** $200.000 inicial + $30.000/mes.
 - **Paquete Ventas:** $550.000 inicial + $60.000/mes (Oferta lanzamiento: $450.000 hasta 31/12/2026).
 - **Paquete Crecimiento:** A consultar.
+- **Casos de Éxito:**
+  - Todo y Más (Tienda online 236 prod, pago Mercado Pago/Go Cuotas).
+  - Repuestos San Isidro (Catálogo 30.000 prod, sync gestión).
 
 ## Contacto
 - Sitio: https://mortups.com.ar
