@@ -1,7 +1,7 @@
 /* mortups · medición con consentimiento. Completá los IDs públicos; los tokens van como secretos del Worker. */
 (function () {
   'use strict';
-  var C = { ga4: '', ads: '', adsLabel: '', meta: '', tiktok: 'DBR58OJC77U8DDDMM6RG' }; // ej: ga4:'G-XXXX', ads:'AW-123', adsLabel:'abc', meta:'123', tiktok:'C123'
+  var C = { ga4: '', ads: '', adsLabel: '', meta: '1706032854474764', tiktok: 'DBR58OJC77U8DDDMM6RG' }; // ej: ga4:'G-XXXX', ads:'AW-123', adsLabel:'abc', meta:'123', tiktok:'C123'
   var d = document, KEY = 'mu_consent', CP = 'mu_cp';
   var on = C.ga4 || C.ads || C.meta || C.tiktok;
   function get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }

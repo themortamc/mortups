@@ -9,7 +9,7 @@
     "run_worker_first": ["/api/*"]
   },
   "vars": {
-    "META_PIXEL_ID": "",
+    "META_PIXEL_ID": "1706032854474764",
     "TIKTOK_PIXEL_ID": "DBR58OJC77U8DDDMM6RG"
   }
 }
