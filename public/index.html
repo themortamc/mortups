@@ -70,15 +70,6 @@ a{color:inherit}
 h1,h2,h3{font-weight:800;letter-spacing:-.03em;line-height:1}
 h1{font-size:clamp(34px,4.6vw,68px);letter-spacing:-.04em;line-height:.95}
 h2{font-size:clamp(34px,5.6vw,72px);margin-bottom:30px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.sol,.plan,.entry,.case{animation:fadeUp .6s ease-out forwards;opacity:0}
-.sol:nth-child(1){animation-delay:.1s}
-.sol:nth-child(2){animation-delay:.2s}
-.sol:nth-child(3){animation-delay:.3s}
-.btn{animation:pulse 3s infinite;transition:transform .2s}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
-.btn:hover{animation:none;transform:scale(1.05)}
-.mockup-window{animation:fadeUp .8s ease-out}
 section{padding:clamp(80px,10vw,160px) 0}
 em{font-style:normal;color:var(--acl)}
 .btn{display:inline-block;background:var(--ac);color:#fff;font-weight:700;font-size:19px;padding:20px 38px;text-decoration:none;border-radius:12px;transition:background .2s}
