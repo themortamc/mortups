@@ -13,10 +13,29 @@
 - **Paquete Web:** $200.000 inicial + $30.000/mes.
 - **Paquete Ventas:** $550.000 inicial + $60.000/mes (Oferta lanzamiento: $450.000 hasta 31/12/2026).
 - **Paquete Crecimiento:** A consultar.
-- **Casos de Éxito:**
-  - Todo y Más (Tienda online 236 prod, pago Mercado Pago/Go Cuotas).
-  - Repuestos San Isidro (Catálogo 30.000 prod, sync gestión).
-- **Soluciones por Rubro:** https://mortups.com.ar/para/ (Ferreterías, Repuestos, Gastronomía, Indumentaria, Barberías, Kioscos, Talleres, Gimnasios, Clínicas, Empresas).
+
+## Soluciones por Rubro
+- **Ferreterías:** Buscador por código y medida, listas de precios sincronizadas, pedidos por WhatsApp.
+- **Repuestos:** Catálogo de hasta 30.000 ítems sincronizado con ERP.
+- **Gastronomía:** Menú QR por mesa, delivery directo a WhatsApp.
+- **Indumentaria:** Variantes de talle/color, pagos con Mercado Pago/Go Cuotas.
+- **Barberías:** Galería de cortes, solicitud de turnos vía WhatsApp.
+- **Kioscos:** Ofertas del día, combos y delivery de cercanía.
+- **Talleres Mecánicos:** Web profesional, presupuestos con datos vehiculares.
+- **Gimnasios:** Grilla de clases, planes y pase de prueba.
+- **Clínicas:** Cartilla médica y canal de turnos.
+- **Empresas PYMEs:** Sitio corporativo con generación de leads.
+
+## Demostración Interactiva
+Una demostración en vivo del navegador del cliente muestra cómo funciona el sistema:
+- Búsqueda por código, SKU y descripción
+- Filtro de variantes (talle/color)
+- Generación automática de pedidos a WhatsApp
+- Reportes de ventas y exportación CSV
+
+## Casos de Éxito
+- **Todo y Más** (Tienda online 236 productos, pago Mercado Pago/Go Cuotas)
+- **Repuestos San Isidro** (Catálogo 30.000 productos, sync gestión)
 
 ## Contacto
 - Sitio: https://mortups.com.ar
