@@ -16,6 +16,7 @@
 - **Casos de Éxito:**
   - Todo y Más (Tienda online 236 prod, pago Mercado Pago/Go Cuotas).
   - Repuestos San Isidro (Catálogo 30.000 prod, sync gestión).
+- **Soluciones por Rubro:** https://mortups.com.ar/para/ (Ferreterías, Repuestos, Gastronomía, Indumentaria, Barberías, Kioscos, Talleres, Gimnasios, Clínicas, Empresas).
 
 ## Contacto
 - Sitio: https://mortups.com.ar
