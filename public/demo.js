@@ -3,45 +3,151 @@
   var d = document;
   function $(s, r) { return (r || d).querySelector(s); }
   function $$(s, r) { return [].slice.call((r || d).querySelectorAll(s)); }
-  function fmt(n) { return '$' + n.toLocaleString('es-AR'); }
-  var tabs = $$('.tabs [role=tab]');
-  function show(id) {
-    tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.getAttribute('data-t') === id)); });
-    $$('.dm').forEach(function (p) { p.hidden = p.id !== 'p-' + id; });
-  }
-  function update(p) {
-    var tot = 0, lines = [], rows = $$('.row[data-p]', p);
-    rows.forEach(function (r) {
-      var q = +$('output', r).textContent, pr = +r.getAttribute('data-p');
-      if (q) { tot += q * pr; lines.push(q + ' x ' + r.getAttribute('data-n') + ' — ' + fmt(q * pr)); }
-      var st = $('.st', r);
-      if (st) { var left = +r.getAttribute('data-s') - q; st.textContent = 'Stock: ' + left + (left <= +r.getAttribute('data-m') ? ' · stock bajo' : ''); }
+  function fmt(n) { return '$' + Number(n).toLocaleString('es-AR'); }
+
+  var tabs = $$('.mockup-tabs [role=tab]');
+  var views = $$('.mw-view');
+  var urlBar = $('.mw-url-text');
+
+  var urlsMap = {
+    cat: 'https://demo.mortups.com.ar/repuestos-san-isidro (30.000 items sync)',
+    qr: 'https://demo.mortups.com.ar/menu-qr-restaurante (Mesa 4)',
+    ind: 'https://demo.mortups.com.ar/tienda-indumentaria (Talles & Cuotas)',
+    pos: 'https://demo.mortups.com.ar/admin/caja-en-vivo'
+  };
+
+  function switchTab(id) {
+    tabs.forEach(function (t) {
+      var sel = t.getAttribute('data-t') === id;
+      t.setAttribute('aria-selected', String(sel));
+      t.classList.toggle('active', sel);
     });
-    var t = $('.tot', p); if (t) t.textContent = 'Total vendido: ' + fmt(tot);
-    var out = $('.msg', p); if (!out) return;
-    if (!lines.length) { out.textContent = 'Sumá productos para ver el mensaje.'; return; }
-    var mesa = $('.mesas [aria-pressed=true]', p);
-    out.textContent = (mesa ? 'Pedido en la mesa ' + mesa.textContent + '\n' : 'Hola, quiero hacer este pedido:\n') + lines.join('\n') + '\nTotal: ' + fmt(tot) + (mesa ? '\nPagado con Mercado Pago (demostración)' : '');
+    views.forEach(function (v) {
+      v.hidden = v.id !== 'v-' + id;
+    });
+    if (urlBar && urlsMap[id]) {
+      urlBar.textContent = urlsMap[id];
+    }
   }
-  function csv(p) {
-    var l = ['producto,precio,vendidas,stock'];
-    $$('.row[data-p]', p).forEach(function (r) {
-      var q = +$('output', r).textContent;
-      l.push(['"' + r.getAttribute('data-n') + '"', r.getAttribute('data-p'), q, +r.getAttribute('data-s') - q].join(','));
+
+  function updateView(p) {
+    if (!p) return;
+    var tot = 0, count = 0, lines = [], rows = $$('.p-item[data-p]', p);
+    rows.forEach(function (r) {
+      var qEl = $('.q-num', r);
+      var q = qEl ? +qEl.textContent : 0;
+      var pr = +r.getAttribute('data-p');
+      var name = r.getAttribute('data-n');
+      var sku = r.getAttribute('data-sku') ? ' (Cod: ' + r.getAttribute('data-sku') + ')' : '';
+      if (q > 0) {
+        tot += q * pr;
+        count += q;
+        lines.push('• ' + q + 'x ' + name + sku + ' -> ' + fmt(q * pr));
+      }
+      var st = $('.st-left', r);
+      if (st) {
+        var base = +r.getAttribute('data-s') || 20;
+        var left = Math.max(0, base - q);
+        st.textContent = 'Stock: ' + left + (left <= 3 ? ' (Casi agotado)' : '');
+      }
+    });
+
+    var badgeCart = $('.cart-count', p);
+    if (badgeCart) badgeCart.textContent = count + ' ítems (' + fmt(tot) + ')';
+
+    var totEl = $('.tot-val', p);
+    if (totEl) totEl.textContent = fmt(tot);
+
+    var out = $('.wa-body', p);
+    if (!out) return;
+
+    if (lines.length === 0) {
+      out.innerHTML = '<span class="wa-empty">Seleccioná productos en la pantalla interactiva para ver cómo se genera automáticamente el pedido formateado.</span>';
+      return;
+    }
+
+    var mesa = $('.mesas-pill [aria-pressed=true]', p);
+    var mesaText = mesa ? '📌 *MESA ' + mesa.textContent + '*\n' : '';
+
+    var msgHtml = '<b>' + (mesa ? '🍔 PEDIDO EN MESA #' + mesa.textContent : '📦 NUEVO PEDIDO - CATALOGO ONLINE') + '</b><br>' +
+      '<small style="opacity:.8">Cliente: Consumidor Final • WhatsApp Directo</small><br><br>' +
+      lines.join('<br>') + '<br><br>' +
+      '<b>TOTAL: ' + fmt(tot) + '</b><br>' +
+      '<small style="color:#7CFFB2">✔ Cero comisiones • Listo para confirmar</small>';
+
+    out.innerHTML = msgHtml;
+  }
+
+  function filterItems(view, query) {
+    var items = $$('.p-item', view);
+    var q = query.toLowerCase().trim();
+    items.forEach(function (it) {
+      var text = (it.getAttribute('data-n') + ' ' + (it.getAttribute('data-sku') || '')).toLowerCase();
+      it.style.display = text.includes(q) ? '' : 'none';
+    });
+  }
+
+  function downloadCsv(p) {
+    var l = ['codigo,producto,precio_unitario,cantidad_vendida,stock_restante'];
+    $$('.p-item[data-p]', p).forEach(function (r) {
+      var qEl = $('.q-num', r);
+      var q = qEl ? +qEl.textContent : 0;
+      var sku = r.getAttribute('data-sku') || 'SKU-GEN';
+      l.push([sku, '"' + r.getAttribute('data-n') + '"', r.getAttribute('data-p'), q, (+r.getAttribute('data-s') || 10) - q].join(','));
     });
     var a = d.createElement('a');
-    a.href = URL.createObjectURL(new Blob(['\ufeff' + l.join('\n')], { type: 'text/csv;charset=utf-8' }));
-    a.download = 'ventas-demo.csv'; d.body.appendChild(a); a.click(); a.remove();
+    a.href = URL.createObjectURL(new Blob(['﻿' + l.join('\n')], { type: 'text/csv;charset=utf-8' }));
+    a.download = 'reporte-caja-mortups.csv';
+    d.body.appendChild(a);
+    a.click();
+    a.remove();
   }
+
   d.addEventListener('click', function (e) {
-    var t = e.target.closest ? e.target.closest('.tabs [role=tab]') : null;
-    if (t) { show(t.getAttribute('data-t')); return; }
-    var b = e.target.closest('.q button');
-    if (b) { var o = $('output', b.closest('.row')); o.textContent = Math.max(0, +o.textContent + +b.getAttribute('data-d')); update(b.closest('.dm')); return; }
-    var m = e.target.closest('.mesas button');
-    if (m) { $$('.mesas button', m.closest('.dm')).forEach(function (x) { x.setAttribute('aria-pressed', String(x === m)); }); update(m.closest('.dm')); return; }
-    var c = e.target.closest('[data-csv]');
-    if (c) csv(c.closest('.dm'));
+    var t = e.target.closest ? e.target.closest('.mockup-tabs [role=tab]') : null;
+    if (t) {
+      switchTab(t.getAttribute('data-t'));
+      return;
+    }
+    var btnQ = e.target.closest('.q-btn');
+    if (btnQ) {
+      var row = btnQ.closest('.p-item');
+      var numEl = $('.q-num', row);
+      var delta = +btnQ.getAttribute('data-d');
+      var cur = +numEl.textContent;
+      numEl.textContent = Math.max(0, cur + delta);
+      updateView(row.closest('.mw-view'));
+      return;
+    }
+    var m = e.target.closest('.mesas-pill button');
+    if (m) {
+      var view = m.closest('.mw-view');
+      $$('.mesas-pill button', view).forEach(function (x) {
+        x.setAttribute('aria-pressed', String(x === m));
+      });
+      updateView(view);
+      return;
+    }
+    var csvBtn = e.target.closest('[data-csv]');
+    if (csvBtn) {
+      downloadCsv(csvBtn.closest('.mw-view'));
+      return;
+    }
+    var varBtn = e.target.closest('.v-btn');
+    if (varBtn) {
+      var pItem = varBtn.closest('.p-item');
+      $$('.v-btn', pItem).forEach(function (b) { b.classList.remove('sel'); });
+      varBtn.classList.add('sel');
+    }
   });
-  $$('.dm').forEach(update);
+
+  d.addEventListener('input', function (e) {
+    if (e.target.classList.contains('mw-search-input')) {
+      var view = e.target.closest('.mw-view');
+      filterItems(view, e.target.value);
+    }
+  });
+
+  // Init views
+  views.forEach(updateView);
 })();
