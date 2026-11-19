@@ -26,6 +26,11 @@
 - **Clínicas:** Cartilla médica y canal de turnos.
 - **Empresas PYMEs:** Sitio corporativo con generación de leads.
 
+## Productos digitales (en preparación)
+- Planillas de Google Sheets y Excel listas para usar: ventas y caja diaria, control de stock con mínimos, lista de precios con ajuste por porcentaje y presupuestos.
+- Hay una versión pensada para cada rubro (ferreterías, repuestos, gastronomía, ropa, barberías, kioscos, talleres, gimnasios, clínicas y empresas).
+- Todavía sin precio publicado; las consultas y la lista de espera son por WhatsApp. Detalle: https://mortups.com.ar/productos-digitales/
+
 ## Demostración Interactiva
 Una demostración en vivo del navegador del cliente muestra cómo funciona el sistema:
 - Búsqueda por código, SKU y descripción
