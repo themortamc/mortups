@@ -560,3 +560,58 @@ details>p,details>div{padding:0 0 24px;color:var(--ink-2);max-width:68ch}
 .toc{list-style:decimal;padding-left:22px;display:grid;gap:8px;color:var(--ink-2)}
 @media (max-width:760px){.soon-grid{grid-template-columns:1fr}}
 .cover{text-align:left}
+
+/* Etiqueta de estado y pie de tarjeta: sin cortes de línea */
+.status{white-space:nowrap;background:#E6E2EE;color:var(--ink-2)}
+.pcard-ft{flex-wrap:wrap;row-gap:10px}
+.lnk{white-space:nowrap}
+
+/* Botón de tema */
+.theme{flex:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--ink-2);transition:background-color .2s var(--ease),color .2s var(--ease)}
+.theme:hover{background:var(--bg-2);color:var(--ink)}
+.theme .ico{width:18px;height:18px}
+.theme .sun{display:none}
+.theme+.hd-cta{margin-left:-20px}
+@media (max-width:960px){.hd .theme{margin-left:auto}.hd .theme~.menu{margin-left:-24px}}
+
+/* ===== Tema oscuro ===== */
+html[data-theme=dark]{
+  color-scheme:dark;
+  --bg:#121016;--bg-2:#18151E;--bg-3:#25212D;
+  --ink:#F1EEF6;--ink-2:#BDB6CA;--ink-3:#958EA3;
+  --line:rgba(241,238,246,.10);--line-2:rgba(241,238,246,.17);
+  --brand-hover:#9B48FF;--brand-ink:#C7A4FF;--brand-tint:#2A1D40;
+  --wa-bubble:#173A2A;--ok:#4CC38A;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -8px rgba(0,0,0,.6);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.4),0 24px 56px -16px rgba(0,0,0,.75);
+  scrollbar-color:#3A3544 transparent;
+}
+html[data-theme=dark] ::selection{background:#4B2C82;color:var(--ink)}
+html[data-theme=dark] .theme .sun{display:block}
+html[data-theme=dark] .theme .moon{display:none}
+html[data-theme=dark] .hd{background:rgba(18,16,22,.9)}
+html[data-theme=dark] .dots i{background:#3A3544}
+html[data-theme=dark] .status{background:var(--bg-3)}
+html[data-theme=dark] .order-hd .av,html[data-theme=dark] .wa-avatar,html[data-theme=dark] .badge,
+html[data-theme=dark] .filters button[aria-pressed=true],html[data-theme=dark] .mesas-pill button[aria-pressed=true]{color:var(--bg)}
+html[data-theme=dark] .filters[data-k=t] button[aria-pressed=true]{color:#fff}
+html[data-theme=dark] .order-bd,html[data-theme=dark] .wa-drawer{background:#0E0C12}
+html[data-theme=dark] .bubble,html[data-theme=dark] .wa-body,html[data-theme=dark] .mk .wa{background:var(--wa-bubble);color:#DCF2E5}
+html[data-theme=dark] .bubble .meta,html[data-theme=dark] .wa-body small,html[data-theme=dark] .mk .wa small{color:#8FB9A0}
+html[data-theme=dark] .bubble .tot{border-top-color:rgba(220,242,229,.18)}
+html[data-theme=dark] .wa-body:has(.wa-empty){background:transparent;border-color:var(--line-2)}
+html[data-theme=dark] .sheet th,html[data-theme=dark] .sheet td{border-color:rgba(241,238,246,.12)}
+html[data-theme=dark] .sheet th{background:#1B2A21;color:#9FD8B4}
+html[data-theme=dark] .sheet.app th{background:var(--bg-2);color:var(--ink-2)}
+html[data-theme=dark] .sheet tr:last-child td{background:var(--bg-2)}
+html[data-theme=dark] .cover,html[data-theme=dark] .appshot-side{background:#1F1B27}
+html[data-theme=dark] .cover{border:1px solid var(--line)}
+html[data-theme=dark] .cta{background:#1A1622;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+html[data-theme=dark] .shot::before{background:radial-gradient(circle,#3A3544 4.5px,transparent 5px) 10px 50%/10px 10px no-repeat,radial-gradient(circle,#3A3544 4.5px,transparent 5px) 26px 50%/10px 10px no-repeat,radial-gradient(circle,#3A3544 4.5px,transparent 5px) 42px 50%/10px 10px no-repeat,var(--bg-2)}
+html[data-theme=dark] .ph .it i{color:var(--ink-2)}
+html[data-theme=dark] .win img,html[data-theme=dark] .shot img,html[data-theme=dark] .bx img{filter:brightness(.92)}
+html[data-theme=dark] #mu-ck{background:#18151E;color:#F1EEF6;border-color:rgba(241,238,246,.12)}
+html[data-theme=dark] #mu-ck p{color:#BDB6CA}
+html[data-theme=dark] #mu-ck a{color:#C7A4FF}
+html[data-theme=dark] #mu-ck button{background:#121016;color:#F1EEF6;border-color:rgba(241,238,246,.17)}
+html[data-theme=dark] #mu-ck button.y{background:#8B2CFF;border-color:#8B2CFF;color:#fff}
