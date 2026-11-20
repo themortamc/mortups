@@ -467,3 +467,59 @@ details>p,details>div{padding:0 0 24px;color:var(--ink-2);max-width:68ch}
 .case .win img[src*="repuestos"],.bx img[src*="repuestos"]{aspect-ratio:1400/620}
 .bx .fig{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
 @media (max-width:760px){.grid2>*:nth-child(odd){border-right:0}}
+
+/* ===== Tienda de planillas ===== */
+.shop-meta{margin-top:20px;font-size:15px;color:var(--ink-3)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.filters button{height:38px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);font-size:15px;color:var(--ink-2);background:var(--bg);transition:background-color .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
+.filters button:hover{border-color:rgba(23,20,31,.3);color:var(--ink)}
+.filters button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.shop.four{grid-template-columns:repeat(4,1fr)}
+.pcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg);overflow:hidden;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.pcard[hidden]{display:none}
+.pcard:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+.pcard-media{display:block;padding:20px 20px 0;background:var(--bg-2);border-bottom:1px solid var(--line);overflow:hidden;height:150px}
+.pcard-bd{display:flex;flex-direction:column;gap:8px;padding:20px 22px 22px;flex:1}
+.pcard-r{font-size:13px;color:var(--ink-3)}
+.pcard h3{font-size:18px}
+.pcard h3 a{text-decoration:none}
+.pcard h3 a:hover{text-decoration:underline}
+.pcard-bd>p:not(.pcard-r){font-size:15px;color:var(--ink-2)}
+.pcard-ft{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:12px}
+.pcard-ft .status{margin:0}
+.pcard-ft .lnk{font-size:14px}
+.pp-price{font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+/* hoja de cálculo dibujada */
+.sheet{width:100%;border-collapse:collapse;background:var(--bg);font-variant-numeric:tabular-nums}
+.sheet th,.sheet td{border:1px solid #E2DFE8;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sheet th{background:#EEF6EF;color:#1F4D33;font-weight:500}
+.sheet tr:last-child td{font-weight:600;background:#FAFAFC}
+.sheet.mini{font-size:11px;border-radius:8px 8px 0 0;box-shadow:var(--shadow);table-layout:fixed}
+.sheet.mini th,.sheet.mini td{padding:6px 8px}
+.sheet.big{font-size:14px}
+.sheet.big th,.sheet.big td{padding:10px 12px}
+/* página de planilla */
+.pp .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,64px);align-items:center}
+.pp .bc{grid-column:1/-1;margin-bottom:0}
+.page-hero.pp .w>*:not(.bc){max-width:none}
+.pp-info h1{margin-top:12px}
+.pp-rubro{margin-top:12px;color:var(--ink-3);font-size:15px}
+.pp-info .fine{margin-top:16px}
+.pp-preview .win{overflow-x:auto}
+.pp-preview figcaption{margin-top:12px;font-size:13px;color:var(--ink-3)}
+.pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)}
+.pp-grid h2{font-size:28px}
+.ck{display:grid;gap:12px}
+.ck li span{color:var(--ink-2)}
+.pp-grid p{color:var(--ink-2)}
+.steps.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1040px){.shop.four{grid-template-columns:1fr 1fr}}
+@media (max-width:960px){.shop{grid-template-columns:1fr 1fr}.pp .w{grid-template-columns:1fr}.pp-grid{grid-template-columns:1fr}.steps.three{grid-template-columns:1fr}}
+@media (max-width:600px){.shop,.shop.four{grid-template-columns:1fr}}
+.pcard-media{text-decoration:none;color:inherit}
+.pp-buy{margin-top:28px}
+.pp-buy .status{margin:0}
+.pp-info .actions{margin-top:16px}
+.pp-info h1{margin-top:0}
+.pcard-r{margin-top:-4px}

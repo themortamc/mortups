@@ -65,6 +65,7 @@ public/
   site.css          sistema visual compartido por todas las páginas
   fonts/hanken-grotesk.woff2 tipografía autoalojada (Hanken Grotesk, OFL)
   track.js          consentimiento + eventos
+  tienda.js         filtro por rubro de la tienda de planillas
   demo.js           ejemplos interactivos de la portada
   catalogo-web/ menu-digital-qr/   guías por servicio
   sitemap.xml robots.txt
@@ -72,6 +73,7 @@ public/
   cookies/ privacidad/ terminos/
   img/
 src/worker.js       POST /api/track → Meta y TikTok
+tools/productos.*   datos y generador de la tienda de planillas
 wrangler.jsonc      assets + run_worker_first en /api/*
 ```
 
@@ -82,6 +84,13 @@ npx wrangler dev
 ```
 
 Abre `http://localhost:8787`. Necesita Node.js.
+
+## Productos digitales (planillas)
+
+La tienda de `/productos-digitales/` se genera desde `tools/productos.json`. Para sumar o publicar una planilla:
+
+1. Agregá o editá su bloque en `tools/productos.json` (nombre, rubro, qué incluye, vista de ejemplo). Para venderla, poné `"estado": "disponible"`, el `precio` y, si tenés, el link de pago de Mercado Pago en `mp`.
+2. Corré `python3 tools/productos.py`. Regenera la tienda, la página de cada planilla, la sección de la portada, el enlace en la página del rubro y el sitemap.
 
 ## Configuración
 
