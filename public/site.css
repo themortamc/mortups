@@ -463,3 +463,5 @@ details>p,details>div{padding:0 0 24px;color:var(--ink-2);max-width:68ch}
 .page-hero.demo-hero .bc{grid-column:1/-1;margin-bottom:0}
 .page-hero.demo-hero .order{position:relative;left:auto;bottom:auto;width:100%;max-width:380px;justify-self:end}
 @media (max-width:860px){.page-hero.demo-hero .w{grid-template-columns:1fr}.page-hero.demo-hero .order{justify-self:start}}
+.page-hero.demo-hero .order{margin:0;animation:none}
+.case .win img[src*="repuestos"],.bx img[src*="repuestos"]{aspect-ratio:1400/620}
