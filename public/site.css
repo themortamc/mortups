@@ -465,3 +465,5 @@ details>p,details>div{padding:0 0 24px;color:var(--ink-2);max-width:68ch}
 @media (max-width:860px){.page-hero.demo-hero .w{grid-template-columns:1fr}.page-hero.demo-hero .order{justify-self:start}}
 .page-hero.demo-hero .order{margin:0;animation:none}
 .case .win img[src*="repuestos"],.bx img[src*="repuestos"]{aspect-ratio:1400/620}
+.bx .fig{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:760px){.grid2>*:nth-child(odd){border-right:0}}
