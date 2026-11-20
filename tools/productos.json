@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Para agregar o actualizar una planilla: editá este archivo y corré `python3 tools/productos.py`. estado: 'preparacion' o 'disponible'. precio: número en pesos o null. mp: link de pago de Mercado Pago o null. rubro: 'general' o el slug de /para/ (ferreterias, repuestos, restaurantes, indumentaria, barberias, kioscos, talleres-mecanicos, gimnasios, clinicas, empresas).",
+  "_ayuda": "Para agregar o actualizar un producto: editá este archivo y corré `python3 tools/productos.py`. tipo: 'planilla', 'software' o 'guia'. estado: 'preparacion' o 'disponible'. precio: número en pesos o null. mp: link de pago de Mercado Pago o null. rubro: 'general' o el slug de /para/. vista: columnas y filas de ejemplo (planilla y software). guia: subtitulo, paginas e indice (lista de capítulos). entrega: texto opcional que reemplaza el de 'Cómo lo recibís'.",
   "rubros": {
     "general": "Para cualquier negocio",
     "ferreterias": "Ferreterías",
@@ -15,102 +15,718 @@
   },
   "productos": [
     {
-      "slug": "ventas-y-caja-diaria", "ancla": "ventas", "rubro": "general", "estado": "preparacion", "precio": null, "mp": null, "destacado": true,
+      "tipo": "planilla",
+      "slug": "ventas-y-caja-diaria",
+      "ancla": "ventas",
+      "rubro": "general",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
+      "destacado": true,
       "nombre": "Planilla de ventas y caja diaria",
       "resumen": "Anotás cada venta con su forma de pago y la planilla te da el total del día y el cierre de caja.",
-      "incluye": ["Efectivo, transferencia, Mercado Pago y tarjeta", "Total del día y del mes", "Se puede exportar a CSV"],
-      "vista": {"columnas": ["Fecha", "Detalle", "Forma de pago", "Importe"], "filas": [["03/11", "Venta mostrador", "Efectivo", "$12.500"], ["03/11", "Pedido WhatsApp", "Transferencia", "$48.000"], ["03/11", "Venta mostrador", "Mercado Pago", "$9.800"], ["", "Total del día", "", "$70.300"]]}
+      "incluye": [
+        "Efectivo, transferencia, Mercado Pago y tarjeta",
+        "Total del día y del mes",
+        "Se puede exportar a CSV"
+      ],
+      "vista": {
+        "columnas": [
+          "Fecha",
+          "Detalle",
+          "Forma de pago",
+          "Importe"
+        ],
+        "filas": [
+          [
+            "03/11",
+            "Venta mostrador",
+            "Efectivo",
+            "$12.500"
+          ],
+          [
+            "03/11",
+            "Pedido WhatsApp",
+            "Transferencia",
+            "$48.000"
+          ],
+          [
+            "03/11",
+            "Venta mostrador",
+            "Mercado Pago",
+            "$9.800"
+          ],
+          [
+            "",
+            "Total del día",
+            "",
+            "$70.300"
+          ]
+        ]
+      }
     },
     {
-      "slug": "control-de-stock", "ancla": "stock", "rubro": "general", "estado": "preparacion", "precio": null, "mp": null, "destacado": true,
+      "tipo": "planilla",
+      "slug": "control-de-stock",
+      "ancla": "stock",
+      "rubro": "general",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
+      "destacado": true,
       "nombre": "Control de stock con mínimos",
       "resumen": "Sabés qué tenés y qué te falta reponer antes de quedarte sin mercadería.",
-      "incluye": ["Cantidad actual y mínimo por producto", "Resalta lo que hay que reponer", "Lista de reposición por proveedor"],
-      "vista": {"columnas": ["Producto", "Stock", "Mínimo", "Estado"], "filas": [["Yerba 1 kg", "24", "10", "OK"], ["Azúcar 1 kg", "6", "12", "Reponer"], ["Aceite 900 ml", "15", "8", "OK"], ["Harina 000", "3", "10", "Reponer"]]}
+      "incluye": [
+        "Cantidad actual y mínimo por producto",
+        "Resalta lo que hay que reponer",
+        "Lista de reposición por proveedor"
+      ],
+      "vista": {
+        "columnas": [
+          "Producto",
+          "Stock",
+          "Mínimo",
+          "Estado"
+        ],
+        "filas": [
+          [
+            "Yerba 1 kg",
+            "24",
+            "10",
+            "OK"
+          ],
+          [
+            "Azúcar 1 kg",
+            "6",
+            "12",
+            "Reponer"
+          ],
+          [
+            "Aceite 900 ml",
+            "15",
+            "8",
+            "OK"
+          ],
+          [
+            "Harina 000",
+            "3",
+            "10",
+            "Reponer"
+          ]
+        ]
+      }
     },
     {
-      "slug": "lista-de-precios", "ancla": "precios", "rubro": "general", "estado": "preparacion", "precio": null, "mp": null, "destacado": true,
+      "tipo": "planilla",
+      "slug": "lista-de-precios",
+      "ancla": "precios",
+      "rubro": "general",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
+      "destacado": true,
       "nombre": "Lista de precios con ajuste por porcentaje",
       "resumen": "Subís todos los precios, o solo los de un proveedor o rubro, con un porcentaje y sin tocar artículo por artículo.",
-      "incluye": ["Vista previa antes de aplicar el ajuste", "Costo, margen y precio de venta", "Lista lista para imprimir o mandar"],
-      "vista": {"columnas": ["Artículo", "Costo", "Margen", "Precio"], "filas": [["Artículo A", "$4.000", "40%", "$5.600"], ["Artículo B", "$10.000", "35%", "$13.500"], ["Artículo C", "$2.500", "50%", "$3.750"], ["Ajuste", "+8%", "", "Vista previa"]]}
+      "incluye": [
+        "Vista previa antes de aplicar el ajuste",
+        "Costo, margen y precio de venta",
+        "Lista lista para imprimir o mandar"
+      ],
+      "vista": {
+        "columnas": [
+          "Artículo",
+          "Costo",
+          "Margen",
+          "Precio"
+        ],
+        "filas": [
+          [
+            "Artículo A",
+            "$4.000",
+            "40%",
+            "$5.600"
+          ],
+          [
+            "Artículo B",
+            "$10.000",
+            "35%",
+            "$13.500"
+          ],
+          [
+            "Artículo C",
+            "$2.500",
+            "50%",
+            "$3.750"
+          ],
+          [
+            "Ajuste",
+            "+8%",
+            "",
+            "Vista previa"
+          ]
+        ]
+      }
     },
     {
-      "slug": "presupuestos-con-tu-logo", "ancla": "presupuestos", "rubro": "general", "estado": "preparacion", "precio": null, "mp": null, "destacado": true,
+      "tipo": "planilla",
+      "slug": "presupuestos-con-tu-logo",
+      "ancla": "presupuestos",
+      "rubro": "general",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
+      "destacado": true,
       "nombre": "Presupuestos con tu logo",
       "resumen": "Elegís productos o servicios de tu lista y sale un presupuesto prolijo para mandar por WhatsApp.",
-      "incluye": ["Logo y datos de tu negocio", "Total y validez calculados solos", "Se descarga en PDF"],
-      "vista": {"columnas": ["Ítem", "Cant.", "Unitario", "Subtotal"], "filas": [["Servicio A", "1", "$25.000", "$25.000"], ["Producto B", "3", "$4.000", "$12.000"], ["", "", "Total", "$37.000"], ["Válido hasta", "10/12", "", ""]]}
+      "incluye": [
+        "Logo y datos de tu negocio",
+        "Total y validez calculados solos",
+        "Se descarga en PDF"
+      ],
+      "vista": {
+        "columnas": [
+          "Ítem",
+          "Cant.",
+          "Unitario",
+          "Subtotal"
+        ],
+        "filas": [
+          [
+            "Servicio A",
+            "1",
+            "$25.000",
+            "$25.000"
+          ],
+          [
+            "Producto B",
+            "3",
+            "$4.000",
+            "$12.000"
+          ],
+          [
+            "",
+            "",
+            "Total",
+            "$37.000"
+          ],
+          [
+            "Válido hasta",
+            "10/12",
+            "",
+            ""
+          ]
+        ]
+      }
     },
     {
-      "slug": "lista-de-precios-ferreteria", "rubro": "ferreterias", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "lista-de-precios-ferreteria",
+      "rubro": "ferreterias",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Lista de precios para ferretería",
       "resumen": "Cargás tu lista una vez y actualizás los precios por proveedor o por rubro con un porcentaje, sin tocar artículo por artículo.",
-      "incluye": ["Ajuste masivo con vista previa antes de aplicarlo", "Código, medida, proveedor y costo en cada artículo", "Precio de venta calculado desde tu margen"],
-      "vista": {"columnas": ["Código", "Artículo", "Proveedor", "Precio"], "filas": [["T-0812", "Tornillo autop. 8×1/2\"", "Prov. A", "$90"], ["D-115", "Disco de corte 115 mm", "Prov. B", "$2.800"], ["C-5M", "Cinta métrica 5 m", "Prov. A", "$6.500"], ["", "Ajuste Prov. A", "+6%", ""]]}
+      "incluye": [
+        "Ajuste masivo con vista previa antes de aplicarlo",
+        "Código, medida, proveedor y costo en cada artículo",
+        "Precio de venta calculado desde tu margen"
+      ],
+      "vista": {
+        "columnas": [
+          "Código",
+          "Artículo",
+          "Proveedor",
+          "Precio"
+        ],
+        "filas": [
+          [
+            "T-0812",
+            "Tornillo autop. 8×1/2\"",
+            "Prov. A",
+            "$90"
+          ],
+          [
+            "D-115",
+            "Disco de corte 115 mm",
+            "Prov. B",
+            "$2.800"
+          ],
+          [
+            "C-5M",
+            "Cinta métrica 5 m",
+            "Prov. A",
+            "$6.500"
+          ],
+          [
+            "",
+            "Ajuste Prov. A",
+            "+6%",
+            ""
+          ]
+        ]
+      }
     },
     {
-      "slug": "stock-de-repuestos", "rubro": "repuestos", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "stock-de-repuestos",
+      "rubro": "repuestos",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Control de stock por código y ubicación",
       "resumen": "Una planilla para saber qué tenés, en qué estante está y qué hay que reponer.",
-      "incluye": ["Código, marca, ubicación y proveedor", "Resalta los repuestos que bajan del mínimo", "Pedido de reposición armado por proveedor"],
-      "vista": {"columnas": ["Código", "Repuesto", "Ubicación", "Stock"], "filas": [["BOSCH-04885", "Pastillas de freno", "E-3", "42"], ["MANN-W712", "Filtro de aceite", "B-1", "4"], ["NGK-9412", "Bujías x4", "C-2", "15"], ["", "Para reponer", "", "1 ítem"]]}
+      "incluye": [
+        "Código, marca, ubicación y proveedor",
+        "Resalta los repuestos que bajan del mínimo",
+        "Pedido de reposición armado por proveedor"
+      ],
+      "vista": {
+        "columnas": [
+          "Código",
+          "Repuesto",
+          "Ubicación",
+          "Stock"
+        ],
+        "filas": [
+          [
+            "BOSCH-04885",
+            "Pastillas de freno",
+            "E-3",
+            "42"
+          ],
+          [
+            "MANN-W712",
+            "Filtro de aceite",
+            "B-1",
+            "4"
+          ],
+          [
+            "NGK-9412",
+            "Bujías x4",
+            "C-2",
+            "15"
+          ],
+          [
+            "",
+            "Para reponer",
+            "",
+            "1 ítem"
+          ]
+        ]
+      }
     },
     {
-      "slug": "costeo-de-platos", "rubro": "restaurantes", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "costeo-de-platos",
+      "rubro": "restaurantes",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Costeo de platos y márgenes",
       "resumen": "Cargás los ingredientes de cada plato y la planilla te muestra el costo, el margen y el precio sugerido.",
-      "incluye": ["Costo por ingrediente y por porción", "Margen objetivo que definís vos", "Se recalcula cuando cambia el precio de un insumo"],
-      "vista": {"columnas": ["Plato", "Costo", "Margen", "Precio sugerido"], "filas": [["Hamburguesa doble", "$3.900", "60%", "$9.750"], ["Papas con bacon", "$1.600", "65%", "$4.570"], ["Milanesa napolitana", "$4.200", "60%", "$10.500"], ["", "Insumo actualizado", "Carne +5%", ""]]}
+      "incluye": [
+        "Costo por ingrediente y por porción",
+        "Margen objetivo que definís vos",
+        "Se recalcula cuando cambia el precio de un insumo"
+      ],
+      "vista": {
+        "columnas": [
+          "Plato",
+          "Costo",
+          "Margen",
+          "Precio sugerido"
+        ],
+        "filas": [
+          [
+            "Hamburguesa doble",
+            "$3.900",
+            "60%",
+            "$9.750"
+          ],
+          [
+            "Papas con bacon",
+            "$1.600",
+            "65%",
+            "$4.570"
+          ],
+          [
+            "Milanesa napolitana",
+            "$4.200",
+            "60%",
+            "$10.500"
+          ],
+          [
+            "",
+            "Insumo actualizado",
+            "Carne +5%",
+            ""
+          ]
+        ]
+      }
     },
     {
-      "slug": "stock-por-talle-y-color", "rubro": "indumentaria", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "stock-por-talle-y-color",
+      "rubro": "indumentaria",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Stock por talle y color",
       "resumen": "Una fila por modelo, con sus talles y colores, para saber qué se vendió y qué falta reponer.",
-      "incluye": ["Cantidad por talle y color", "Ventas que descuentan del stock", "Resumen de lo que conviene reponer"],
-      "vista": {"columnas": ["Modelo", "Color", "S · M · L", "Reponer"], "filas": [["Buzo oversize", "Negro", "4 · 2 · 0", "L"], ["Jean straight", "Azul", "3 · 5 · 2", ""], ["Remera básica", "Blanco", "8 · 1 · 6", "M"], ["", "Total", "31", "2 talles"]]}
+      "incluye": [
+        "Cantidad por talle y color",
+        "Ventas que descuentan del stock",
+        "Resumen de lo que conviene reponer"
+      ],
+      "vista": {
+        "columnas": [
+          "Modelo",
+          "Color",
+          "S · M · L",
+          "Reponer"
+        ],
+        "filas": [
+          [
+            "Buzo oversize",
+            "Negro",
+            "4 · 2 · 0",
+            "L"
+          ],
+          [
+            "Jean straight",
+            "Azul",
+            "3 · 5 · 2",
+            ""
+          ],
+          [
+            "Remera básica",
+            "Blanco",
+            "8 · 1 · 6",
+            "M"
+          ],
+          [
+            "",
+            "Total",
+            "31",
+            "2 talles"
+          ]
+        ]
+      }
     },
     {
-      "slug": "caja-con-comision-por-barbero", "rubro": "barberias", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "caja-con-comision-por-barbero",
+      "rubro": "barberias",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Caja diaria con comisión por barbero",
       "resumen": "Registrás cada servicio y la planilla calcula lo que le corresponde a cada barbero y el total del día.",
-      "incluye": ["Lista de servicios con sus precios", "Comisión de cada barbero calculada sola", "Total del día por forma de pago"],
-      "vista": {"columnas": ["Barbero", "Servicios", "Facturado", "Comisión"], "filas": [["Barbero 1", "7", "$56.000", "$22.400"], ["Barbero 2", "5", "$41.000", "$16.400"], ["Barbero 3", "6", "$47.500", "$19.000"], ["Total", "18", "$144.500", "$57.800"]]}
+      "incluye": [
+        "Lista de servicios con sus precios",
+        "Comisión de cada barbero calculada sola",
+        "Total del día por forma de pago"
+      ],
+      "vista": {
+        "columnas": [
+          "Barbero",
+          "Servicios",
+          "Facturado",
+          "Comisión"
+        ],
+        "filas": [
+          [
+            "Barbero 1",
+            "7",
+            "$56.000",
+            "$22.400"
+          ],
+          [
+            "Barbero 2",
+            "5",
+            "$41.000",
+            "$16.400"
+          ],
+          [
+            "Barbero 3",
+            "6",
+            "$47.500",
+            "$19.000"
+          ],
+          [
+            "Total",
+            "18",
+            "$144.500",
+            "$57.800"
+          ]
+        ]
+      }
     },
     {
-      "slug": "caja-y-vencimientos-kiosco", "rubro": "kioscos", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "caja-y-vencimientos-kiosco",
+      "rubro": "kioscos",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Caja diaria y stock con vencimientos",
       "resumen": "Las ventas del día, los productos que hay que reponer y lo que está por vencer, en un solo archivo.",
-      "incluye": ["Ventas del día por forma de pago", "Mínimo de stock por producto", "Resalta lo que vence pronto"],
-      "vista": {"columnas": ["Producto", "Stock", "Vence", "Aviso"], "filas": [["Yogur bebible", "12", "25/11", "Vence pronto"], ["Alfajor triple", "40", "15/02", ""], ["Gaseosa 1,5 l", "6", "10/03", "Reponer"], ["", "Caja del día", "", "$86.400"]]}
+      "incluye": [
+        "Ventas del día por forma de pago",
+        "Mínimo de stock por producto",
+        "Resalta lo que vence pronto"
+      ],
+      "vista": {
+        "columnas": [
+          "Producto",
+          "Stock",
+          "Vence",
+          "Aviso"
+        ],
+        "filas": [
+          [
+            "Yogur bebible",
+            "12",
+            "25/11",
+            "Vence pronto"
+          ],
+          [
+            "Alfajor triple",
+            "40",
+            "15/02",
+            ""
+          ],
+          [
+            "Gaseosa 1,5 l",
+            "6",
+            "10/03",
+            "Reponer"
+          ],
+          [
+            "",
+            "Caja del día",
+            "",
+            "$86.400"
+          ]
+        ]
+      }
     },
     {
-      "slug": "presupuesto-de-taller", "rubro": "talleres-mecanicos", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "presupuesto-de-taller",
+      "rubro": "talleres-mecanicos",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Presupuesto de reparación por vehículo",
       "resumen": "Armás el presupuesto con los datos del auto, los repuestos y la mano de obra, y lo mandás por WhatsApp.",
-      "incluye": ["Patente, marca, modelo y kilometraje", "Repuestos y mano de obra con total automático", "Historial de arreglos por patente"],
-      "vista": {"columnas": ["Concepto", "Cant.", "Precio", "Subtotal"], "filas": [["Pastillas de freno", "1", "$24.500", "$24.500"], ["Discos de freno", "2", "$38.000", "$76.000"], ["Mano de obra", "2 h", "$18.000", "$36.000"], ["Patente AB123CD", "", "Total", "$136.500"]]}
+      "incluye": [
+        "Patente, marca, modelo y kilometraje",
+        "Repuestos y mano de obra con total automático",
+        "Historial de arreglos por patente"
+      ],
+      "vista": {
+        "columnas": [
+          "Concepto",
+          "Cant.",
+          "Precio",
+          "Subtotal"
+        ],
+        "filas": [
+          [
+            "Pastillas de freno",
+            "1",
+            "$24.500",
+            "$24.500"
+          ],
+          [
+            "Discos de freno",
+            "2",
+            "$38.000",
+            "$76.000"
+          ],
+          [
+            "Mano de obra",
+            "2 h",
+            "$18.000",
+            "$36.000"
+          ],
+          [
+            "Patente AB123CD",
+            "",
+            "Total",
+            "$136.500"
+          ]
+        ]
+      }
     },
     {
-      "slug": "cuotas-y-vencimientos-gimnasio", "rubro": "gimnasios", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "cuotas-y-vencimientos-gimnasio",
+      "rubro": "gimnasios",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Control de cuotas y vencimientos",
       "resumen": "Ves quién tiene la cuota al día y a quién le vence esta semana, sin revisar socio por socio.",
-      "incluye": ["Plan, fecha de alta y vencimiento de cada socio", "Resalta los vencimientos de la semana", "Total cobrado en el mes"],
-      "vista": {"columnas": ["Socio", "Plan", "Vence", "Estado"], "filas": [["Socio 1", "Pase libre", "28/11", "Al día"], ["Socio 2", "3 veces", "22/11", "Vence esta semana"], ["Socio 3", "Funcional", "15/11", "Vencida"], ["", "Cobrado en el mes", "", "$1.240.000"]]}
+      "incluye": [
+        "Plan, fecha de alta y vencimiento de cada socio",
+        "Resalta los vencimientos de la semana",
+        "Total cobrado en el mes"
+      ],
+      "vista": {
+        "columnas": [
+          "Socio",
+          "Plan",
+          "Vence",
+          "Estado"
+        ],
+        "filas": [
+          [
+            "Socio 1",
+            "Pase libre",
+            "28/11",
+            "Al día"
+          ],
+          [
+            "Socio 2",
+            "3 veces",
+            "22/11",
+            "Vence esta semana"
+          ],
+          [
+            "Socio 3",
+            "Funcional",
+            "15/11",
+            "Vencida"
+          ],
+          [
+            "",
+            "Cobrado en el mes",
+            "",
+            "$1.240.000"
+          ]
+        ]
+      }
     },
     {
-      "slug": "agenda-de-turnos", "rubro": "clinicas", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "agenda-de-turnos",
+      "rubro": "clinicas",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Agenda semanal de turnos",
       "resumen": "Una grilla por profesional y por día, con la lista del día para recepción. Es solo para turnos: no guarda historias clínicas.",
-      "incluye": ["Grilla semanal por profesional", "Lista del día para recepción", "Texto de recordatorio listo para enviar por WhatsApp"],
-      "vista": {"columnas": ["Hora", "Lunes", "Martes", "Miércoles"], "filas": [["09:00", "Paciente A", "", "Paciente D"], ["09:30", "", "Paciente C", ""], ["10:00", "Paciente B", "Paciente E", "Libre"], ["", "3 turnos", "2 turnos", "1 turno"]]}
+      "incluye": [
+        "Grilla semanal por profesional",
+        "Lista del día para recepción",
+        "Texto de recordatorio listo para enviar por WhatsApp"
+      ],
+      "vista": {
+        "columnas": [
+          "Hora",
+          "Lunes",
+          "Martes",
+          "Miércoles"
+        ],
+        "filas": [
+          [
+            "09:00",
+            "Paciente A",
+            "",
+            "Paciente D"
+          ],
+          [
+            "09:30",
+            "",
+            "Paciente C",
+            ""
+          ],
+          [
+            "10:00",
+            "Paciente B",
+            "Paciente E",
+            "Libre"
+          ],
+          [
+            "",
+            "3 turnos",
+            "2 turnos",
+            "1 turno"
+          ]
+        ]
+      }
     },
     {
-      "slug": "tablero-de-ventas-y-gastos", "rubro": "empresas", "estado": "preparacion", "precio": null, "mp": null,
+      "tipo": "planilla",
+      "slug": "tablero-de-ventas-y-gastos",
+      "rubro": "empresas",
+      "estado": "preparacion",
+      "precio": null,
+      "mp": null,
       "nombre": "Tablero mensual de ventas y gastos",
       "resumen": "Cargás ingresos y gastos y ves el resultado del mes y cómo viene respecto del anterior.",
-      "incluye": ["Ingresos y gastos por categoría", "Resultado del mes comparado con el anterior", "Gráficos que se arman solos"],
-      "vista": {"columnas": ["Concepto", "Octubre", "Noviembre", "Variación"], "filas": [["Ventas", "$4.200.000", "$4.650.000", "+11%"], ["Gastos fijos", "$1.300.000", "$1.320.000", "+2%"], ["Proveedores", "$1.900.000", "$2.050.000", "+8%"], ["Resultado", "$1.000.000", "$1.280.000", "+28%"]]}
+      "incluye": [
+        "Ingresos y gastos por categoría",
+        "Resultado del mes comparado con el anterior",
+        "Gráficos que se arman solos"
+      ],
+      "vista": {
+        "columnas": [
+          "Concepto",
+          "Octubre",
+          "Noviembre",
+          "Variación"
+        ],
+        "filas": [
+          [
+            "Ventas",
+            "$4.200.000",
+            "$4.650.000",
+            "+11%"
+          ],
+          [
+            "Gastos fijos",
+            "$1.300.000",
+            "$1.320.000",
+            "+2%"
+          ],
+          [
+            "Proveedores",
+            "$1.900.000",
+            "$2.050.000",
+            "+8%"
+          ],
+          [
+            "Resultado",
+            "$1.000.000",
+            "$1.280.000",
+            "+28%"
+          ]
+        ]
+      }
     }
-  ]
+  ],
+  "tipos": {
+    "planilla": "Planilla",
+    "software": "Software",
+    "guia": "Guía en PDF"
+  },
+  "tipos_plural": {
+    "planilla": "Planillas",
+    "software": "Software",
+    "guia": "Guías y libros"
+  },
+  "proximamente": {
+    "software": {
+      "titulo": "Software para tu negocio",
+      "texto": "Programas listos para usar en tu negocio, como registro de ventas, control de stock o turnos, sin pagar un desarrollo a medida."
+    },
+    "guia": {
+      "titulo": "Guías y libros en PDF",
+      "texto": "Guías prácticas para aprender marketing online y administración de negocios y empresas, escritas para comercios y pymes de Argentina."
+    }
+  }
 }

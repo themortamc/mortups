@@ -523,3 +523,40 @@ details>p,details>div{padding:0 0 24px;color:var(--ink-2);max-width:68ch}
 .pp-info .actions{margin-top:16px}
 .pp-info h1{margin-top:0}
 .pcard-r{margin-top:-4px}
+/* Tienda: tipos de producto */
+.filters+.filters{margin-top:-20px}
+.filters[data-k=t] button[aria-pressed=true]{background:var(--brand);border-color:var(--brand)}
+.cover{position:relative;display:flex;flex-direction:column;gap:8px;background:var(--ink);color:#fff;border-radius:4px 10px 10px 4px;box-shadow:inset 6px 0 0 rgba(255,255,255,.08),var(--shadow-lg);aspect-ratio:3/4}
+.cover-brand{font-weight:600;letter-spacing:-.04em}
+.cover-brand b{font-weight:600;color:#B98BFF}
+.cover-t{font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-top:auto}
+.cover-s{color:#CFC9DB;line-height:1.35}
+.cover-f{color:#A9A2B8;border-top:1px solid rgba(255,255,255,.14);padding-top:8px}
+.cover.mini{width:96px;margin:0 auto;padding:12px 10px;font-size:7px}
+.cover.mini .cover-t{font-size:11px}
+.cover.mini .cover-brand{font-size:9px}
+.cover.big{width:min(320px,100%);margin:0 auto;padding:28px 24px;font-size:14px}
+.cover.big .cover-t{font-size:28px}
+.cover.big .cover-brand{font-size:18px}
+.pcard.t-guia .pcard-media{display:flex;align-items:flex-start;justify-content:center;padding-top:16px}
+.pp-preview.book{text-align:center}
+.appshot{display:grid;grid-template-columns:44px 1fr;background:var(--bg);border-radius:8px 8px 0 0;box-shadow:var(--shadow);overflow:hidden}
+.appshot-side{background:var(--ink);padding:10px 8px;display:grid;gap:8px;align-content:start}
+.appshot-side i{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.22)}
+.appshot-side i:first-child{background:#B98BFF}
+.appshot-main{min-width:0}
+.appshot-top{padding:8px 10px;font-size:11px;font-weight:600;border-bottom:1px solid var(--line)}
+.sheet.app th{background:var(--bg-2);color:var(--ink-2)}
+.appshot.mini .sheet{font-size:10px}.appshot.mini .sheet th,.appshot.mini .sheet td{padding:5px 7px}
+.appshot.big{grid-template-columns:72px 1fr;border-radius:0;box-shadow:none}
+.appshot.big .appshot-top{font-size:14px;padding:12px 14px}
+.appshot.big .sheet{font-size:14px}.appshot.big .sheet th,.appshot.big .sheet td{padding:10px 12px}
+.soon-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.soon{display:flex;gap:16px;padding:28px;border:1px dashed var(--line-2);border-radius:var(--r-lg);background:var(--bg)}
+.soon-ic{flex:none;color:var(--ink-2)}
+.soon-ic .ico{width:28px;height:28px;stroke-width:1.5}
+.soon h3{font-size:20px}
+.soon p{color:var(--ink-2);margin:8px 0 16px}
+.toc{list-style:decimal;padding-left:22px;display:grid;gap:8px;color:var(--ink-2)}
+@media (max-width:760px){.soon-grid{grid-template-columns:1fr}}
+.cover{text-align:left}

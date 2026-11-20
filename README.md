@@ -85,12 +85,12 @@ npx wrangler dev
 
 Abre `http://localhost:8787`. Necesita Node.js.
 
-## Productos digitales (planillas)
+## Productos digitales (planillas, software y guías)
 
-La tienda de `/productos-digitales/` se genera desde `tools/productos.json`. Para sumar o publicar una planilla:
+La tienda de `/productos-digitales/` se genera desde `tools/productos.json`. Cada producto tiene un `tipo`: `planilla` (Excel / Google Sheets), `software` o `guia` (PDF). Para sumar o publicar uno:
 
-1. Agregá o editá su bloque en `tools/productos.json` (nombre, rubro, qué incluye, vista de ejemplo). Para venderla, poné `"estado": "disponible"`, el `precio` y, si tenés, el link de pago de Mercado Pago en `mp`.
-2. Corré `python3 tools/productos.py`. Regenera la tienda, la página de cada planilla, la sección de la portada, el enlace en la página del rubro y el sitemap.
+1. Agregá o editá su bloque en `tools/productos.json` (nombre, tipo, rubro, qué incluye; vista de ejemplo para planillas y software, o subtítulo, páginas e índice para guías). Para venderla, poné `"estado": "disponible"`, el `precio` y, si tenés, el link de pago de Mercado Pago en `mp`.
+2. Corré `python3 tools/productos.py`. Regenera la tienda, la página de cada producto, la sección de la portada, el enlace en la página del rubro y el sitemap.
 
 ## Configuración
 
@@ -102,7 +102,7 @@ La tienda de `/productos-digitales/` se genera desde `tools/productos.json`. Par
    npx wrangler secret put TIKTOK_TOKEN
    ```
    Para pruebas locales usá un archivo `.dev.vars` (ya está en `.gitignore`). Los códigos `META_TEST_CODE` y `TIKTOK_TEST_CODE` permiten ver los eventos en las herramientas de prueba de cada plataforma.
-4. Deploy: `npx wrangler deploy`.
+4. Deploy: automático. El repo está conectado a Cloudflare y cada push a `main` se publica solo.
 
 ## Decisiones de diseño
 

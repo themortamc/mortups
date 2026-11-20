@@ -3,10 +3,13 @@
 
 Uso:  python3 tools/productos.py
 
+Tipos de producto: planilla (Excel / Google Sheets), software y guia (PDF).
+
 Escribe:
   public/productos-digitales/index.html          (tienda)
-  public/productos-digitales/<slug>/index.html   (una página por planilla)
+  public/productos-digitales/<slug>/index.html   (una página por producto)
   la sección #productos de public/index.html     (destacados de la portada)
+  el enlace a su producto en cada página de rubro
   las URLs de productos en public/sitemap.xml
 
 El encabezado y el pie se copian de public/catalogo-web/index.html, así que
@@ -18,6 +21,9 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 PUB = ROOT / "public"
 DATA = json.loads((ROOT / "tools" / "productos.json").read_text(encoding="utf-8"))
 RUBROS = DATA["rubros"]
+TIPOS = DATA["tipos"]
+TIPOS_PL = DATA["tipos_plural"]
+PROX = DATA.get("proximamente", {})
 PRODS = DATA["productos"]
 SITE = "https://mortups.com.ar"
 WA = "https://wa.me/5492634279451?text="
@@ -29,8 +35,11 @@ ICO = {
     "check": '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
     "bell": '<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/>',
     "sheet": '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9.5h16M4 15h16M10 4v16"/>',
+    "app": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 9v11"/>',
+    "book": '<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/>',
     "card": '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/>',
 }
+TIPO_ICO = {"planilla": "sheet", "software": "app", "guia": "book"}
 def ico(n):
     return f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">{ICO[n]}</svg>'
 
@@ -42,13 +51,20 @@ def money(n):
 def url(p):
     return f"/productos-digitales/{p['slug']}/"
 
+ENTREGA = {
+    "planilla": "En Google Sheets (una copia para tu cuenta) y en Excel. Coordinamos el pago por WhatsApp y te mandamos tu copia, lista para cargar tus datos.",
+    "software": "Coordinamos el pago por WhatsApp y te explicamos cómo se instala o cómo entrás, paso a paso.",
+    "guia": "Es un archivo PDF. Coordinamos el pago por WhatsApp y te lo mandamos para que lo leas en el celular, la compu o impreso.",
+}
+TITULO_SUF = {"planilla": "en Excel y Google Sheets", "software": "· software para tu negocio", "guia": "· guía en PDF"}
+
 # --- partes compartidas tomadas de una página existente ---
 ref = (PUB / "catalogo-web" / "index.html").read_text(encoding="utf-8")
-def between(s, a, b, incl=True):
+def between(s, a, b):
     i = s.index(a); j = s.index(b, i) + len(b)
     return s[i:j]
-TOP = between(ref, '<div class="lb">', "</header>")
-TOP = TOP.replace('<a href="/productos-digitales/">', '<a href="/productos-digitales/" aria-current="page">')
+TOP = between(ref, '<div class="lb">', "</header>").replace(
+    '<a href="/productos-digitales/">', '<a href="/productos-digitales/" aria-current="page">')
 FOOT = between(ref, '<footer class="ft">', "</footer>")
 FAB = between(ref, '<a class="btn fab"', "</a>")
 HEADCOMMON = between(ref, '<link rel="icon"', '<link rel="stylesheet" href="/site.css">')
@@ -81,11 +97,31 @@ def page(title, desc, path, body, jsonld=(), scripts=("/track.js",)):
 </html>
 """
 
-def sheet(p, filas=4, cols=4, cls="sheet"):
-    v = p["vista"]
+# --- vistas de ejemplo según el tipo ---
+def table(p, filas, cols, cls):
+    v = p.get("vista") or {"columnas": [], "filas": []}
     head = "".join(f"<th>{e(c)}</th>" for c in v["columnas"][:cols])
     rows = "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in f[:cols]) + "</tr>" for f in v["filas"][:filas])
     return f'<table class="{cls}"><thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table>'
+
+def cover(p, size):
+    g = p.get("guia", {})
+    sub = f'<span class="cover-s">{e(g["subtitulo"])}</span>' if g.get("subtitulo") else ""
+    pags = f' · {g["paginas"]} páginas' if g.get("paginas") else ""
+    return (f'<div class="cover {size}"><span class="cover-brand">mort<b>ups</b></span>'
+            f'<span class="cover-t">{e(p["nombre"])}</span>{sub}<span class="cover-f">Guía en PDF{pags}</span></div>')
+
+def app(p, filas, cols, size):
+    return (f'<div class="appshot {size}"><div class="appshot-side"><i></i><i></i><i></i><i></i></div>'
+            f'<div class="appshot-main"><div class="appshot-top">{e(p["nombre"])}</div>{table(p, filas, cols, "sheet app")}</div></div>')
+
+def media(p, big=False):
+    t = p.get("tipo", "planilla")
+    if t == "guia":
+        return cover(p, "big" if big else "mini")
+    if t == "software":
+        return app(p, 6 if big else 3, 4 if big else 3, "big" if big else "mini")
+    return table(p, 9 if big else 4, 6 if big else 3, "sheet big" if big else "sheet mini")
 
 def price_line(p):
     if p["estado"] == "disponible" and p.get("precio"):
@@ -94,46 +130,64 @@ def price_line(p):
 
 def ctas(p, origen, big=False):
     if p["estado"] == "disponible":
-        b = f'<a class="btn" href="{wa("Hola, quiero comprar la planilla: " + p["nombre"] + " (" + origen + ")")}" rel="noopener">{ico("chat")}Comprar por WhatsApp</a>'
+        b = f'<a class="btn" href="{wa("Hola, quiero comprar: " + p["nombre"] + " (" + origen + ")")}" rel="noopener">{ico("chat")}Comprar por WhatsApp</a>'
         if p.get("mp"):
             b += f'<a class="btn l" href="{e(p["mp"])}" rel="noopener">{ico("card")}Pagar con Mercado Pago</a>'
         return b
-    return f'<a class="btn{"" if big else " l"}" href="{wa("Hola, quiero anotarme para: " + p["nombre"] + " (" + origen + ")")}" rel="noopener">{ico("bell")}Avisarme cuando esté lista</a>'
+    return f'<a class="btn{"" if big else " l"}" href="{wa("Hola, quiero anotarme para: " + p["nombre"] + " (" + origen + ")")}" rel="noopener">{ico("bell")}Avisarme cuando esté listo</a>'
 
-def card(p):
-    return (f'<article class="pcard" data-r="{p["rubro"]}"{" id=" + chr(34) + p["ancla"] + chr(34) if p.get("ancla") else ""}>'
-            f'<a class="pcard-media" href="{url(p)}" tabindex="-1" aria-hidden="true">{sheet(p, 4, 3, "sheet mini")}</a>'
-            f'<div class="pcard-bd"><h3><a href="{url(p)}">{e(p["nombre"])}</a></h3><p class="pcard-r">{e(RUBROS[p["rubro"]])}</p><p>{e(p["resumen"])}</p>'
-            f'<div class="pcard-ft">{price_line(p)}<a class="lnk" href="{url(p)}">Ver planilla{ico("arrow")}</a></div></div></article>')
+def label(p):
+    return f'{TIPOS[p["tipo"]]} · {RUBROS[p["rubro"]]}'
+
+def card(p, with_id=True):
+    ident = f' id="{p["ancla"]}"' if with_id and p.get("ancla") else ""
+    return (f'<article class="pcard t-{p["tipo"]}" data-r="{p["rubro"]}" data-t="{p["tipo"]}"{ident}>'
+            f'<a class="pcard-media" href="{url(p)}" tabindex="-1" aria-hidden="true">{media(p)}</a>'
+            f'<div class="pcard-bd"><h3><a href="{url(p)}">{e(p["nombre"])}</a></h3><p class="pcard-r">{e(label(p))}</p><p>{e(p["resumen"])}</p>'
+            f'<div class="pcard-ft">{price_line(p)}<a class="lnk" href="{url(p)}">Ver detalle{ico("arrow")}</a></div></div></article>')
 
 # ---------- tienda ----------
-usados = [r for r in RUBROS if any(p["rubro"] == r for p in PRODS)]
-filtros = '<div class="filters" role="group" aria-label="Filtrar por rubro"><button type="button" aria-pressed="true" data-f="todas">Todas</button>' + "".join(
-    f'<button type="button" aria-pressed="false" data-f="{r}">{e(RUBROS[r])}</button>' for r in usados) + "</div>"
+tipos_usados = [t for t in TIPOS if any(p["tipo"] == t for p in PRODS)]
+rubros_usados = [r for r in RUBROS if any(p["rubro"] == r for p in PRODS)]
+f_tipo = ('<div class="filters" role="group" aria-label="Filtrar por tipo" data-k="t"><button type="button" aria-pressed="true" data-f="todas">Todos</button>' + "".join(
+    f'<button type="button" aria-pressed="false" data-f="{t}">{e(TIPOS_PL[t])}</button>' for t in tipos_usados) + "</div>") if len(tipos_usados) > 1 else ""
+f_rubro = '<div class="filters" role="group" aria-label="Filtrar por rubro" data-k="r"><button type="button" aria-pressed="true" data-f="todas">Todos los rubros</button>' + "".join(
+    f'<button type="button" aria-pressed="false" data-f="{r}">{e(RUBROS[r])}</button>' for r in rubros_usados) + "</div>"
 grid = '<div class="shop">' + "".join(card(p) for p in PRODS) + "</div>"
 disp = sum(1 for p in PRODS if p["estado"] == "disponible")
 estado_txt = (f"{disp} disponibles y {len(PRODS) - disp} en preparación." if disp else
-              "Están en preparación: anotate en la que te sirva y te avisamos primero, con precio de lanzamiento.")
+              "Están en preparación: anotate en el que te sirva y te avisamos primero, con precio de lanzamiento.")
+pendientes = [t for t in PROX if t not in tipos_usados]
+prox_html = ""
+if pendientes:
+    items = "".join(
+        f'<div class="soon"><span class="soon-ic">{ico(TIPO_ICO[t])}</span><div><h3>{e(PROX[t]["titulo"])}</h3><p>{e(PROX[t]["texto"])}</p>'
+        f'<a class="lnk" href="{wa("Hola, quiero que me avisen cuando salgan: " + PROX[t]["titulo"] + " (productos-proximamente)")}" rel="noopener">Avisarme cuando salgan{ico("arrow")}</a></div></div>'
+        for t in pendientes)
+    prox_html = f'<section class="alt"><div class="w"><div class="sh"><h2>Lo que viene</h2><p class="sub">Además de las planillas, estamos preparando estos productos.</p></div><div class="soon-grid">{items}</div></div></section>'
+
 FAQ = [
-    ("¿En qué formato se entregan?", "En Google Sheets (una copia para tu cuenta) y en Excel. Los datos que cargues quedan en tu archivo."),
-    ("¿Cómo se compran?", "Tocás el botón de la planilla y nos escribís por WhatsApp. Ahí coordinamos el pago y te mandamos tu copia."),
-    ("¿Necesito saber usar planillas?", "No. Están pensadas para completar datos y mirar los resultados. Si querés, te mostramos cómo se usa por WhatsApp."),
-    ("¿Hay una para mi rubro?", "Vamos sumando una por rubro y por actividad. Si la tuya no está, escribinos y contanos qué te cuesta ordenar."),
-    ("¿Y si después quiero una web o un sistema propio?", "Podés pasar a los paquetes de mortups cuando quieras. Un catálogo web, un menú QR o un registro de ventas a medida parten de lo mismo que ya ordenaste en la planilla."),
+    ("¿En qué formato se entregan?", "Las planillas, en Google Sheets (una copia para tu cuenta) y en Excel. Las guías y libros, en PDF. El software, según cada producto: en su página te contamos cómo se instala o cómo entrás."),
+    ("¿Cómo se compran?", "Tocás el botón del producto y nos escribís por WhatsApp. Ahí coordinamos el pago y te mandamos lo que compraste."),
+    ("¿Necesito saber de tecnología?", "No. Están pensados para usarlos sin experiencia. Si querés, te mostramos cómo se usan por WhatsApp."),
+    ("¿Hay uno para mi rubro?", "Vamos sumando productos para cada rubro y actividad. Si el tuyo no está, escribinos y contanos qué te cuesta ordenar o qué querés aprender."),
+    ("¿Y si después quiero una web o un sistema propio?", "Podés pasar a los paquetes de mortups cuando quieras. Un catálogo web, un menú QR o un registro de ventas a medida parten de lo mismo que ya ordenaste."),
 ]
 faq_html = "".join(f'<details class="qa"><summary>{q}</summary><p>{a}</p></details>' for q, a in FAQ)
+compra_alt = '' if prox_html else ' class="alt"'
 body = f"""<section class="page-hero"><div class="w"><nav class="bc" aria-label="Ruta"><a href="/">Inicio</a> <span>/</span> Productos digitales</nav>
-<h1>Planillas listas para ordenar tu negocio</h1>
-<p class="lead">Archivos de Google Sheets y Excel ya armados para tu rubro: los copiás, cargás tus datos y tenés ventas, stock y precios en orden. Sin web, sin instalación y sin esperar una demo.</p>
-<p class="shop-meta">{len(PRODS)} planillas · {estado_txt}</p></div></section>
+<h1>Productos digitales para ordenar y hacer crecer tu negocio</h1>
+<p class="lead">Planillas de Excel y Google Sheets listas para usar, software para tu negocio y guías en PDF para aprender marketing y administración. Pensados para comercios, pymes y empresas de Argentina.</p>
+<p class="shop-meta">{len(PRODS)} productos · {estado_txt}</p></div></section>
 <section id="tienda"><div class="w">
-{filtros}
+{f_tipo}{f_rubro}
 {grid}
 </div></section>
-<section class="alt"><div class="w"><h2>Cómo es la compra</h2>
-<ol class="steps three"><li><h3>Elegís la planilla</h3><p>Mirás la vista de ejemplo y lo que incluye, y tocás el botón para escribirnos.</p></li><li><h3>Coordinamos el pago</h3><p>Por WhatsApp te pasamos el precio y la forma de pago.</p></li><li><h3>Recibís tu copia</h3><p>Te llega la copia para tu Google Sheets y el archivo de Excel, listos para cargar tus datos.</p></li></ol></div></section>
+{prox_html}
+<section{compra_alt}><div class="w"><h2>Cómo es la compra</h2>
+<ol class="steps three"><li><h3>Elegís el producto</h3><p>Mirás la vista de ejemplo y lo que incluye, y tocás el botón para escribirnos.</p></li><li><h3>Coordinamos el pago</h3><p>Por WhatsApp te pasamos el precio y la forma de pago.</p></li><li><h3>Lo recibís</h3><p>Te mandamos tu copia de la planilla, el PDF o el acceso al software, listo para usar.</p></li></ol></div></section>
 <section><div class="w faqg"><h2>Preguntas frecuentes</h2><div class="qa">{faq_html}</div></div></section>
-<section class="cta"><div class="w"><h2>¿Qué planilla te haría falta?</h2><p>Contanos qué te cuesta ordenar y te decimos si ya la tenemos en preparación o la armamos para vos.</p><div class="actions"><a class="btn" href="{wa('Hola, quiero contar qué planilla me haría falta (productos-digitales-cta)')}" rel="noopener">{ico("chat")}Escribir por WhatsApp</a></div><div class="rel"><a href="/">Inicio</a><a href="/para/">Soluciones por rubro</a><a href="/#paquetes">Paquetes y precios</a></div></div></section>"""
+<section class="cta"><div class="w"><h2>¿Qué te haría falta?</h2><p>Contanos qué te cuesta ordenar o qué querés aprender y te decimos si ya lo tenemos en preparación o lo armamos para vos.</p><div class="actions"><a class="btn" href="{wa('Hola, quiero contar qué producto me haría falta (productos-digitales-cta)')}" rel="noopener">{ico("chat")}Escribir por WhatsApp</a></div><div class="rel"><a href="/">Inicio</a><a href="/para/">Soluciones por rubro</a><a href="/#paquetes">Paquetes y precios</a></div></div></section>"""
 ld = [
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": SITE + "/"},
@@ -144,52 +198,71 @@ ld = [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
 ]
 (PUB / "productos-digitales" / "index.html").write_text(page(
-    "Planillas de Excel y Google Sheets para tu negocio | mortups",
-    "Planillas listas para usar en Google Sheets y Excel: ventas y caja, stock, lista de precios, presupuestos y una versión para cada rubro.",
+    "Productos digitales para negocios: planillas, software y guías | mortups",
+    "Planillas de Excel y Google Sheets listas para usar, software para tu negocio y guías en PDF de marketing y administración para comercios y pymes de Argentina.",
     "/productos-digitales/", body, ld, ("/tienda.js", "/track.js")), encoding="utf-8")
 
-# ---------- una página por planilla ----------
+# ---------- una página por producto ----------
 for p in PRODS:
+    t = p["tipo"]
     rub = RUBROS[p["rubro"]]
     inc = "".join(f"<li>{ico('check')}<span>{e(x)}</span></li>" for x in p["incluye"])
-    rel = [q for q in PRODS if q is not p and (q["rubro"] == p["rubro"] or q["rubro"] == "general")][:3]
-    rubro_link = (f'<p class="pp-rubro">Pensada para <a href="/para/{p["rubro"]}/">{e(rub.lower())}</a></p>' if p["rubro"] != "general" else '<p class="pp-rubro">Sirve para cualquier negocio</p>')
+    indice = p.get("guia", {}).get("indice") or []
+    idx = ("<div><h2>Índice</h2><ol class='toc'>" + "".join(f"<li>{e(x)}</li>" for x in indice) + "</ol></div>") if indice else ""
+    rel = [q for q in PRODS if q is not p and (q["rubro"] == p["rubro"] or q["rubro"] == "general")]
+    rel = sorted(rel, key=lambda q: (q["rubro"] != p["rubro"], q["tipo"] != t))[:3]
+    if p["rubro"] != "general":
+        rubro_link = f'<p class="pp-rubro">{e(TIPOS[t])} pensada para <a href="/para/{p["rubro"]}/">{e(rub.lower())}</a></p>'
+    else:
+        rubro_link = f'<p class="pp-rubro">{e(TIPOS[t])} · sirve para cualquier negocio</p>'
     nota = ("" if p["estado"] == "disponible" else
             '<p class="fine">Todavía no tiene precio publicado. Anotate y te avisamos primero, con precio de lanzamiento.</p>')
+    if t == "guia":
+        fig = f'<figure class="pp-preview book">{cover(p, "big")}<figcaption>Portada</figcaption></figure>'
+    else:
+        bar_ico = "sheet" if t == "planilla" else "app"
+        fig = (f'<figure class="pp-preview"><div class="win"><div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">{ico(bar_ico)}{e(p["nombre"])}</div></div>{media(p, big=True)}</div>'
+               f'<figcaption>Vista de ejemplo con datos de muestra</figcaption></figure>')
+    rel_html = ("<section class='alt'><div class='w'><h2>Otros productos que te pueden servir</h2><div class='shop'>"
+                + "".join(card(q, False) for q in rel) + "</div></div></section>") if rel else ""
+    rubro_rel = f'<a href="/para/{p["rubro"]}/">Soluciones para {e(rub.lower())}</a>' if p["rubro"] != "general" else ""
     body = f"""<section class="page-hero pp"><div class="w"><nav class="bc" aria-label="Ruta"><a href="/">Inicio</a> <span>/</span> <a href="/productos-digitales/">Productos digitales</a> <span>/</span> {e(p["nombre"])}</nav>
 <div class="pp-info"><h1>{e(p["nombre"])}</h1>{rubro_link}<p class="lead">{e(p["resumen"])}</p>
 <div class="pp-buy">{price_line(p)}</div><div class="actions">{ctas(p, "producto-" + p["slug"], big=True)}</div>{nota}</div>
-<figure class="pp-preview"><div class="win"><div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">{ico("sheet")}{e(p["nombre"])}</div></div>{sheet(p, 9, 6, "sheet big")}</div><figcaption>Vista de ejemplo con datos de muestra</figcaption></figure>
+{fig}
 </div></section>
 <section><div class="w pp-grid"><div><h2>Qué incluye</h2><ul class="ck">{inc}</ul></div>
-<div><h2>Cómo la recibís</h2><p>En Google Sheets (una copia para tu cuenta) y en Excel. Coordinamos el pago por WhatsApp y te mandamos tu copia, lista para cargar tus datos.</p></div></div></section>
-{"<section class='alt'><div class='w'><h2>Otras planillas que te pueden servir</h2><div class='shop'>" + "".join(card(q) for q in rel) + "</div></div></section>" if rel else ""}
-<section class="cta"><div class="w"><h2>¿Tenés dudas sobre esta planilla?</h2><p>Escribinos y te mostramos cómo se usa antes de comprarla.</p><div class="actions"><a class="btn" href="{wa("Hola, tengo una consulta sobre la planilla: " + p["nombre"] + " (producto-" + p["slug"] + "-cta)")}" rel="noopener">{ico("chat")}Escribir por WhatsApp</a></div><div class="rel"><a href="/productos-digitales/">Ver todas las planillas</a>{f'<a href="/para/{p["rubro"]}/">Soluciones para {e(rub.lower())}</a>' if p["rubro"] != "general" else ""}<a href="/#paquetes">Paquetes y precios</a></div></div></section>"""
+{idx}<div><h2>Cómo lo recibís</h2><p>{e(p.get("entrega") or ENTREGA[t])}</p></div></div></section>
+{rel_html}
+<section class="cta"><div class="w"><h2>¿Tenés dudas sobre este producto?</h2><p>Escribinos y te contamos cómo se usa antes de comprarlo.</p><div class="actions"><a class="btn" href="{wa("Hola, tengo una consulta sobre: " + p["nombre"] + " (producto-" + p["slug"] + "-cta)")}" rel="noopener">{ico("chat")}Escribir por WhatsApp</a></div><div class="rel"><a href="/productos-digitales/">Ver todos los productos</a>{rubro_rel}<a href="/#paquetes">Paquetes y precios</a></div></div></section>"""
     ld = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": "Productos digitales", "item": SITE + "/productos-digitales/"},
         {"@type": "ListItem", "position": 3, "name": p["nombre"], "item": SITE + url(p)}]}]
     if p["estado"] == "disponible" and p.get("precio"):
-        ld.append({"@context": "https://schema.org", "@type": "Product", "name": p["nombre"], "description": p["resumen"],
-                   "brand": {"@type": "Brand", "name": "mortups"},
-                   "offers": {"@type": "Offer", "price": p["precio"], "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": SITE + url(p)}})
+        item = {"@context": "https://schema.org", "@type": {"guia": "Book", "software": "SoftwareApplication"}.get(t, "Product"),
+                "name": p["nombre"], "description": p["resumen"],
+                "offers": {"@type": "Offer", "price": p["precio"], "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": SITE + url(p)}}
+        if t == "software":
+            item["applicationCategory"] = "BusinessApplication"
+        ld.append(item)
     d = PUB / "productos-digitales" / p["slug"]
     d.mkdir(parents=True, exist_ok=True)
-    (d / "index.html").write_text(page(f'{p["nombre"]} en Excel y Google Sheets | mortups', p["resumen"], url(p), body, ld), encoding="utf-8")
+    (d / "index.html").write_text(page(f'{p["nombre"]} {TITULO_SUF[t]} | mortups', p["resumen"], url(p), body, ld), encoding="utf-8")
 
 # ---------- portada: sección #productos ----------
 home = PUB / "index.html"
 s = home.read_text(encoding="utf-8")
 dest = [p for p in PRODS if p.get("destacado")][:4]
 sec = f"""<section id="productos"><div class="w">
- <div class="sh"><h2>Planillas listas para usar</h2><p class="sub">Archivos de Google Sheets y Excel ya armados: los copiás, cargás tus datos y ordenás tu negocio desde hoy. Hay una para cada rubro y vamos sumando más.</p></div>
- <div class="shop four">{"".join(card(p) for p in dest)}</div>
- <div class="more"><p>{len(PRODS)} planillas, una para cada rubro y actividad.</p><a class="btn l" href="/productos-digitales/">Ver todas las planillas</a></div>
+ <div class="sh"><h2>Productos digitales listos para usar</h2><p class="sub">Planillas de Google Sheets y Excel ya armadas, software para tu negocio y guías en PDF para aprender marketing y administración. Vamos sumando uno para cada rubro y actividad.</p></div>
+ <div class="shop four">{"".join(card(p, False) for p in dest)}</div>
+ <div class="more"><p>{len(PRODS)} productos y sumando.</p><a class="btn l" href="/productos-digitales/">Ver todos los productos</a></div>
 </div></section>"""
 s = re.sub(r'<section id="productos">.*?</section>', lambda m: sec, s, count=1, flags=re.S)
 home.write_text(s, encoding="utf-8")
 
-# ---------- páginas de rubro: enlace a su planilla ----------
+# ---------- páginas de rubro: enlace a su producto ----------
 for p in PRODS:
     if p["rubro"] == "general":
         continue
