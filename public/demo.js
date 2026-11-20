@@ -10,10 +10,10 @@
   var urlBar = $('.mw-url-text');
 
   var urlsMap = {
-    cat: 'https://demo.mortups.com.ar/repuestos-san-isidro (30.000 items sync)',
-    qr: 'https://demo.mortups.com.ar/menu-qr-restaurante (Mesa 4)',
-    ind: 'https://demo.mortups.com.ar/tienda-indumentaria (Talles & Cuotas)',
-    pos: 'https://demo.mortups.com.ar/admin/caja-en-vivo'
+    cat: 'demo.mortups.com.ar/repuestos-san-isidro',
+    qr: 'demo.mortups.com.ar/menu-qr-restaurante',
+    ind: 'demo.mortups.com.ar/tienda-indumentaria',
+    pos: 'demo.mortups.com.ar/admin/caja'
   };
 
   function switchTab(id) {
@@ -38,17 +38,17 @@
       var q = qEl ? +qEl.textContent : 0;
       var pr = +r.getAttribute('data-p');
       var name = r.getAttribute('data-n');
-      var sku = r.getAttribute('data-sku') ? ' (Cod: ' + r.getAttribute('data-sku') + ')' : '';
+      var sku = r.getAttribute('data-sku') ? ' (cód. ' + r.getAttribute('data-sku') + ')' : '';
       if (q > 0) {
         tot += q * pr;
         count += q;
-        lines.push('• ' + q + 'x ' + name + sku + ' -> ' + fmt(q * pr));
+        lines.push(q + ' × ' + name + sku + ' · ' + fmt(q * pr));
       }
       var st = $('.st-left', r);
       if (st) {
         var base = +r.getAttribute('data-s') || 20;
         var left = Math.max(0, base - q);
-        st.textContent = 'Stock: ' + left + (left <= 3 ? ' (Casi agotado)' : '');
+        st.textContent = 'Stock: ' + left + (left <= 3 ? ' · quedan pocos' : '');
       }
     });
 
@@ -61,19 +61,19 @@
     var out = $('.wa-body', p);
     if (!out) return;
 
+    if (!out.hasAttribute('data-empty')) out.setAttribute('data-empty', out.innerHTML);
     if (lines.length === 0) {
-      out.innerHTML = '<span class="wa-empty">Seleccioná productos en la pantalla interactiva para ver cómo se genera automáticamente el pedido formateado.</span>';
+      out.innerHTML = out.getAttribute('data-empty');
       return;
     }
 
     var mesa = $('.mesas-pill [aria-pressed=true]', p);
-    var mesaText = mesa ? '📌 *MESA ' + mesa.textContent + '*\n' : '';
-
-    var msgHtml = '<b>' + (mesa ? '🍔 PEDIDO EN MESA #' + mesa.textContent : '📦 NUEVO PEDIDO - CATALOGO ONLINE') + '</b><br>' +
-      '<small style="opacity:.8">Cliente: Consumidor Final • WhatsApp Directo</small><br><br>' +
+    var isPos = p.id === 'v-pos';
+    var title = isPos ? 'Cierre de caja' : (mesa ? 'Pedido para la mesa ' + mesa.textContent : 'Hola, quiero hacer este pedido:');
+    var msgHtml = '<b>' + title + '</b><br><br>' +
       lines.join('<br>') + '<br><br>' +
-      '<b>TOTAL: ' + fmt(tot) + '</b><br>' +
-      '<small style="color:#7CFFB2">✔ Cero comisiones • Listo para confirmar</small>';
+      '<b>Total: ' + fmt(tot) + '</b>' +
+      '<small>' + (isPos ? 'Listo para exportar a Excel' : 'Sin comisiones · listo para confirmar') + '</small>';
 
     out.innerHTML = msgHtml;
   }

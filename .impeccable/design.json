@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-20T16:06:40+00:00",
+  "title": "Design System: mortups",
+  "extensions": {
+    "colorMeta": {
+      "brand-violet": {
+        "role": "primary",
+        "displayName": "Brand Violet",
+        "canonical": "#8B2CFF",
+        "tonalRamp": [
+          "#240F3E",
+          "#401178",
+          "#5B0CBB",
+          "#7606FE",
+          "#9950F2",
+          "#BB91ED",
+          "#DCCAF2",
+          "#F2ECF9"
+        ]
+      },
+      "brand-violet-hover": {
+        "role": "primary",
+        "displayName": "Pressed Violet",
+        "canonical": "#7716F0",
+        "tonalRamp": [
+          "#24123B",
+          "#401872",
+          "#5B17B0",
+          "#7615EF",
+          "#995AE8",
+          "#BB97E8",
+          "#DCCDEF",
+          "#F2EDF8"
+        ]
+      },
+      "brand-violet-ink": {
+        "role": "primary",
+        "displayName": "Violet Ink",
+        "canonical": "#6A16D9",
+        "tonalRamp": [
+          "#241339",
+          "#3F1B6F",
+          "#5A1CAB",
+          "#741DE7",
+          "#985FE3",
+          "#BA9AE5",
+          "#DCCEEE",
+          "#F2EDF8"
+        ]
+      },
+      "brand-violet-tint": {
+        "role": "primary",
+        "displayName": "Violet Wash",
+        "canonical": "#F4EDFF",
+        "tonalRamp": [
+          "#210F3E",
+          "#391178",
+          "#500CBB",
+          "#6706FE",
+          "#8F50F2",
+          "#B591ED",
+          "#D9CAF2",
+          "#F1ECF9"
+        ]
+      },
+      "selection-violet": {
+        "role": "primary",
+        "displayName": "Selection Lilac",
+        "canonical": "#E3D1FF",
+        "tonalRamp": [
+          "#210F3E",
+          "#3A1178",
+          "#500CBB",
+          "#6706FE",
+          "#8F50F2",
+          "#B591ED",
+          "#DACAF2",
+          "#F1ECF9"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#262626",
+          "#454545",
+          "#636363",
+          "#828282",
+          "#A1A1A1",
+          "#BFBFBF",
+          "#DEDEDE",
+          "#F2F2F2"
+        ]
+      },
+      "paper-mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#F7F6FA",
+        "tonalRamp": [
+          "#23202D",
+          "#3E3654",
+          "#574A7C",
+          "#705FA5",
+          "#958AB8",
+          "#B9B2CC",
+          "#DBD8E3",
+          "#F1F0F4"
+        ]
+      },
+      "paper-lilac": {
+        "role": "neutral",
+        "displayName": "Lilac Grey",
+        "canonical": "#EFEDF4",
+        "tonalRamp": [
+          "#24212C",
+          "#403851",
+          "#5A4E79",
+          "#7564A0",
+          "#988DB4",
+          "#BAB4CA",
+          "#DCD9E3",
+          "#F2F1F4"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#17141F",
+        "tonalRamp": [
+          "#24212B",
+          "#403A50",
+          "#5B5176",
+          "#76679D",
+          "#998FB2",
+          "#BBB5C9",
+          "#DCDAE2",
+          "#F2F1F4"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#4A4558",
+        "tonalRamp": [
+          "#252329",
+          "#423F4B",
+          "#5E596E",
+          "#7B7391",
+          "#9C97AA",
+          "#BDBAC5",
+          "#DDDBE0",
+          "#F2F1F3"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#6B6579",
+        "tonalRamp": [
+          "#252428",
+          "#434049",
+          "#605C6B",
+          "#7E778D",
+          "#9E99A8",
+          "#BEBBC3",
+          "#DDDCE0",
+          "#F2F2F3"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(23,20,31,.10)",
+        "tonalRamp": [
+          "#24212B",
+          "#403A50",
+          "#5B5176",
+          "#76679D",
+          "#998FB2",
+          "#BBB5C9",
+          "#DCDAE2",
+          "#F2F1F4"
+        ]
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "rgba(23,20,31,.16)",
+        "tonalRamp": [
+          "#24212B",
+          "#403A50",
+          "#5B5176",
+          "#76679D",
+          "#998FB2",
+          "#BBB5C9",
+          "#DCDAE2",
+          "#F2F1F4"
+        ]
+      },
+      "wa-bubble": {
+        "role": "secondary",
+        "displayName": "WhatsApp Bubble",
+        "canonical": "#E3F7D6",
+        "tonalRamp": [
+          "#233616",
+          "#3E6722",
+          "#579E29",
+          "#70D52F",
+          "#95D76A",
+          "#B9DEA0",
+          "#DBEBD1",
+          "#F1F7EE"
+        ]
+      },
+      "wa-bubble-ink": {
+        "role": "secondary",
+        "displayName": "Bubble Ink",
+        "canonical": "#14321F",
+        "tonalRamp": [
+          "#1C3024",
+          "#2F5B3F",
+          "#3E8959",
+          "#4DB774",
+          "#7EC397",
+          "#ABD3BA",
+          "#D5E6DC",
+          "#EFF5F2"
+        ]
+      },
+      "wa-chat": {
+        "role": "secondary",
+        "displayName": "Chat Paper",
+        "canonical": "#F3F1EC",
+        "tonalRamp": [
+          "#2C2921",
+          "#504A39",
+          "#776C50",
+          "#9E8E66",
+          "#B3A88E",
+          "#CAC4B5",
+          "#E2E0D9",
+          "#F4F3F1"
+        ]
+      },
+      "ok-green": {
+        "role": "secondary",
+        "displayName": "Confirm Green",
+        "canonical": "#1E7A4C",
+        "tonalRamp": [
+          "#183426",
+          "#266445",
+          "#2F9863",
+          "#37CD82",
+          "#70D2A1",
+          "#A3DBBF",
+          "#D2EADE",
+          "#EEF6F2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home h1; inner-page h1 capped at 56px, legal at 44px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card, row and plan h3 (19–26px)."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Plan prices, tabular."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero and page-hero standfirst, Soft Ink, max 60ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, max 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, tabs, links, chips, small buttons."
+      },
+      "fine": {
+        "displayName": "Fine",
+        "purpose": "Footnotes, legal bar, metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "object-lift",
+        "value": "0 2px 4px rgba(23,20,31,.05), 0 24px 56px -16px rgba(23,20,31,.22)",
+        "purpose": "Screenshots, mockups, demo, order card, menu panel."
+      },
+      {
+        "name": "quiet-lift",
+        "value": "0 1px 2px rgba(23,20,31,.06), 0 8px 24px -8px rgba(23,20,31,.14)",
+        "purpose": "Featured plan, inner-page WhatsApp bubble."
+      },
+      {
+        "name": "floating-action",
+        "value": "0 8px 24px -6px rgba(23,20,31,.35)",
+        "purpose": "Mobile floating WhatsApp button only."
+      },
+      {
+        "name": "focus-ring-field",
+        "value": "0 0 0 3px rgba(139,44,255,.15)",
+        "purpose": "Search field focus-within."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "All transitions and the hero entrance."
+      },
+      {
+        "name": "transition-state",
+        "value": ".2s",
+        "purpose": "Color, border and transform state changes."
+      },
+      {
+        "name": "hero-rise",
+        "value": "rise .8s .25s (translateY 16px to 0)",
+        "purpose": "Single entrance of the hero order card; disabled under reduced motion."
+      },
+      {
+        "name": "faq-toggle",
+        "value": "transform .25s",
+        "purpose": "Plus icon rotates 45deg when a FAQ opens."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav",
+        "value": "960px"
+      },
+      {
+        "name": "demo-stack",
+        "value": "900px"
+      },
+      {
+        "name": "two-col-stack",
+        "value": "860px"
+      },
+      {
+        "name": "rows",
+        "value": "800px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      },
+      {
+        "name": "small-phone",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action per viewport; every WhatsApp CTA.",
+      "html": "<a class=\"ds-btn\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z\"/></svg>Pedir mi demo por WhatsApp</a>",
+      "css": ".ds-btn{font-family:\"Hanken Grotesk\",system-ui,sans-serif;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:12px;background:#8B2CFF;color:#fff;font-weight:500;font-size:17px;line-height:1;text-decoration:none;border:1px solid transparent;transition:background-color .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:#7716F0}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid #8B2CFF;outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined companion action (Probar la demo).",
+      "html": "<a class=\"ds-btn-l\" href=\"#\">Probar la demo</a>",
+      "css": ".ds-btn-l{font-family:\"Hanken Grotesk\",system-ui,sans-serif;display:inline-flex;align-items:center;min-height:52px;padding:0 24px;border-radius:12px;background:#fff;color:#17141F;font-weight:500;font-size:17px;line-height:1;text-decoration:none;border:1px solid rgba(23,20,31,.16);transition:background-color .2s,border-color .2s}.ds-btn-l:hover{background:#F7F6FA;border-color:rgba(23,20,31,.26)}.ds-btn-l:focus-visible{outline:2px solid #8B2CFF;outline-offset:3px}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Violet Ink link with nudging arrow.",
+      "html": "<a class=\"ds-lnk\" href=\"#\">Ver cómo funciona<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-lnk{font-family:\"Hanken Grotesk\",system-ui,sans-serif;display:inline-flex;align-items:center;gap:6px;color:#6A16D9;font-weight:500;text-decoration:none;text-underline-offset:3px}.ds-lnk svg{transition:transform .2s cubic-bezier(.16,1,.3,1)}.ds-lnk:hover{text-decoration:underline}.ds-lnk:hover svg{transform:translateX(2px)}.ds-lnk:focus-visible{outline:2px solid #8B2CFF;outline-offset:3px;border-radius:4px}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Demo catalog search with violet focus ring.",
+      "html": "<label class=\"ds-search\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"6\"/><path d=\"M20 20l-4.5-4.5\"/></svg><input placeholder=\"Buscar por código o nombre\"></label>",
+      "css": ".ds-search{font-family:\"Hanken Grotesk\",system-ui,sans-serif;display:flex;align-items:center;gap:8px;width:300px;height:40px;padding:0 12px;border:1px solid rgba(23,20,31,.16);border-radius:10px;color:#6B6579;background:#fff}.ds-search input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:15px;color:#17141F}.ds-search:focus-within{border-color:#8B2CFF;box-shadow:0 0 0 3px rgba(139,44,255,.15)}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sticky blurred header with wordmark and quiet links.",
+      "html": "<nav class=\"ds-hd\"><a class=\"ds-logo\" href=\"#\">mort<b>ups</b></a><a class=\"ds-nl\" aria-current=\"page\" href=\"#\">Soluciones</a><a class=\"ds-nl\" href=\"#\">Rubros</a><a class=\"ds-nl\" href=\"#\">Precios</a></nav>",
+      "css": ".ds-hd{font-family:\"Hanken Grotesk\",system-ui,sans-serif;display:flex;align-items:center;gap:4px;height:68px;padding:0 24px;background:rgba(255,255,255,.92);border-bottom:1px solid rgba(23,20,31,.10)}.ds-logo{font-weight:600;font-size:24px;letter-spacing:-.04em;color:#17141F;text-decoration:none;margin-right:28px}.ds-logo b{font-weight:600;color:#8B2CFF}.ds-nl{padding:8px 12px;border-radius:8px;font-size:15px;color:#4A4558;text-decoration:none;transition:background-color .2s,color .2s}.ds-nl:hover,.ds-nl[aria-current]{background:#F7F6FA;color:#17141F}"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Hairline pill for case capabilities.",
+      "html": "<span class=\"ds-tag\">Mercado Pago</span><span class=\"ds-tag\">30.000 productos</span>",
+      "css": ".ds-tag{font-family:\"Hanken Grotesk\",system-ui,sans-serif;display:inline-flex;align-items:center;height:30px;padding:0 12px;margin-right:8px;border-radius:999px;border:1px solid rgba(23,20,31,.16);font-size:14px;color:#4A4558}"
+    },
+    {
+      "name": "Plan Card (featured)",
+      "kind": "card",
+      "refersTo": "plan-card",
+      "description": "Pricing card; the featured one gets the violet border and quiet lift.",
+      "html": "<div class=\"ds-plan\"><div class=\"ds-pt\"><h3>Ventas</h3><span class=\"ds-badge\">Más elegido</span></div><div class=\"ds-price\">$550.000 <span>pago único</span></div><ul><li><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"#6A16D9\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\"/></svg>Catálogo con carrito a WhatsApp</li><li><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"#6A16D9\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\"/></svg>Panel de ventas</li></ul></div>",
+      "css": ".ds-plan{font-family:\"Hanken Grotesk\",system-ui,sans-serif;width:320px;padding:31px;border:2px solid #8B2CFF;border-radius:16px;background:#fff;color:#17141F;box-shadow:0 1px 2px rgba(23,20,31,.06),0 8px 24px -8px rgba(23,20,31,.14)}.ds-pt{display:flex;justify-content:space-between;align-items:center}.ds-pt h3{margin:0;font-size:22px;font-weight:600}.ds-badge{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#8B2CFF;color:#fff;font-size:13px;font-weight:500}.ds-price{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-top:24px;font-variant-numeric:tabular-nums}.ds-price span{font-size:15px;font-weight:400;letter-spacing:0;color:#6B6579}.ds-plan ul{list-style:none;margin:24px 0 0;padding:24px 0 0;border-top:1px solid rgba(23,20,31,.10);display:grid;gap:12px;font-size:15px}.ds-plan li{display:flex;gap:10px;align-items:flex-start}"
+    },
+    {
+      "name": "WhatsApp Order Card",
+      "kind": "custom",
+      "refersTo": "wa-bubble",
+      "description": "Signature proof device: an assembled order arriving in WhatsApp.",
+      "html": "<div class=\"ds-order\"><div class=\"ds-oh\"><span class=\"ds-av\">TM</span><div>Pedido nuevo<small>desde tu catálogo</small></div></div><div class=\"ds-ob\"><div class=\"ds-bub\">Hola, quiero hacer este pedido:<ul><li><span>2 × Pastillas de freno</span><span>$49.000</span></li><li><span>1 × Filtro de aceite</span><span>$8.500</span></li></ul><div class=\"ds-tot\"><span>Total</span><span>$57.500</span></div></div></div></div>",
+      "css": ".ds-order{font-family:\"Hanken Grotesk\",system-ui,sans-serif;width:330px;background:#fff;border:1px solid rgba(23,20,31,.10);border-radius:16px;overflow:hidden;color:#17141F;box-shadow:0 2px 4px rgba(23,20,31,.05),0 24px 56px -16px rgba(23,20,31,.22)}.ds-oh{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(23,20,31,.10);font-size:14px}.ds-oh small{display:block;font-size:12px;color:#6B6579}.ds-av{width:32px;height:32px;border-radius:50%;background:#17141F;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600}.ds-ob{padding:16px;background:#F3F1EC}.ds-bub{background:#E3F7D6;color:#14321F;border-radius:12px 12px 4px 12px;padding:12px 14px 10px;margin-left:24px;font-size:14px;line-height:1.5}.ds-bub ul{list-style:none;margin:6px 0 8px;padding:0}.ds-bub li,.ds-tot{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}.ds-tot{border-top:1px solid rgba(20,50,31,.18);padding-top:6px;font-weight:600}"
+    },
+    {
+      "name": "Browser Window Frame",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Frame for every product screenshot.",
+      "html": "<div class=\"ds-win\"><div class=\"ds-bar\"><span class=\"ds-dots\"><i></i><i></i><i></i></span><span class=\"ds-url\">Todo y Más · catálogo online</span></div><div class=\"ds-shot\"></div></div>",
+      "css": ".ds-win{font-family:\"Hanken Grotesk\",system-ui,sans-serif;width:420px;background:#fff;border:1px solid rgba(23,20,31,.10);border-radius:16px;overflow:hidden;box-shadow:0 2px 4px rgba(23,20,31,.05),0 24px 56px -16px rgba(23,20,31,.22)}.ds-bar{display:flex;align-items:center;gap:12px;height:40px;padding:0 14px;border-bottom:1px solid rgba(23,20,31,.10);background:#F7F6FA}.ds-dots{display:flex;gap:6px}.ds-dots i{width:10px;height:10px;border-radius:50%;background:#DAD6E2}.ds-url{flex:1;height:26px;display:flex;align-items:center;padding:0 10px;border-radius:7px;background:#fff;border:1px solid rgba(23,20,31,.10);font-size:12px;color:#6B6579}.ds-shot{height:200px;background:#EFEDF4}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Working Storefront",
+    "overview": "mortups looks like the category standard for a light agency/SaaS site, built with Stripe-grade finish and the plain-spoken closeness of Argentine merchant tools. The product demonstrates itself: a real client catalog in a browser window, a WhatsApp order bubble with the total already summed, an interactive demo where adding products writes the message live. Ornament is replaced by evidence. Every page ends in a WhatsApp button.\n\nThe canvas is white and a barely violet-tinted mist grey, with near-black ink and 1px hairlines doing the structural work. Brand violet is a scarce signal, not an atmosphere: it marks the primary action, the wordmark, selection, and the active or linked state. Depth exists only where something is shown as an object (screenshots, the order card, the phone mockup, the demo window); everything else lies flat on the page. Density is comfortable and merchant-legible: 17px body, 52px buttons, tabular figures on every price.\n\nThis world replaced an earlier dark look with glows, emoji icons and bright violet gradients; that look is the confirmed anti-reference.",
+    "keyCharacteristics": [
+      "Light paper surfaces, hairline structure, tonal alternation between white and mist sections.",
+      "One violet, used sparingly; WhatsApp green appears only inside the order bubble.",
+      "Hanken Grotesk at 400/500/600 with tight negative tracking on headings and tabular numerals on prices.",
+      "Hand-drawn single-stroke line icons (1.6 stroke, round caps), never glyphs or emoji.",
+      "Shadows reserved for shown objects: screenshots, mockups, the demo, the floating order card.",
+      "One soft hero entrance; all other motion is short color and transform transitions."
+    ],
+    "rules": [
+      {
+        "name": "The Scarce Violet Rule",
+        "body": "Brand Violet fills at most one primary action per viewport plus the wordmark. Everything else violet is Violet Ink text/strokes or Violet Wash fills marking a selected or linked state. No violet gradients, glows or violet section backgrounds.",
+        "section": "colors"
+      },
+      {
+        "name": "The Quarantined Green Rule",
+        "body": "WhatsApp green (the bubble, its ink, the chat paper) lives only inside a depicted WhatsApp conversation. WhatsApp CTAs are violet buttons with the line chat icon, not green buttons.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Weights Rule",
+        "body": "Only 400, 500 and 600. No bold 700+, no light weights, no second family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Counted Figures Rule",
+        "body": "Every price, quantity, total, step number and table cell uses tabular numerals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "No uppercase letter-spaced labels anywhere; section heads open directly on the h2.",
+        "section": "typography"
+      },
+      {
+        "name": "The Shown-Object Rule",
+        "body": "A shadow means \"this is a thing you are looking at\" (a window, a phone, a message). Content cards and sections never take one. No colored shadows, no glows, no hard offset shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep the canvas Paper and Mist with Ink text; separate with 1px hairlines (rgba(23,20,31,.10)).",
+      "**Do** use Brand Violet (#8B2CFF) for the primary button, wordmark and focus ring, and Violet Ink (#6A16D9) whenever violet is text or a thin stroke.",
+      "**Do** show the product: frame screenshots in the browser window and prove claims with the WhatsApp order card.",
+      "**Do** draw icons as single-stroke 24px line SVGs (stroke 1.6, round caps and joins) colored by currentColor.",
+      "**Do** set prices and quantities in tabular figures, with the period suffix in Muted Ink.",
+      "**Do** end every page in the Ink closing band with a primary WhatsApp button.",
+      "**Do** keep motion to one soft hero entrance (16px rise, 0.8s, ease cubic-bezier(.16,1,.3,1)) and 0.2s color/transform transitions; honor reduced motion."
+    ],
+    "donts": [
+      "**Don't** use violet gradients, glows, neon accents or dark-mode-by-default surfaces; that is the replaced look.",
+      "**Don't** use emoji or text glyphs as icons.",
+      "**Don't** add uppercase letter-spaced labels or eyebrow text above headings.",
+      "**Don't** put shadows on content cards or sections; shadows belong to shown objects.",
+      "**Don't** use WhatsApp green outside a depicted conversation, or for buttons.",
+      "**Don't** introduce a second typeface, weights outside 400/500/600, or third-party hosted fonts."
+    ]
+  }
+}

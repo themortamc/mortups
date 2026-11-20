@@ -53,7 +53,7 @@ Si el visitante rechaza las cookies, no se envía ningún evento, ni del navegad
 | Capa | Tecnología |
 |---|---|
 | Hosting y edge | Cloudflare Workers + Static Assets |
-| Frontend | HTML y CSS a mano, un archivo `track.js` |
+| Frontend | HTML y CSS a mano (`site.css` compartido), `track.js` y `demo.js` |
 | Servidor | Worker en JavaScript (`src/worker.js`) |
 | Medición | Google tag, Meta Pixel y CAPI, TikTok Pixel y Events API |
 
@@ -62,6 +62,8 @@ Si el visitante rechaza las cookies, no se envía ningún evento, ni del navegad
 ```
 public/
   index.html        página principal
+  site.css          sistema visual compartido por todas las páginas
+  fonts/hanken-grotesk.woff2 tipografía autoalojada (Hanken Grotesk, OFL)
   track.js          consentimiento + eventos
   demo.js           ejemplos interactivos de la portada
   catalogo-web/ menu-digital-qr/   guías por servicio

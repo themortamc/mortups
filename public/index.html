@@ -46,758 +46,149 @@
   ]
 }
 </script>
-<meta name="theme-color" content="#030005">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%238B2CFF'/><text x='16' y='23' font-size='20' font-family='sans-serif' font-weight='800' text-anchor='middle' fill='white'>m</text></svg>">
-<style>
-:root{--bg:#030005;--ink:#EFEBFF;--mut:#B8AED6;--ac:#8B2CFF;--acl:#C98BFF;--p1:rgba(10,4,20,.84);--p2:rgba(26,9,52,.86);--m:clamp(20px,5vw,56px)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:76px;background:var(--bg)}
-body{color:var(--ink);font:17px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;position:relative}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:
- radial-gradient(55% 45% at 14% 36%,rgba(110,18,170,.085),transparent 70%),
- radial-gradient(50% 40% at 90% 46%,rgba(88,14,150,.07),transparent 70%),
- radial-gradient(45% 30% at 52% 16%,rgba(146,20,255,.025),transparent 70%),
- radial-gradient(80% 40% at 50% 106%,rgba(70,10,120,.08),transparent 70%),
- url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><filter id='c' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='.0032 .0055' numOctaves='5' seed='11'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .04  0 0 0 0 .5  .7 0 0 0 -.32'/></filter><rect width='100%25' height='100%25' filter='url(%23c)'/></svg>") center/cover,var(--bg)}
-body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.4;background:
- radial-gradient(1.3px 1.3px at 40px 70px,rgba(255,255,255,.9),transparent) 0 0/420px 420px,
- radial-gradient(1px 1px at 210px 160px,rgba(220,200,255,.75),transparent) 0 0/420px 420px,
- radial-gradient(1.5px 1.5px at 330px 310px,rgba(255,255,255,.85),transparent) 0 0/420px 420px,
- radial-gradient(1px 1px at 120px 370px,rgba(200,170,255,.65),transparent) 0 0/420px 420px,
- url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .75  0 0 0 0 .6  0 0 0 0 1  1.1 0 0 0 -.6'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>") 0 0/300px 300px}
-a{color:inherit}
-.w{max-width:1240px;margin:0 auto;padding:0 var(--m)}
-h1,h2,h3{font-weight:800;letter-spacing:-.03em;line-height:1}
-h1{font-size:clamp(34px,4.6vw,68px);letter-spacing:-.04em;line-height:.95}
-h2{font-size:clamp(34px,5.6vw,72px);margin-bottom:30px}
-section{padding:clamp(80px,10vw,160px) 0}
-em{font-style:normal;color:var(--acl)}
-.btn{display:inline-block;background:var(--ac);color:#fff;font-weight:700;font-size:19px;padding:20px 38px;text-decoration:none;border-radius:12px;transition:background .2s}
-.btn:hover,.btn:focus-visible{background:#A04CFF}
-.btn.l{background:var(--ink);color:#14052A}.btn.l:hover{background:#fff}
-:focus-visible{outline:3px solid var(--acl);outline-offset:3px}
-.lb{background:#020004;color:var(--ink);font-size:15px;font-weight:700}
-.lb .w{display:flex;gap:12px 16px;justify-content:flex-end;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
-.lb a{background:rgba(139,44,255,.24);padding:8px 18px;border-radius:8px;text-decoration:none}.lb a:hover{background:rgba(139,44,255,.5)}
-header{position:sticky;top:0;z-index:20;background:rgba(3,0,6,.9);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
-nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
-.logo{font-weight:800;font-size:29px;letter-spacing:-.05em;text-decoration:none}.logo b{color:var(--acl)}
-nav ul{display:flex;gap:36px;list-style:none;font-size:15.5px;font-weight:600}
-nav ul a{text-decoration:none;color:var(--mut);transition:color .15s}.nav ul a:hover{color:#fff}
-nav .btn{padding:13px 24px;font-size:16px;border-radius:10px}
-.hero{padding:clamp(64px,10vw,140px) 0 clamp(72px,10vw,128px)}
-.hg{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(44px,6vw,100px);align-items:center}
-.hs{display:block;width:100%;height:auto;box-shadow:0 36px 120px rgba(100,14,190,.32)}
-.lead{font-size:clamp(21px,2.3vw,26px);max-width:32em;margin:40px 0 48px;color:var(--mut);line-height:1.6}
-.micro{font-size:16px;color:var(--mut);margin-top:22px;font-weight:600}
-.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px 42px;margin-top:clamp(60px,9vw,110px);font-size:clamp(17px,1.8vw,21px);font-weight:700;letter-spacing:-.01em}
-.proof span{color:var(--mut)}.proof b{color:var(--ink)}
-.how{background:rgba(3,0,6,.72)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,44px);list-style:none;counter-reset:s}
-.steps li{counter-increment:s}
-.steps li:before{content:counter(s);display:block;font-size:clamp(72px,9vw,120px);font-weight:800;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px var(--acl);line-height:1;margin-bottom:14px}
-.steps h3{font-size:22px;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
-.steps p{font-size:15.5px;color:var(--mut)}
-.steps .tm{display:inline-block;margin-top:14px;font-weight:700;color:var(--acl);font-size:14px}
-.sub{font-size:21px;color:var(--mut);max-width:40em;margin:0 0 60px;padding:0 8px}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch;gap:28px}
-.plan{background:var(--p1);padding:clamp(36px,4vw,56px);display:flex;flex-direction:column;border-radius:16px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.plan.pop{background:var(--p2);padding:clamp(40px,5vw,64px);margin:-20px 0 0;border-radius:16px;box-shadow:0 0 120px rgba(146,20,255,.24)}
-font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--acl);margin-bottom:14px;min-height:1.4em}
-font-size:40px;margin-bottom:8px}
-.plan .tg{color:var(--mut);margin-bottom:26px;min-height:3em}
-.price{font-size:clamp(38px,4vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1}
-.price+div{font-weight:600;margin:6px 0 26px;font-size:16px;color:var(--mut)}
-.plan ul{list-style:none;margin-bottom:30px;flex:1}
-.plan li{padding:9px 0 9px 26px;position:relative;font-size:16px}
-.plan li:before{content:"";position:absolute;left:0;top:17px;width:12px;height:6px;border-left:3px solid var(--acl);border-bottom:3px solid var(--acl);transform:rotate(-45deg)}
-.plan .for{font-size:14.5px;color:var(--mut);margin-bottom:22px}
-.entry{display:flex;gap:24px 48px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--p1);padding:clamp(24px,3vw,40px);margin-bottom:28px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}.entry h3{font-size:clamp(26px,3vw,36px);margin-bottom:8px}.entry p{color:var(--mut);max-width:44em}.entry .price{font-size:clamp(34px,3.6vw,46px)}.entry .btn{margin-top:14px}.entry>div:last-child{min-width:220px}
-.note{margin-top:36px;font-size:15px;color:var(--mut)}
-.svc{background:rgba(3,0,6,.72)}
-.cat{display:grid;grid-template-columns:.8fr 2.2fr;gap:clamp(20px,4vw,64px);padding:clamp(28px,4vw,52px) 0}
-.cat h3{font-size:clamp(28px,3.4vw,44px);color:var(--acl)}
-.items{display:grid;grid-template-columns:1fr 1fr;gap:26px 44px}
-.items h4{font-size:19px;letter-spacing:-.01em;margin-bottom:4px}
-.items p{font-size:15.5px;color:var(--mut)}
-.case{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(24px,4vw,64px);align-items:center;margin-bottom:clamp(48px,7vw,96px)}
-.case:nth-child(even){grid-template-columns:.7fr 1.3fr}.case:nth-child(even) .shot{order:2}
-.shot{background:#0c0418;aspect-ratio:1832/979;display:flex;align-items:flex-end;overflow:hidden;position:relative;box-shadow:0 30px 100px rgba(100,14,190,.28)}
-.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;position:relative;z-index:1}
-.shot .fb{position:absolute;inset:0;padding:22px;display:flex;align-items:flex-end;font-size:clamp(26px,3.4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1}
-.case h3{font-size:clamp(28px,3.4vw,44px);margin-bottom:14px}
-.case p{color:var(--mut);margin-bottom:16px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;list-style:none}
-.tags li{background:rgba(255,255,255,.09);font-size:13.5px;font-weight:700;padding:5px 11px}
-.lnk{font-weight:800;color:var(--acl);text-decoration-thickness:2px;text-underline-offset:5px}
-.faq{background:rgba(3,0,6,.72)}
-.faqg{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,80px)}
-details{background:rgba(255,255,255,.06);margin-bottom:8px}
-summary{cursor:pointer;list-style:none;font-weight:700;font-size:19px;padding:22px 56px 22px 24px;position:relative;letter-spacing:-.01em}
-summary::-webkit-details-marker{display:none}
-summary:after{content:"+";position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:28px;font-weight:400;color:var(--acl)}
-details[open] summary:after{content:"–"}
-details p{padding:0 24px 24px;color:var(--mut);max-width:40em}
-.cta{padding:clamp(90px,14vw,190px) 0;background:radial-gradient(60% 70% at 50% 60%,rgba(146,20,255,.18),transparent 72%)}
-.cta h2{font-size:clamp(44px,7.4vw,108px);letter-spacing:-.05em;line-height:.9;max-width:11em;margin-bottom:34px}
-.cta p{font-size:clamp(19px,2vw,24px);max-width:32em;margin-bottom:36px;color:var(--mut)}
-footer{background:rgba(3,0,6,.8);color:var(--mut);padding:64px 0 100px;font-size:15px}
-.big{font-size:clamp(64px,19vw,260px);font-weight:800;letter-spacing:-.06em;line-height:.85;color:var(--ink);margin-bottom:44px}.big b{color:var(--acl)}
-.fl{display:flex;flex-wrap:wrap;gap:12px 32px;margin-bottom:22px}
-.fl a{color:#fff}
-.fine{font-size:13.5px;max-width:56em}
-.fab{display:none}
-
-.sub{max-width:44em}.sols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}.sol{display:block;background:var(--p1);padding:28px;text-decoration:none;transition:transform .2s,background .2s}.sol:hover{transform:translateY(-2px);background:var(--p2)}.sol h3{font-size:24px;margin-bottom:14px;letter-spacing:-.02em}.sol p{color:var(--mut);margin-bottom:16px}.sol b{color:var(--acl)}
-
-/* Mockup Window Interactive Component */
-.mockup-window {
-  background: #090414;
-  border: 1px solid rgba(139,44,255,.35);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 25px 80px rgba(139,44,255,.18), 0 10px 30px rgba(0,0,0,.6);
-  margin-top: 28px;
-}
-.mw-header {
-  background: #0d061c;
-  padding: 12px 18px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.mw-dots { display: flex; gap: 8px; }
-.mw-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-.mw-dot.r { background: #ff5f56; }
-.mw-dot.y { background: #ffbd2e; }
-.mw-dot.g { background: #27c93f; }
-.mw-url {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  color: var(--mut);
-  flex: 1;
-  max-width: 540px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: monospace;
-}
-.mw-url-text { color: #fff; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
-.mw-status { display: flex; gap: 10px; font-size: 12px; font-weight: 700; }
-.mw-pill { background: rgba(39,201,63,.15); color: #4eff7b; padding: 3px 10px; border-radius: 12px; border: 1px solid rgba(39,201,63,.3); }
-
-.mockup-tabs {
-  display: flex;
-  background: #06020c;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  overflow-x: auto;
-}
-.mockup-tabs button {
-  background: transparent;
-  border: 0;
-  color: var(--mut);
-  padding: 14px 22px;
-  font-size: 14.5px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  border-bottom: 3px solid transparent;
-  transition: all .2s;
-}
-.mockup-tabs button.active, .mockup-tabs button[aria-selected="true"] {
-  color: #fff;
-  background: rgba(139,44,255,.15);
-  border-bottom-color: var(--acl);
-}
-
-.mw-body { padding: clamp(16px, 3vw, 28px); min-height: 480px; }
-.mw-view { display: grid; grid-template-columns: 1fr 340px; gap: 24px; }
-.mw-view[hidden] { display: none !important; }
-
-.app-topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255,255,255,.04);
-  padding: 12px 18px;
-  border-radius: 8px;
-  margin-bottom: 18px;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.app-brand { font-weight: 800; font-size: 16px; color: var(--acl); }
-.mw-search-input {
-  background: rgba(0,0,0,.5);
-  border: 1px solid rgba(255,255,255,.15);
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-size: 13.5px;
-  width: 240px;
-  max-width: 100%;
-}
-.cart-badge {
-  background: var(--ac);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13.5px;
-  font-weight: 700;
-}
-
-.p-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
-.p-item {
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.08);
-  padding: 14px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: border-color .2s;
-}
-.p-item:hover { border-color: rgba(139,44,255,.4); background: rgba(139,44,255,.04); }
-.p-tag { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--acl); margin-bottom: 4px; }
-.p-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.25; }
-.p-sku { font-size: 12px; color: var(--mut); margin-bottom: 8px; font-family: monospace; }
-.p-price { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 10px; }
-.p-controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.q-btn {
-  background: var(--ac);
-  border: 0;
-  color: #fff;
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  font-weight: 800;
-  cursor: pointer;
-  font-size: 16px;
-}
-.q-btn:hover { background: #a04cff; }
-.q-num { font-weight: 800; min-width: 20px; text-align: center; font-size: 15px; }
-
-.v-list { display: flex; gap: 6px; margin-bottom: 10px; }
-.v-btn {
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.15);
-  color: var(--mut);
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  cursor: pointer;
-  font-weight: 700;
-}
-.v-btn.sel { background: var(--ac); color: #fff; border-color: var(--ac); }
-
-.wa-drawer {
-  background: #0b241a;
-  border: 1px solid #19523c;
-  border-radius: 10px;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.wa-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; border-bottom: 1px solid #19523c; padding-bottom: 10px; }
-.wa-avatar { width: 36px; height: 36px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #000; font-size: 18px; }
-.wa-title { font-size: 14px; font-weight: 700; color: #fff; }
-.wa-status { font-size: 11.5px; color: #7CFFB2; }
-.wa-body { background: #071912; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.5; color: #e4fff2; min-height: 200px; margin-bottom: 14px; font-family: system-ui, sans-serif; }
-.wa-empty { color: #87bba2; font-style: italic; }
-.btn-wa-sim { display: block; width: 100%; text-align: center; background: #25d366; color: #000; font-weight: 800; padding: 12px; border-radius: 6px; text-decoration: none; font-size: 14.5px; }
-.btn-wa-sim:hover { background: #32e073; }
-
-.mesas-pill { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-.mesas-pill button { min-width: 36px; height: 36px; border: 0; background: rgba(255,255,255,.08); color: var(--ink); font-weight: 800; border-radius: 4px; cursor: pointer; }
-.mesas-pill button[aria-pressed=true] { background: var(--ac); }
-
-@media(max-width:900px){
- nav ul{display:none}.lb .w{justify-content:center}
- .hg,.case,.case:nth-child(even),.faqg,.cat{grid-template-columns:1fr}
- .hs{margin-top:8px}
- .case:nth-child(even) .shot{order:0}
- .steps{grid-template-columns:1fr 1fr}
- .plans{grid-template-columns:1fr;gap:12px}.plan.pop{margin:0}
- .items{grid-template-columns:1fr}
- .fab{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:30;text-align:center}
- .mw-view { grid-template-columns: 1fr; }
- .mw-url { display: none; }
-}
-@media(max-width:520px){.steps{grid-template-columns:1fr}}
-@media(max-width:900px){.lb{font-size:12px}.lb .w{gap:6px 8px;padding-top:6px;padding-bottom:6px}.lb a{padding:4px 10px}.fab{left:auto;right:12px;font-size:15px;padding:12px 20px}body{padding-bottom:76px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-</style>
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238B2CFF'/><text x='16' y='22.5' font-size='19' font-family='system-ui,sans-serif' font-weight='600' text-anchor='middle' fill='white'>m</text></svg>">
+<link rel="preload" href="/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
 </head>
 <body>
 <div class="lb"><div class="w"><a href="https://wa.me/5492634279451?text=Quiero%20ejercer%20mi%20derecho%20de%20arrepentimiento.%0ANombre%3A%20%0AServicio%20contratado%3A%20%0AFecha%20de%20contrataci%C3%B3n%3A%20" rel="noopener">Botón de arrepentimiento</a><a href="https://wa.me/5492634279451?text=Quiero%20dar%20de%20baja%20el%20servicio.%0ANombre%3A%20%0AServicio%3A%20" rel="noopener">Botón de baja de servicio</a></div></div>
-<header><div class="w"><nav aria-label="Principal">
- <a class="logo" href="#">mort<b>ups</b></a>
- <ul><li><a href="#soluciones">Soluciones</a></li><li><a href="#rubros">Por Rubro</a></li><li><a href="#demo-live">Demostración UI</a></li><li><a href="#paquetes">Paquetes</a></li><li><a href="#productos">Productos</a></li><li><a href="#casos">Casos</a></li><li><a href="#faq">Preguntas</a></li></ul>
- <a class="btn" href="https://wa.me/5492634279451?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio%20(nav)" rel="noopener">WhatsApp</a>
-</nav></div></header>
+<header class="hd"><div class="w">
+ <a class="logo" href="#" aria-label="mortups, inicio">mort<b>ups</b></a>
+ <nav class="nav" aria-label="Principal"><a href="#soluciones">Soluciones</a><a href="/para/">Por rubro</a><a href="#demo-live">Demo</a><a href="#paquetes">Paquetes</a><a href="/productos-digitales/">Productos</a><a href="#casos">Casos</a><a href="#faq">Preguntas</a></nav>
+ <a class="btn sm hd-cta" href="https://wa.me/5492634279451?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio%20(nav)" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Escribinos</a>
+ <details class="menu"><summary aria-label="Abrir menú"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="panel"><a href="#soluciones">Soluciones</a><a href="/para/">Por rubro</a><a href="#demo-live">Demo</a><a href="#paquetes">Paquetes</a><a href="/productos-digitales/">Productos</a><a href="#casos">Casos</a><a href="#faq">Preguntas</a><a class="btn" href="https://wa.me/5492634279451?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio%20(nav)" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Escribir por WhatsApp</a></div></details>
+</div></header>
 <main>
 <section class="hero"><div class="w">
- <div class="hg">
-  <div>
-   <h1>Diseño web y marketing online para recibir pedidos por <em>WhatsApp.</em></h1>
-   <p class="lead">Catálogos, menús con QR, sistemas de registro y campañas para tu negocio. Contanos qué vendés y te decimos, sin costo, qué necesita para crecer.</p>
-   <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn" href="https://wa.me/5492634279451?text=Hola,%20quiero%20asesoramiento%20gratis%20para%20mi%20negocio%20(hero)" rel="noopener">Pedir asesoramiento gratis</a><a class="btn l" href="#demo-live">Probar demostración en vivo</a></div>
-   <p class="micro">Asesoramiento sin costo · Respuesta el mismo día · Sin contratos de permanencia</p>
-  </div>
-  <img class="hs" src="/img/todoymas.webp" alt="Catálogo de Todo y Más, tienda con carrito y filtros" width="1400" height="748" fetchpriority="high">
+ <div>
+  <h1>Diseño web y marketing online para recibir pedidos por <em>WhatsApp</em></h1>
+  <p class="lead">Catálogos, menús con QR, sistemas de registro y campañas para tu negocio. Contanos qué vendés y te decimos, sin costo, qué necesita para crecer.</p>
+  <div class="actions"><a class="btn" href="https://wa.me/5492634279451?text=Hola,%20quiero%20asesoramiento%20gratis%20para%20mi%20negocio%20(hero)" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Pedir asesoramiento gratis</a><a class="btn l" href="#demo-live">Probar la demo</a></div>
+  <ul class="facts">
+   <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Sin comisiones</b> por venta</span></li>
+   <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Sin contratos</b> de permanencia</span></li>
+   <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Demo con tus productos en <b>24–72 h</b></span></li>
+   <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Respuesta el mismo día</b> por WhatsApp</span></li>
+  </ul>
  </div>
- <div class="proof"><span><b>Sin comisiones</b> por venta</span><span><b>Sin contratos</b> de permanencia</span><span><b>~30.000 productos</b> sincronizados en un cliente</span><span>Demo en <b>24–72 horas</b></span></div>
+ <div class="stage" aria-label="Catálogo de Todo y Más y un pedido que llega por WhatsApp">
+  <div class="win"><div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Todo y Más · catálogo online</div></div>
+   <img src="/img/todoymas.webp" alt="Catálogo de Todo y Más, tienda con carrito y filtros" width="1400" height="748" fetchpriority="high"></div>
+  <div class="order">
+   <div class="order-hd"><span class="av">TM</span><div>Pedido nuevo<small>desde tu catálogo</small></div></div>
+   <div class="order-bd"><div class="bubble">Hola, quiero hacer este pedido:
+    <ul><li><span>1 × Kaiak clásico</span><span>$40.000</span></li><li><span>1 × Tetera</span><span>$13.000</span></li><li><span>2 × Set de especieros</span><span>$18.000</span></li></ul>
+    <div class="tot"><span>Total</span><span>$71.000</span></div>
+    <div class="meta">Precios de ejemplo · 10:42 <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12.5l4.5 4.5L15 8.5M10 16.5l.5.5L20 7.5"/></svg></div></div></div>
+  </div>
+ </div>
 </div></section>
 
-<section id="soluciones"><div class="w">
- <h2>Elegí qué necesitás.</h2>
- <p class="sub">Soluciones digitales diseñadas para convertir visitas en ventas directas a tu celular:</p>
- <div class="sols">
-  <a class="sol" href="/catalogo-web/"><h3>Catálogo web</h3><p>Tus productos online con buscador de código/medida y carrito que arma el pedido en WhatsApp.</p><b>Ver cómo funciona →</b></a>
-  <a class="sol" href="/menu-digital-qr/"><h3>Menú digital QR</h3><p>Carta en el celular del cliente con selección de mesa y pedidos instantáneos sin comisiones.</p><b>Ver cómo queda →</b></a>
-  <a class="sol" href="#demo-live"><h3>POS & Registro de ventas</h3><p>Control de caja, inventario y exportación a Excel/CSV desde un panel de administración.</p><b>Probar en vivo →</b></a>
-  <a class="sol" href="#asesoramiento"><h3>Marketing online</h3><p>Gestión de anuncios en Meta y Google Ads con medición CAPI de servidor a servidor.</p><b>Pedir asesoramiento →</b></a>
- </div></div></section>
+<section id="soluciones" class="alt"><div class="w">
+ <div class="sh"><h2>Elegí qué necesitás</h2><p class="sub">Soluciones digitales pensadas para que las visitas terminen en ventas directas a tu celular.</p></div>
+ <div class="rows">
+  <a class="row" href="/catalogo-web/"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><path d="M13 16.5h7M16.5 13v7"/></svg></span><h3>Catálogo web</h3><p>Tus productos online con buscador por código o medida y un carrito que arma el pedido en WhatsApp.</p><span class="lnk">Ver cómo funciona<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  <a class="row" href="/menu-digital-qr/"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 14h2M14 18v2M17 17h3v3"/></svg></span><h3>Menú digital QR</h3><p>La carta en el celular del cliente, con selección de mesa y pedidos al instante, sin comisiones.</p><span class="lnk">Ver cómo queda<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  <a class="row" href="#demo-live"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><h3>Registro de ventas (POS)</h3><p>Control de caja, inventario y exportación a Excel o CSV desde un panel de administración.</p><span class="lnk">Probar en vivo<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  <a class="row" href="#asesoramiento"><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4a1 1 0 0 0 1 1h2l5 4V5L7 9H5a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg></span><h3>Marketing online</h3><p>Anuncios en Meta y Google Ads con medición de servidor a servidor (Conversions API).</p><span class="lnk">Pedir asesoramiento<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+ </div>
+</div></section>
 
 <section id="rubros"><div class="w">
- <h2>Soluciones para tu rubro</h2>
- <p class="sub">Diseñamos la solución web y catálogo digital adaptado a las necesidades concretas de tu industria:</p>
- <div class="sols">
-  <a class="sol" href="/para/ferreterias/"><h3>Ferreterías</h3><p>Buscador por código y medida, listas masivas y pedidos armados por WhatsApp.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/repuestos/"><h3>Repuestos</h3><p>Sync con tu sistema para catálogos de hasta 30.000 repuestos.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/restaurantes/"><h3>Gastronomía</h3><p>Menú QR por mesa, delivery directo por WhatsApp y 0% comisiones.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/indumentaria/"><h3>Tiendas de Ropa</h3><p>Catálogo visual con variante de talle/color y pago Mercado Pago.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/barberias/"><h3>Barberías</h3><p>Galería de cortes y solicitud de turnos organizada por WhatsApp.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/kioscos/"><h3>Kioscos</h3><p>Ofertas del día, combos destacados y delivery de cercanía.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/talleres-mecanicos/"><h3>Talleres Mecánicos</h3><p>Sitio web profesional y presupuestos con datos del vehículo.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/gimnasios/"><h3>Gimnasios</h3><p>Grilla de actividades, cuotas y pase de prueba para captar socios.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/clinicas/"><h3>Clínicas</h3><p>Cartilla médica y canal de turnos directo con recepción.</p><b>Ver solución →</b></a>
-  <a class="sol" href="/para/empresas/"><h3>Empresas y PYMEs</h3><p>Sitio corporativo ultrarrápido con captación de leads calificados.</p><b>Ver solución →</b></a>
- </div>
- <div class="pn" style="margin-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px"><p style="margin:0;font-weight:600">¿Querés ver todos los detalles y preguntas de tu rubro?</p><a class="btn l" href="/para/">Ver todas las soluciones por rubro →</a></div>
+ <div class="sh"><h2>Soluciones para tu rubro</h2><p class="sub">Cada catálogo se adapta a cómo vende tu tipo de negocio.</p></div>
+ <div class="dir"><a href="/para/ferreterias/"><h3>Ferreterías</h3><p>Buscador por código y medida, listas masivas y pedidos armados por WhatsApp.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/repuestos/"><h3>Repuestos</h3><p>Sincronización con tu sistema para catálogos de hasta 30.000 repuestos.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/restaurantes/"><h3>Gastronomía</h3><p>Menú QR por mesa, delivery directo por WhatsApp y 0% de comisión.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/indumentaria/"><h3>Tiendas de ropa</h3><p>Catálogo con talle y color, y pago con Mercado Pago.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/barberias/"><h3>Barberías</h3><p>Galería de cortes y pedido de turnos ordenado por WhatsApp.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/kioscos/"><h3>Kioscos</h3><p>Ofertas del día, combos destacados y delivery de cercanía.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/talleres-mecanicos/"><h3>Talleres mecánicos</h3><p>Sitio profesional y presupuestos con los datos del vehículo.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/gimnasios/"><h3>Gimnasios</h3><p>Grilla de actividades, cuotas y clase de prueba para sumar socios.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/clinicas/"><h3>Clínicas</h3><p>Cartilla médica y canal de turnos directo con recepción.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a href="/para/empresas/"><h3>Empresas y pymes</h3><p>Sitio institucional rápido que capta consultas calificadas.</p><span class="lnk">Ver solución<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+ <div class="more"><p>¿Querés ver los detalles y las preguntas de tu rubro?</p><a class="btn l" href="/para/">Ver todas las soluciones por rubro</a></div>
 </div></section>
 
-<!-- DEMO EN VIVO: NAVEGADOR INTERACTIVO REAL -->
-<section id="demo-live"><div class="w">
- <h2>Experiencia real de tus clientes</h2>
- <p class="sub">Probá la interfaz web interactiva que construimos para tus clientes y mirá cómo se procesan los pedidos en tiempo real:</p>
-
- <div class="mockup-window">
-   <!-- Header Navegadores Real -->
-   <div class="mw-header">
-     <div class="mw-dots"><span class="mw-dot r"></span><span class="mw-dot y"></span><span class="mw-dot g"></span></div>
-     <div class="mw-url"><span style="color:#8B2CFF">🔒</span><span class="mw-url-text">https://demo.mortups.com.ar/repuestos-san-isidro (30.000 items sync)</span></div>
-     <div class="mw-status"><span class="mw-pill">⚡ Sync API: Activo</span><span class="mw-pill">CAPI Meta: OK</span></div>
-   </div>
-
-   <!-- Selector de Experiencias Integradas -->
-   <div class="mockup-tabs" role="tablist" aria-label="Demo Tabs">
-     <button type="button" role="tab" class="active" aria-selected="true" data-t="cat">🏎️ Repuestos & Autopartes (30k sync)</button>
-     <button type="button" role="tab" aria-selected="false" data-t="qr">🍔 Menú QR Gastronómico</button>
-     <button type="button" role="tab" aria-selected="false" data-t="ind">👗 Tienda Indumentaria (Talles & Cuotas)</button>
-     <button type="button" role="tab" aria-selected="false" data-t="pos">📊 POS & Control de Caja</button>
-   </div>
-
-   <div class="mw-body">
-     <!-- DEMO 1: REPUESTOS AUTOMOTRICES -->
-     <div class="mw-view" id="v-cat">
-       <div>
-         <div class="app-topbar">
-           <span class="app-brand">Repuestos San Isidro • Catálogo ERP</span>
-           <input type="text" class="mw-search-input" placeholder="Buscar por código, filtro o marca (ej: Bosch)...">
-           <span class="cart-badge cart-count">0 ítems ($0)</span>
-         </div>
-         <div class="p-grid">
-           <div class="p-item" data-n="Pastillas de Freno Delanteras" data-p="24500" data-sku="BOSCH-04885" data-s="42">
-             <span class="p-tag">Frenos • Sync ERP</span>
-             <div class="p-title">Pastillas de Freno Delanteras</div>
-             <div class="p-sku">SKU: BOSCH-04885</div>
-             <div class="p-price">$24.500</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock: 42</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-           <div class="p-item" data-n="Filtro de Aceite Sintético" data-p="8500" data-sku="MANN-W712" data-s="118">
-             <span class="p-tag">Motor • Sync ERP</span>
-             <div class="p-title">Filtro de Aceite Sintético</div>
-             <div class="p-sku">SKU: MANN-W712</div>
-             <div class="p-price">$8.500</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock: 118</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-           <div class="p-item" data-n="Bujías Iridium x4" data-p="12000" data-sku="NGK-9412" data-s="15">
-             <span class="p-tag">Encendido</span>
-             <div class="p-title">Bujías Iridium (Juego x4)</div>
-             <div class="p-sku">SKU: NGK-9412</div>
-             <div class="p-price">$12.000</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock: 15</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <!-- WhatsApp Live Preview Drawer -->
-       <div class="wa-drawer">
-         <div>
-           <div class="wa-head">
-             <div class="wa-avatar">W</div>
-             <div><div class="wa-title">Ventas WhatsApp</div><div class="wa-status">● En línea (Mensaje Automático)</div></div>
-           </div>
-           <div class="wa-body">
-             <span class="wa-empty">Seleccioná productos en la pantalla interactiva para ver cómo se genera automáticamente el pedido formateado.</span>
-           </div>
-         </div>
-         <div class="wa-foot">
-           <a class="btn-wa-sim" href="https://wa.me/5492634279451?text=Hola,%20prob%C3%A9%20la%20demo%20de%20cat%C3%A1logo%20interactivo%20en%20el%20sitio" target="_blank" rel="noopener">Probar WhatsApp Real →</a>
-         </div>
-       </div>
-     </div>
-
-     <!-- DEMO 2: GASTRO / MENÚ QR MESA -->
-     <div class="mw-view" id="v-qr" hidden>
-       <div>
-         <div class="app-topbar">
-           <span class="app-brand">Restó & Burger • Menú QR</span>
-           <div class="mesas-pill"><span style="font-size:13px;color:var(--mut);margin-right:4px">Mesa:</span><button type="button" aria-pressed="true">1</button><button type="button" aria-pressed="false">2</button><button type="button" aria-pressed="false">3</button><button type="button" aria-pressed="false">4</button></div>
-           <span class="cart-badge cart-count">0 ítems ($0)</span>
-         </div>
-         <div class="p-grid">
-           <div class="p-item" data-n="Hamburguesa Doble Cheddar" data-p="9800" data-s="50">
-             <span class="p-tag">Plato Principal</span>
-             <div class="p-title">Hamburguesa Doble Cheddar</div>
-             <div class="p-sku">Con papas rústicas incluidas</div>
-             <div class="p-price">$9.800</div>
-             <div class="p-controls">
-               <span style="font-size:12px;color:#7CFFB2">Disponibilidad en cocina</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-           <div class="p-item" data-n="Papas Bastón con Bacon" data-p="4500" data-s="30">
-             <span class="p-tag">Entrada</span>
-             <div class="p-title">Papas Bastón con Bacon</div>
-             <div class="p-sku">Porción para compartir</div>
-             <div class="p-price">$4.500</div>
-             <div class="p-controls">
-               <span style="font-size:12px;color:#7CFFB2">Cocina en 10 min</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-           <div class="p-item" data-n="Gaseosa 500ml" data-p="2800" data-s="100">
-             <span class="p-tag">Bebida</span>
-             <div class="p-title">Gaseosa / Bebida 500ml</div>
-             <div class="p-sku">Línea completa a elección</div>
-             <div class="p-price">$2.800</div>
-             <div class="p-controls">
-               <span style="font-size:12px;color:var(--mut)">Frenos de stock: No</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="wa-drawer">
-         <div>
-           <div class="wa-head">
-             <div class="wa-avatar">W</div>
-             <div><div class="wa-title">Pedido a Cocina / Mozo</div><div class="wa-status">● Canal Gastronómico Directo</div></div>
-           </div>
-           <div class="wa-body">
-             <span class="wa-empty">Seleccioná platos en el menú QR para ver el pedido enviado a cocina con número de mesa.</span>
-           </div>
-         </div>
-         <div class="wa-foot">
-           <a class="btn-wa-sim" href="https://wa.me/5492634279451?text=Hola,%20me%20interesa%20el%20men%C3%BA%20QR%20gastron%C3%B3mico" target="_blank" rel="noopener">Pedir Demo para Restó →</a>
-         </div>
-       </div>
-     </div>
-
-     <!-- DEMO 3: INDUMENTARIA -->
-     <div class="mw-view" id="v-ind" hidden>
-       <div>
-         <div class="app-topbar">
-           <span class="app-brand">Boutique & Moda • E-Commerce</span>
-           <span style="font-size:13px;color:var(--acl);font-weight:700">💳 Mercado Pago & Go Cuotas Habilitados</span>
-           <span class="cart-badge cart-count">0 ítems ($0)</span>
-         </div>
-         <div class="p-grid">
-           <div class="p-item" data-n="Buzo Oversize Hoodie" data-p="38500" data-s="18">
-             <span class="p-tag">Colección Invierno</span>
-             <div class="p-title">Buzo Oversize Hoodie</div>
-             <div class="v-list"><span class="v-btn sel">S</span><span class="v-btn">M</span><span class="v-btn">L</span><span class="v-btn">XL</span></div>
-             <div class="p-price">$38.500</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock talle: 18</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-           <div class="p-item" data-n="Jean Straight Fit Denim" data-p="42000" data-s="12">
-             <span class="p-tag">Pantalones</span>
-             <div class="p-title">Jean Straight Fit Denim</div>
-             <div class="v-list"><span class="v-btn sel">38</span><span class="v-btn">40</span><span class="v-btn">42</span></div>
-             <div class="p-price">$42.000</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock talle: 12</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-           <div class="p-item" data-n="Remera Algodón Peinado 100%" data-p="16500" data-s="30">
-             <span class="p-tag">Básicos</span>
-             <div class="p-title">Remera Algodón Peinado</div>
-             <div class="v-list"><span class="v-btn sel">Negro</span><span class="v-btn">Blanco</span></div>
-             <div class="p-price">$16.500</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock talle: 30</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="wa-drawer">
-         <div>
-           <div class="wa-head">
-             <div class="wa-avatar">W</div>
-             <div><div class="wa-title">Notificación de Venta</div><div class="wa-status">● Aviso Inmediato a tu Móvil</div></div>
-           </div>
-           <div class="wa-body">
-             <span class="wa-empty">Sumá ropa al carrito para simular el mensaje de compra con variantes de talle/color.</span>
-           </div>
-         </div>
-         <div class="wa-foot">
-           <a class="btn-wa-sim" href="https://wa.me/5492634279451?text=Hola,%20quiero%20una%20tienda%20online%20de%20ropa" target="_blank" rel="noopener">Pedir Tienda Indumentaria →</a>
-         </div>
-       </div>
-     </div>
-
-     <!-- DEMO 4: CONTROL DE CAJA Y POS -->
-     <div class="mw-view" id="v-pos" hidden>
-       <div>
-         <div class="app-topbar">
-           <span class="app-brand">Control de Caja & Registro POS</span>
-           <span style="font-weight:700;color:#7CFFB2">Total Día: <span class="tot-val">$0</span></span>
-           <button type="button" class="btn" style="padding:6px 14px;font-size:13px" data-csv>📥 Exportar CSV</button>
-         </div>
-         <div class="p-grid">
-           <div class="p-item" data-n="Cuaderno Universitario A4" data-p="3500" data-s="12">
-             <span class="p-tag">Papelería • Stock local</span>
-             <div class="p-title">Cuaderno Universitario A4</div>
-             <div class="p-sku">Reg. Venta Rápida</div>
-             <div class="p-price">$3.500</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock: 12</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-           <div class="p-item" data-n="Lapicera Roller Gel 0.5mm" data-p="900" data-s="30">
-             <span class="p-tag">Insumos</span>
-             <div class="p-title">Lapicera Roller Gel 0.5mm</div>
-             <div class="p-sku">Reg. Venta Rápida</div>
-             <div class="p-price">$900</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock: 30</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-           <div class="p-item" data-n="Resma 500 Hojas A4 75g" data-p="9800" data-s="6">
-             <span class="p-tag">Oficina</span>
-             <div class="p-title">Resma 500 Hojas A4 75g</div>
-             <div class="p-sku">Reg. Venta Rápida</div>
-             <div class="p-price">$9.800</div>
-             <div class="p-controls">
-               <span class="st-left" style="font-size:12px;color:var(--mut)">Stock: 6</span>
-               <div style="display:flex;align-items:center;gap:6px">
-                 <button type="button" class="q-btn" data-d="-1">−</button>
-                 <span class="q-num">0</span>
-                 <button type="button" class="q-btn" data-d="1">+</button>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="wa-drawer">
-         <div>
-           <div class="wa-head">
-             <div class="wa-avatar">📊</div>
-             <div><div class="wa-title">Cierre de Caja Diario</div><div class="wa-status">● Reportes & Excel Exportable</div></div>
-           </div>
-           <div class="wa-body">
-             <span class="wa-empty">Registrá ventas para calcular el arqueo de caja en vivo y exportarlo a Excel.</span>
-           </div>
-         </div>
-         <div class="wa-foot">
-           <a class="btn-wa-sim" href="https://wa.me/5492634279451?text=Hola,%20quiero%20probar%20el%20sistema%20de%20caja" target="_blank" rel="noopener">Consultar por Sistema POS →</a>
-         </div>
-       </div>
-     </div>
-
-   </div>
+<section id="demo-live" class="alt"><div class="w">
+ <div class="sh c"><h2>Probalo como lo vería tu cliente</h2><p class="sub">Sumá productos en la demo y mirá cómo se arma, solo, el mensaje que te llega por WhatsApp.</p></div>
+ <div class="demo">
+  <div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span class="mw-url-text">demo.mortups.com.ar/repuestos-san-isidro</span></div></div>
+  <div class="mockup-tabs" role="tablist" aria-label="Ejemplos de la demo"><button type="button" role="tab" aria-selected="true" data-t="cat"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16v2M19 16v2M3.5 12.5L6 7h12l2.5 5.5V16h-17z"/><circle cx="7.5" cy="13.5" r=".6"/><circle cx="16.5" cy="13.5" r=".6"/></svg>Repuestos</button><button type="button" role="tab" aria-selected="false" data-t="qr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2 1.5-3 4-3 7h3"/></svg>Menú QR</button><button type="button" role="tab" aria-selected="false" data-t="ind"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l-5 3 2 4 2-1v10h8V10l2 1 2-4-5-3a3 3 0 0 1-6 0z"/></svg>Indumentaria</button><button type="button" role="tab" aria-selected="false" data-t="pos"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-6"/></svg>Caja y ventas</button></div>
+  <div class="mw-view" id="v-cat" role="tabpanel" aria-label="Repuestos"><div class="app"><div class="app-top"><span class="app-brand">Repuestos San Isidro</span><label class="search"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span class="sr">Buscar</span><input type="search" class="mw-search-input" placeholder="Código, producto o marca"></label><span class="pill cart-count">0 ítems ($0)</span></div><div class="p-list"><div class="p-item" data-n="Pastillas de freno delanteras" data-p="24500" data-sku="BOSCH-04885" data-s="42"><div><div class="p-title">Pastillas de freno delanteras</div><div class="p-meta">Frenos · BOSCH-04885</div></div><div class="p-price">$24.500<span class="st-left">Stock: 42</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="p-item" data-n="Filtro de aceite sintético" data-p="8500" data-sku="MANN-W712" data-s="118"><div><div class="p-title">Filtro de aceite sintético</div><div class="p-meta">Motor · MANN-W712</div></div><div class="p-price">$8.500<span class="st-left">Stock: 118</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="p-item" data-n="Bujías iridium (juego x4)" data-p="12000" data-sku="NGK-9412" data-s="15"><div><div class="p-title">Bujías iridium (juego x4)</div><div class="p-meta">Encendido · NGK-9412</div></div><div class="p-price">$12.000<span class="st-left">Stock: 15</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div></div></div><div class="wa-drawer"><div class="wa-head"><div class="wa-avatar">RS</div><div><div class="wa-title">Pedidos por WhatsApp</div><div class="wa-status">En línea</div></div></div><div class="wa-body" aria-live="polite"><span class="wa-empty">Sumá productos y mirá cómo se arma el pedido que te llega.</span></div><div class="wa-foot"><a class="btn" href="https://wa.me/5492634279451?text=Hola,%20prob%C3%A9%20la%20demo%20de%20cat%C3%A1logo%20interactivo%20en%20el%20sitio" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Quiero este catálogo</a></div></div></div><div class="mw-view" id="v-qr" role="tabpanel" aria-label="Menú QR" hidden><div class="app"><div class="app-top"><span class="app-brand">Menú del restó</span><div class="mesas-pill" role="group" aria-label="Mesa">Mesa <button type="button" aria-pressed="false">1</button><button type="button" aria-pressed="false">2</button><button type="button" aria-pressed="false">3</button><button type="button" aria-pressed="true">4</button></div><span class="pill cart-count">0 ítems ($0)</span></div><div class="p-list"><div class="p-item" data-n="Hamburguesa doble cheddar" data-p="9800" data-s="20"><div><div class="p-title">Hamburguesa doble cheddar</div><div class="p-meta">Principal · con papas rústicas</div></div><div class="p-price">$9.800<span class="st-left">Stock: 20</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="p-item" data-n="Papas bastón con bacon" data-p="4500" data-s="25"><div><div class="p-title">Papas bastón con bacon</div><div class="p-meta">Entrada · para compartir</div></div><div class="p-price">$4.500<span class="st-left">Stock: 25</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="p-item" data-n="Gaseosa 500 ml" data-p="2800" data-s="40"><div><div class="p-title">Gaseosa 500 ml</div><div class="p-meta">Bebida · línea completa</div></div><div class="p-price">$2.800<span class="st-left">Stock: 40</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div></div></div><div class="wa-drawer"><div class="wa-head"><div class="wa-avatar">MR</div><div><div class="wa-title">Pedido a cocina</div><div class="wa-status">Llega con número de mesa</div></div></div><div class="wa-body" aria-live="polite"><span class="wa-empty">Elegí platos y mirá el pedido que llega con el número de mesa.</span></div><div class="wa-foot"><a class="btn" href="https://wa.me/5492634279451?text=Hola,%20me%20interesa%20el%20men%C3%BA%20QR%20gastron%C3%B3mico" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Quiero un menú QR</a></div></div></div><div class="mw-view" id="v-ind" role="tabpanel" aria-label="Indumentaria" hidden><div class="app"><div class="app-top"><span class="app-brand">Tienda de ropa</span><span class="pill">Mercado Pago y Go Cuotas</span><span class="pill cart-count">0 ítems ($0)</span></div><div class="p-list"><div class="p-item" data-n="Buzo oversize" data-p="38500" data-s="18"><div><div class="p-title">Buzo oversize</div><div class="p-meta">Colección invierno</div><div class="vars"><button type="button" class="v-btn sel">S</button><button type="button" class="v-btn">M</button><button type="button" class="v-btn">L</button><button type="button" class="v-btn">XL</button></div></div><div class="p-price">$38.500<span class="st-left">Stock: 18</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="p-item" data-n="Jean straight" data-p="42000" data-s="12"><div><div class="p-title">Jean straight</div><div class="p-meta">Pantalones</div><div class="vars"><button type="button" class="v-btn sel">38</button><button type="button" class="v-btn">40</button><button type="button" class="v-btn">42</button></div></div><div class="p-price">$42.000<span class="st-left">Stock: 12</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="p-item" data-n="Remera de algodón peinado" data-p="16500" data-s="30"><div><div class="p-title">Remera de algodón peinado</div><div class="p-meta">Básicos</div><div class="vars"><button type="button" class="v-btn sel">Negro</button><button type="button" class="v-btn">Blanco</button></div></div><div class="p-price">$16.500<span class="st-left">Stock: 30</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div></div></div><div class="wa-drawer"><div class="wa-head"><div class="wa-avatar">TR</div><div><div class="wa-title">Aviso de venta</div><div class="wa-status">Te llega al celular</div></div></div><div class="wa-body" aria-live="polite"><span class="wa-empty">Sumá prendas y mirá el aviso de compra con talle y color.</span></div><div class="wa-foot"><a class="btn" href="https://wa.me/5492634279451?text=Hola,%20quiero%20una%20tienda%20online%20de%20ropa" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Quiero mi tienda</a></div></div></div><div class="mw-view" id="v-pos" role="tabpanel" aria-label="Caja" hidden><div class="app"><div class="app-top"><span class="app-brand">Caja del día</span><span class="pill">Total: <b class="tot-val">$0</b></span><button type="button" class="btn sm l" data-csv><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 4.5 5-4.5M5 20h14"/></svg>Exportar CSV</button></div><div class="p-list"><div class="p-item" data-n="Cuaderno universitario A4" data-p="3500" data-s="12"><div><div class="p-title">Cuaderno universitario A4</div><div class="p-meta">Librería · venta rápida</div></div><div class="p-price">$3.500<span class="st-left">Stock: 12</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="p-item" data-n="Lapicera roller gel 0.5 mm" data-p="900" data-s="30"><div><div class="p-title">Lapicera roller gel 0.5 mm</div><div class="p-meta">Insumos · venta rápida</div></div><div class="p-price">$900<span class="st-left">Stock: 30</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div><div class="p-item" data-n="Resma A4 75 g (500 hojas)" data-p="9800" data-s="6"><div><div class="p-title">Resma A4 75 g (500 hojas)</div><div class="p-meta">Oficina · venta rápida</div></div><div class="p-price">$9.800<span class="st-left">Stock: 6</span></div><div class="qty"><button type="button" class="q-btn" data-d="-1" aria-label="Quitar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><span class="q-num" aria-live="polite">0</span><button type="button" class="q-btn" data-d="1" aria-label="Sumar uno"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div></div></div><div class="wa-drawer"><div class="wa-head"><div class="wa-avatar">CD</div><div><div class="wa-title">Cierre de caja</div><div class="wa-status">Exportable a Excel</div></div></div><div class="wa-body" aria-live="polite"><span class="wa-empty">Registrá ventas y mirá el cierre de caja calculado en vivo.</span></div><div class="wa-foot"><a class="btn" href="https://wa.me/5492634279451?text=Hola,%20quiero%20probar%20el%20sistema%20de%20caja" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Quiero el sistema de caja</a></div></div></div>
  </div>
+ <p class="demo-note">Demo con datos de ejemplo. Los precios y productos de tu negocio se cargan desde tu lista.</p>
 </div></section>
 
-<section class="how" id="proceso"><div class="w">
- <h2>De tu mensaje a tu negocio online en pocos días.</h2>
+<section id="proceso"><div class="w">
+ <div class="sh"><h2>De tu mensaje a tu negocio online en pocos días</h2></div>
  <ol class="steps">
-  <li><h3>Conversamos por WhatsApp</h3><p>Nos contás qué necesita tu negocio y te asesoramos sin compromiso.</p><span class="tm">Respuesta el mismo día</span></li>
-  <li><h3>Te mostramos una demo con tu negocio</h3><p>Armamos una versión de prueba sin costo, con tu lista de productos o menú, para que veas cómo queda.</p><span class="tm">Demo lista en 24–72 horas</span></li>
-  <li><h3>Ajustamos y publicamos</h3><p>Con el 50% de anticipo ajustamos (2 rondas incluidas) y publicamos. El otro 50% se paga al publicar.</p><span class="tm">Publicación en 1–3 días hábiles</span></li>
-  <li><h3>Mantenimiento opcional</h3><p>Hosting, soporte y correcciones. Los precios los cambiás vos desde tu panel o se ajustan solos por inflación.</p><span class="tm">Soporte continuo</span></li>
+  <li><h3>Conversamos por WhatsApp</h3><p>Nos contás qué necesita tu negocio y te asesoramos sin compromiso.</p><span class="tm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Respuesta el mismo día</span></li>
+  <li><h3>Te mostramos una demo con tu negocio</h3><p>Armamos una versión de prueba sin costo, con tu lista de productos o menú, para que veas cómo queda.</p><span class="tm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Demo lista en 24–72 h</span></li>
+  <li><h3>Ajustamos y publicamos</h3><p>Con el 50% de anticipo ajustamos (2 rondas incluidas) y publicamos. El otro 50% se paga al publicar.</p><span class="tm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Publicación en 1–3 días hábiles</span></li>
+  <li><h3>Mantenimiento opcional</h3><p>Hosting, soporte y correcciones. Los precios los cambiás vos desde tu panel o se ajustan solos por inflación.</p><span class="tm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Soporte continuo</span></li>
  </ol>
 </div></section>
 
-<section id="paquetes"><div class="w">
- <h2>Tres paquetes. Precios a la vista.</h2>
- <p class="sub">Primero ves la demo sin pagar; si avanzás, 50% para empezar y 50% al publicar. Hay un mensual opcional de hosting y soporte que podés dar de baja cuando quieras sin penalización, y se ajusta cada trimestre según el IPC.</p>
- <div class="entry"><div><div class="tag">¿Recién empezás?</div><h3>Presencia en 72 horas</h3><p>Una página con botón de WhatsApp, tu perfil de Google Business Profile optimizado y WhatsApp Business configurado (bienvenida, ausencia y respuestas rápidas), con QR listo para imprimir. Pago único, sin mensual. Si pasás a Web o Ventas dentro de los 60 días, te descontamos lo que pagaste.</p></div><div><div class="price">$120.000</div><div>pago único</div><a class="btn" href="https://wa.me/5492634279451?text=Quiero%20el%20paquete%20Presencia">Quiero Presencia</a></div></div>
-<div class="plans">
-  <article class="plan"><div class="tag">&nbsp;</div><h3>Web</h3><p class="tg">Tu negocio visible, con botón de WhatsApp.</p>
-   <div class="price">$200.000</div><div>inicial + $30.000/mes</div>
-   <ul><li>Landing o catálogo con tus productos, desde una base exportable</li><li>Botón de WhatsApp con mensaje armado</li><li>Hosting y soporte por WhatsApp</li><li>Panel para cambiar tus precios, o ajuste automático por inflación</li></ul>
-   <p class="for">Para comercios y profesionales que necesitan presencia digital inmediata.</p>
-   <a class="btn" href="https://wa.me/5492634279451?text=Hola%2C%20me%20interesa%20el%20paquete%20Web" rel="noopener">Quiero el paquete Web</a></article>
-  <article class="plan pop"><div class="tag">Recomendado</div><h3>Ventas</h3><p class="tg">Pedidos armados y atención en un solo lugar.</p>
-   <div class="price">$550.000</div><div>inicial + $60.000/mes</div><div style="color:var(--acl);font-weight:700;font-size:15px;margin-top:6px">Lanzamiento: $450.000 para los primeros 3 clientes, hasta el 31/12/2026</div>
-   <ul><li>Todo lo del paquete Web</li><li>Carga de tu catálogo desde una base de datos exportable</li><li>Carrito que arma el pedido en WhatsApp</li><li>Precios y productos que editás desde el panel, o que se ajustan solos por inflación</li><li>Asistente de IA opcional, limitado a tu negocio</li></ul>
-   <p class="for">Para distribuidoras y negocios con catálogo grande y consultas constantes que quieren convertir visitas en pedidos.</p>
-   <a class="btn l" href="https://wa.me/5492634279451?text=Hola%2C%20me%20interesa%20el%20paquete%20Ventas" rel="noopener">Quiero el paquete Ventas</a></article>
-  <article class="plan"><div class="tag">&nbsp;</div><h3>Crecimiento</h3><p class="tg">Ventas más tráfico propio.</p>
-   <div class="price">A consultar</div><div>según anuncios y alcance</div>
-   <ul><li>Todo lo del paquete Ventas</li><li>Gestión de anuncios en Meta, TikTok y Google</li><li>Contenido con IA para tráfico orgánico</li><li>La inversión en anuncios se paga aparte, directo a cada plataforma</li></ul>
-   <p class="for">Para empresas y marcas listas para escalar atrayendo tráfico calificado.</p>
-   <a class="btn" href="https://wa.me/5492634279451?text=Hola%2C%20me%20interesa%20el%20paquete%20Crecimiento" rel="noopener">Quiero el paquete Crecimiento</a></article>
+<section id="paquetes" class="alt"><div class="w">
+ <div class="sh"><h2>Tres paquetes, con precios a la vista</h2><p class="sub">Primero ves la demo sin pagar; si avanzás, 50% para empezar y 50% al publicar. El mensual de hosting y soporte es opcional, se da de baja cuando quieras sin penalización y se ajusta cada trimestre según el IPC.</p></div>
+ <div class="entry"><div><h3>Presencia en 72 horas</h3><p>Para los que recién empiezan: una página con botón de WhatsApp, tu perfil de Google Business Profile optimizado y WhatsApp Business configurado (bienvenida, ausencia y respuestas rápidas), con QR listo para imprimir. Pago único, sin mensual. Si pasás a Web o Ventas dentro de los 60 días, te descontamos lo que pagaste.</p></div>
+  <div class="pr"><div class="price">$120.000</div><div class="per">pago único</div><a class="btn l" href="https://wa.me/5492634279451?text=Quiero%20el%20paquete%20Presencia" rel="noopener">Quiero Presencia</a></div></div>
+ <div class="plans">
+  <article class="plan"><div class="plan-top"><h3>Web</h3></div><p class="tg">Tu negocio visible, con botón de WhatsApp.</p><div class="price">$200.000</div><div class="per">inicial + $30.000/mes</div><ul><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Landing o catálogo con tus productos, desde una base exportable</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Botón de WhatsApp con mensaje armado</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Hosting y soporte por WhatsApp</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Panel para cambiar tus precios, o ajuste automático por inflación</span></li></ul><p class="for">Para comercios y profesionales que necesitan presencia digital inmediata.</p><a class="btn l" href="https://wa.me/5492634279451?text=Hola%2C%20me%20interesa%20el%20paquete%20Web" rel="noopener">Quiero el paquete Web</a></article>
+  <article class="plan pop"><div class="plan-top"><h3>Ventas</h3><span class="badge">Recomendado</span></div><p class="tg">Pedidos armados y atención en un solo lugar.</p><div class="price">$550.000</div><div class="per">inicial + $60.000/mes</div><p class="promo">Lanzamiento: <b>$450.000</b> para los primeros 3 clientes, hasta el 31/12/2026</p><ul><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Todo lo del paquete Web</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Carga de tu catálogo desde una base de datos exportable</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Carrito que arma el pedido en WhatsApp</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Precios y productos que editás desde el panel, o que se ajustan solos por inflación</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Asistente de IA opcional, limitado a tu negocio</span></li></ul><p class="for">Para distribuidoras y negocios con catálogo grande y consultas constantes que quieren convertir visitas en pedidos.</p><a class="btn" href="https://wa.me/5492634279451?text=Hola%2C%20me%20interesa%20el%20paquete%20Ventas" rel="noopener">Quiero el paquete Ventas</a></article>
+  <article class="plan"><div class="plan-top"><h3>Crecimiento</h3></div><p class="tg">Ventas más tráfico propio.</p><div class="price">A consultar</div><div class="per">según anuncios y alcance</div><ul><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Todo lo del paquete Ventas</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Gestión de anuncios en Meta, TikTok y Google</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Contenido con IA para tráfico orgánico</span></li><li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>La inversión en anuncios se paga aparte, directo a cada plataforma</span></li></ul><p class="for">Para empresas y marcas listas para escalar atrayendo tráfico calificado.</p><a class="btn l" href="https://wa.me/5492634279451?text=Hola%2C%20me%20interesa%20el%20paquete%20Crecimiento" rel="noopener">Quiero el paquete Crecimiento</a></article>
  </div>
  <p class="note">Precios en pesos argentinos, noviembre de 2026. El mensual se reajusta cada trimestre según el IPC. El precio de lanzamiento del paquete Ventas es para los primeros 3 clientes hasta el 31/12/2026, a cambio de un testimonio y permiso para mostrar el caso. Los desarrollos a medida se cotizan por WhatsApp.</p>
 </div></section>
 
 <section id="productos"><div class="w">
- <h2>Planillas listas para usar.</h2>
- <p class="sub">Archivos de Google Sheets y Excel ya armados: los copiás, cargás tus datos y ordenás tu negocio desde hoy. Están en preparación; anotate y te avisamos primero.</p>
- <div class="sols">
-  <a class="sol" href="/productos-digitales/#ventas"><h3>Planilla de ventas y caja diaria</h3><p>Anotás cada venta con su forma de pago y la planilla te da el total del día y el cierre de caja.</p><b>Ver detalle →</b></a>
-  <a class="sol" href="/productos-digitales/#stock"><h3>Control de stock con mínimos</h3><p>Sabés qué tenés y qué te falta reponer antes de quedarte sin mercadería.</p><b>Ver detalle →</b></a>
-  <a class="sol" href="/productos-digitales/#precios"><h3>Lista de precios con ajuste por porcentaje</h3><p>Subís todos los precios, o solo los de un proveedor o rubro, con un porcentaje y sin tocar artículo por artículo.</p><b>Ver detalle →</b></a>
-  <a class="sol" href="/productos-digitales/#presupuestos"><h3>Presupuestos con tu logo</h3><p>Elegís productos o servicios de tu lista y sale un presupuesto prolijo para mandar por WhatsApp.</p><b>Ver detalle →</b></a>
+ <div class="sh"><h2>Planillas listas para usar</h2><p class="sub">Archivos de Google Sheets y Excel ya armados: los copiás, cargás tus datos y ordenás tu negocio desde hoy. Están en preparación; anotate y te avisamos primero.</p></div>
+ <div class="grid2">
+  <a href="/productos-digitales/#ventas"><h3>Planilla de ventas y caja diaria</h3><p>Anotás cada venta con su forma de pago y la planilla te da el total del día y el cierre de caja.</p><span class="lnk">Ver detalle<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  <a href="/productos-digitales/#stock"><h3>Control de stock con mínimos</h3><p>Sabés qué tenés y qué te falta reponer antes de quedarte sin mercadería.</p><span class="lnk">Ver detalle<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  <a href="/productos-digitales/#precios"><h3>Lista de precios con ajuste por porcentaje</h3><p>Subís todos los precios, o solo los de un proveedor o rubro, con un porcentaje y sin tocar artículo por artículo.</p><span class="lnk">Ver detalle<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  <a href="/productos-digitales/#presupuestos"><h3>Presupuestos con tu logo</h3><p>Elegís productos o servicios de tu lista y sale un presupuesto prolijo para mandar por WhatsApp.</p><span class="lnk">Ver detalle<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
  </div>
- <div class="pn" style="margin-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px"><p style="margin:0;font-weight:600">También hay una versión pensada para cada rubro.</p><a class="btn l" href="/productos-digitales/">Ver productos digitales →</a></div>
+ <div class="more"><p>También hay una versión pensada para cada rubro.</p><a class="btn l" href="/productos-digitales/">Ver productos digitales</a></div>
 </div></section>
 
-<section class="svc" id="servicios"><div class="w">
- <h2>Servicios Especializados</h2>
- <div class="cat"><h3>Ingeniería Digital</h3><div class="items">
-  <div><h4>Catálogos Web Sincronizados</h4><p>Integración de catálogos masivos con sistemas de gestión (ERP), actualización por Excel/CSV y velocidad de carga sub-segundo. Cero comisiones por venta.</p></div>
-  <div><h4>Flujos de Conversión por WhatsApp</h4><p>El pedido ingresa a tu celular con SKU, precio, resumen de cantidades y opciones seleccionadas de forma 100% automatizada.</p></div>
-  <div><h4>Paneles POS y Gestión</h4><p>Registro de caja en mostrador, alertas de stock mínimo, gestión de pedidos y exportación directa de reportes.</p></div>
-  <div><h4>Traqueo Server-to-Server (CAPI)</h4><p>Configuración avanzada de CAPI Meta/Google Ads para optimización de campañas publicitarias con atribución exacta de conversión.</p></div>
- </div></div>
+<section id="servicios" class="alt"><div class="w">
+ <div class="sh"><h2>Servicios especializados</h2><p class="sub">Lo técnico que hay detrás de cada catálogo, para negocios que necesitan algo más.</p></div>
+ <div class="grid2">
+  <div><h3>Catálogos web sincronizados</h3><p>Integración de catálogos masivos con sistemas de gestión (ERP), actualización por Excel o CSV y carga en menos de un segundo. Cero comisiones por venta.</p></div>
+  <div><h3>Flujos de conversión por WhatsApp</h3><p>El pedido entra a tu celular con código, precio, cantidades y opciones elegidas, de forma automática.</p></div>
+  <div><h3>Paneles de caja y gestión</h3><p>Registro de caja en mostrador, alertas de stock mínimo, gestión de pedidos y exportación directa de reportes.</p></div>
+  <div><h3>Medición de servidor a servidor</h3><p>Configuración de Conversions API de Meta y Google Ads para optimizar campañas con una atribución precisa de cada conversión.</p></div>
+ </div>
 </div></section>
 
 <section id="casos"><div class="w">
- <h2>Trabajos reales, online hoy.</h2>
- <article class="case">
-  <div class="shot"><span class="fb">Todo y Más</span><img src="/img/todoymas.webp" alt="Catálogo de Todo y Más con 236 productos, categorías y filtros" width="1400" height="748" loading="lazy"></div>
-  <div><h3>Todo y Más</h3><p>Tienda con catálogo de 236 productos, categorías, filtro por precio, ofertas, favoritos y carrito. Los pedidos llegan por WhatsApp, se paga con Mercado Pago y Go Cuotas, y cada compra avisa al celular del dueño.</p>
-   <ul class="tags"><li>Catálogo</li><li>Carrito</li><li>Pagos online</li><li>Panel admin</li></ul>
-   <a class="lnk" href="/casos/todo-y-mas/">Ver caso de éxito →</a></div>
- </article>
- <article class="case">
-  <div class="shot"><span class="fb">Panel de ventas</span><img src="/img/panel-todoymas.webp" alt="Panel de administración de Todo y Más: venta en mostrador" width="1400" height="748" loading="lazy"></div>
-  <div><h3>Registro de ventas a medida</h3><p>El panel de Todo y Más registra las ventas hechas en el local con búsqueda por producto, categorías, formas de pago y total del día. También gestiona productos, pedidos, comentarios, pagos y usuarios.</p>
-   <ul class="tags"><li>Registro de ventas</li><li>Administración</li><li>A medida</li></ul></div>
- </article>
- <article class="case">
-  <div class="shot"><span class="fb">Repuestos San Isidro</span><img src="/img/repuestos.webp" alt="Sitio de Repuestos San Isidro con catálogo de repuestos automotrices" width="1400" height="748" loading="lazy"></div>
-  <div><h3>Repuestos San Isidro</h3><p>Catálogo para un negocio de repuestos y accesorios automotrices, con una base de casi 30.000 productos (código, descripción, marca y stock) sincronizada automáticamente desde el sistema de gestión del negocio. Incluye categorías, buscador, carrito y contacto por WhatsApp.</p>
-   <ul class="tags"><li>Catálogo</li><li>Buscador</li><li>Sync con tu sistema</li></ul>
-   <a class="lnk" href="/casos/repuestos-san-isidro/">Ver caso de éxito →</a></div>
- </article>
+ <div class="sh"><h2>Trabajos reales, online hoy</h2></div>
+ <article class="case"><div class="win"><div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Todo y Más · tienda online</div></div><img src="/img/todoymas.webp" alt="Catálogo de Todo y Más con 236 productos, categorías y filtros" width="1400" height="748" loading="lazy"></div><div><h3>Todo y Más</h3><p>Tienda con catálogo de 236 productos, categorías, filtro por precio, ofertas, favoritos y carrito. Los pedidos llegan por WhatsApp, se paga con Mercado Pago y Go Cuotas, y cada compra avisa al celular del dueño.</p><ul class="tags"><li>Catálogo</li><li>Carrito</li><li>Pagos online</li><li>Panel admin</li></ul><a class="lnk" href="/casos/todo-y-mas/">Ver el caso completo<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
+ <article class="case"><div class="win"><div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Todo y Más · panel de ventas</div></div><img src="/img/panel-todoymas.webp" alt="Panel de administración de Todo y Más: venta en mostrador" width="1400" height="748" loading="lazy"></div><div><h3>Registro de ventas a medida</h3><p>El panel de Todo y Más registra las ventas hechas en el local con búsqueda por producto, categorías, formas de pago y total del día. También gestiona productos, pedidos, comentarios, pagos y usuarios.</p><ul class="tags"><li>Registro de ventas</li><li>Administración</li><li>A medida</li></ul></div></article>
+ <article class="case"><div class="win"><div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Repuestos San Isidro · catálogo</div></div><img src="/img/repuestos.webp" alt="Sitio de Repuestos San Isidro con catálogo de repuestos automotrices" width="1400" height="748" loading="lazy"></div><div><h3>Repuestos San Isidro</h3><p>Catálogo para un negocio de repuestos y accesorios automotrices, con una base de casi 30.000 productos (código, descripción, marca y stock) sincronizada automáticamente desde el sistema de gestión del negocio. Incluye categorías, buscador, carrito y contacto por WhatsApp.</p><ul class="tags"><li>Catálogo</li><li>Buscador</li><li>Sync con tu sistema</li></ul><a class="lnk" href="/casos/repuestos-san-isidro/">Ver el caso completo<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
 </div></section>
 
-<section id="asesoramiento"><div class="w">
- <h2>Asesoramiento gratis para tu negocio.</h2>
- <p class="sub">Por WhatsApp te hacemos tres preguntas y te decimos qué te conviene para crecer, sin costo y sin compromiso.</p>
- <ul class="al"><li>Qué vendés y cómo recibís hoy los pedidos.</li><li>Qué te hace perder tiempo o ventas.</li><li>Qué podés invertir.</li></ul>
- <p style="margin:18px 0 22px">Si querés ahorrar tiempo, respondelas en tu primer mensaje.</p>
- <a class="btn" href="https://wa.me/5492634279451?text=Hola,%20quiero%20asesoramiento%20gratis.%0A%0A1)%20Mi%20negocio%20vende%3A%20%0A2)%20Hoy%20recibo%20los%20pedidos%20por%3A%20%0A3)%20Lo%20que%20m%C3%A1s%20tiempo%20o%20ventas%20me%20hace%20perder%3A%20%0A%0A(asesoramiento)" rel="noopener">Pedir asesoramiento gratis</a>
+<section id="asesoramiento" class="alt"><div class="w consult">
+ <div><h2>Asesoramiento gratis para tu negocio</h2><p class="sub">Por WhatsApp te hacemos tres preguntas y te decimos qué te conviene para crecer, sin costo y sin compromiso. Si querés ahorrar tiempo, respondelas en tu primer mensaje.</p>
+  <div class="actions"><a class="btn" href="https://wa.me/5492634279451?text=Hola,%20quiero%20asesoramiento%20gratis.%0A%0A1)%20Mi%20negocio%20vende%3A%20%0A2)%20Hoy%20recibo%20los%20pedidos%20por%3A%20%0A3)%20Lo%20que%20m%C3%A1s%20tiempo%20o%20ventas%20me%20hace%20perder%3A%20%0A%0A(asesoramiento)" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Pedir asesoramiento gratis</a></div></div>
+ <ol class="qs"><li>Qué vendés y cómo recibís hoy los pedidos.</li><li>Qué te hace perder tiempo o ventas.</li><li>Qué podés invertir.</li></ol>
 </div></section>
 
-<section class="faq" id="faq"><div class="w faqg">
+<section id="faq"><div class="w faqg">
  <h2>Preguntas frecuentes</h2>
- <div>
-  <details><summary>¿Qué incluye el soporte mensual?</summary><p>Hosting, monitoreo, corrección de errores y hasta 4 pedidos de cambio de diseño o contenido por mes, en el horario de atención. Los precios los editás vos desde el panel.</p></details>
-  <details><summary>¿Quién carga mis productos?</summary><p>Procesamos tu lista desde Excel, Google Sheets o exportación de tu sistema de gestión. Sincronizamos stocks masivos para que no cargues producto por producto a mano.</p></details>
-  <details><summary>¿Sirve para una distribuidora o negocio de muchos ítems?</summary><p>Sí. Armamos catálogos con buscador y filtros pensados para listas grandes (incluso +30.000 productos), enviando el pedido organizado por WhatsApp.</p></details>
-  <details><summary>¿Necesito saber de tecnología?</summary><p>No. Armamos todo de punta a punta y te dejamos el sistema listo para usar en tu celular o computadora.</p></details>
-  <details><summary>¿Cobran comisión por cada venta?</summary><p>Cero comisiones. Las ventas son 100% tuyas y se concretan directo en tu WhatsApp o pasarela propia.</p></details>
-  <details><summary>¿Hay contratos de permanencia?</summary><p>No. Podés dar de baja el hosting y el soporte cuando quieras, sin penalizaciones ni amarres.</p></details>
-  <details><summary>¿Cómo se paga y qué garantía hay?</summary><p>Primero ves la demo sin pagar. Si avanzás, pagás el 50% para empezar y el 50% al publicar. Incluye 2 rondas de ajustes con garantía de entrega a tiempo.</p></details>
- </div>
+ <div class="qa"><details><summary>¿Qué incluye el soporte mensual?</summary><p>Hosting, monitoreo, corrección de errores y hasta 4 pedidos de cambio de diseño o contenido por mes, en el horario de atención. Los precios los editás vos desde el panel.</p></details><details><summary>¿Quién carga mis productos?</summary><p>Procesamos tu lista desde Excel, Google Sheets o exportación de tu sistema de gestión. Sincronizamos stocks masivos para que no cargues producto por producto a mano.</p></details><details><summary>¿Sirve para una distribuidora o negocio de muchos ítems?</summary><p>Sí. Armamos catálogos con buscador y filtros pensados para listas grandes (incluso +30.000 productos), enviando el pedido organizado por WhatsApp.</p></details><details><summary>¿Necesito saber de tecnología?</summary><p>No. Armamos todo de punta a punta y te dejamos el sistema listo para usar en tu celular o computadora.</p></details><details><summary>¿Cobran comisión por cada venta?</summary><p>Cero comisiones. Las ventas son 100% tuyas y se concretan directo en tu WhatsApp o pasarela propia.</p></details><details><summary>¿Hay contratos de permanencia?</summary><p>No. Podés dar de baja el hosting y el soporte cuando quieras, sin penalizaciones ni amarres.</p></details><details><summary>¿Cómo se paga y qué garantía hay?</summary><p>Primero ves la demo sin pagar. Si avanzás, pagás el 50% para empezar y el 50% al publicar. Incluye 2 rondas de ajustes con garantía de entrega a tiempo.</p></details></div>
 </div></section>
 
 <section class="cta"><div class="w">
- <h2>Tu WhatsApp ya es tu mostrador.</h2>
- <p>Contanos qué vendes y te mostramos una demo con tus productos o tu menú. Sin formularios, sin comisiones y sin contratos.</p>
- <a class="btn l" href="https://wa.me/5492634279451?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio%20(cta)" rel="noopener">Escribir por WhatsApp</a>
- <p class="micro" style="margin-top:18px">+54 9 2634 279451 · Respuesta el mismo día</p>
+ <h2>Tu WhatsApp ya es tu mostrador</h2>
+ <p>Contanos qué vendés y te mostramos una demo con tus productos o tu menú. Sin formularios, sin comisiones y sin contratos.</p>
+ <div class="actions"><a class="btn" href="https://wa.me/5492634279451?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio%20(cta)" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Escribir por WhatsApp</a></div>
+ <p class="fine">+54 9 2634 279451 · Respuesta el mismo día</p>
 </div></section>
 </main>
-<footer><div class="w">
- <div class="big">mort<b>ups</b></div>
- <div class="fl"><a href="/terminos/">Términos y condiciones</a><a href="/privacidad/">Política de privacidad</a><a href="/para/">Soluciones por rubro</a><a href="/catalogo-web/">Catálogo web</a><a href="/menu-digital-qr/">Menú digital QR</a><a href="/productos-digitales/">Productos digitales</a><a href="/sobre-mi/">Sobre mí</a><a href="/cookies/">Cookies</a><a href="#" data-ck>Preferencias de cookies</a><a href="https://wa.me/5492634279451?text=Quiero%20ejercer%20mi%20derecho%20de%20arrepentimiento.%0ANombre%3A%20%0AServicio%20contratado%3A%20%0AFecha%20de%20contrataci%C3%B3n%3A%20" rel="noopener">Botón de arrepentimiento</a><a href="https://wa.me/5492634279451?text=Quiero%20dar%20de%20baja%20el%20servicio.%0ANombre%3A%20%0AServicio%3A%20" rel="noopener">Botón de baja de servicio</a></div>
+<footer class="ft"><div class="w">
+ <div class="ft-top">
+  <div><a class="logo" href="/">mort<b>ups</b></a><p>Catálogos, menús con QR y pedidos por WhatsApp para negocios de Argentina.</p></div>
+  <div><h4>Soluciones</h4><ul><li><a href="/catalogo-web/">Catálogo web</a></li><li><a href="/menu-digital-qr/">Menú digital QR</a></li><li><a href="/para/">Soluciones por rubro</a></li><li><a href="/productos-digitales/">Productos digitales</a></li></ul></div>
+  <div><h4>mortups</h4><ul><li><a href="/sobre-mi/">Sobre mí</a></li><li><a href="/casos/todo-y-mas/">Caso Todo y Más</a></li><li><a href="/casos/repuestos-san-isidro/">Caso Repuestos San Isidro</a></li><li><a href="/#paquetes">Paquetes y precios</a></li></ul></div>
+  <div><h4>Legales</h4><ul><li><a href="/terminos/">Términos y condiciones</a></li><li><a href="/privacidad/">Política de privacidad</a></li><li><a href="/cookies/">Cookies</a></li><li><a href="#" data-ck>Preferencias de cookies</a></li><li><a href="https://wa.me/5492634279451?text=Quiero%20ejercer%20mi%20derecho%20de%20arrepentimiento.%0ANombre%3A%20%0AServicio%20contratado%3A%20%0AFecha%20de%20contrataci%C3%B3n%3A%20" rel="noopener">Botón de arrepentimiento</a></li><li><a href="https://wa.me/5492634279451?text=Quiero%20dar%20de%20baja%20el%20servicio.%0ANombre%3A%20%0AServicio%3A%20" rel="noopener">Botón de baja de servicio</a></li></ul></div>
+ </div>
  <p class="fine">mortups · Responsable: Lautaro Mortarotti · Mendoza, Argentina<br>Atención al cliente por WhatsApp +54 9 2634 279451 · Lunes a miércoles de 15 a 20 h, jueves y viernes de 9 a 20 h · Consultas y reclamos: Lautaro Mortarotti<br>Los botones de arrepentimiento y baja abren WhatsApp (sin tracking) y no requieren registro.</p>
 </div></footer>
-
-<a class="btn fab" href="https://wa.me/5492634279451?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio%20(fab)" rel="noopener">Escribir por WhatsApp</a>
+<a class="btn fab" href="https://wa.me/5492634279451?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio%20(fab)" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5z"/></svg>Escribir por WhatsApp</a>
 <script src="/demo.js" defer></script>
 <script src="/track.js" defer></script>
 </body>
