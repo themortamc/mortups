@@ -155,7 +155,8 @@ f_rubro = '<div class="filters" role="group" aria-label="Filtrar por rubro" data
     f'<button type="button" aria-pressed="false" data-f="{r}">{e(RUBROS[r])}</button>' for r in rubros_usados) + "</div>"
 grid = '<div class="shop">' + "".join(card(p) for p in PRODS) + "</div>"
 disp = sum(1 for p in PRODS if p["estado"] == "disponible")
-estado_txt = (f"{disp} disponibles y {len(PRODS) - disp} en preparación." if disp else
+estado_txt = (f"Todos disponibles, con pago único." if disp == len(PRODS) else
+              f"{disp} disponibles y {len(PRODS) - disp} en preparación." if disp else
               "Están en preparación: anotate en el que te sirva y te avisamos primero, con precio de lanzamiento.")
 pendientes = [t for t in PROX if t not in tipos_usados]
 prox_html = ""
@@ -262,7 +263,27 @@ sec = f"""<section id="productos"><div class="w">
 s = re.sub(r'<section id="productos">.*?</section>', lambda m: sec, s, count=1, flags=re.S)
 home.write_text(s, encoding="utf-8")
 
-# ---------- páginas de rubro: enlace a su producto ----------
+# ---------- páginas de rubro: sección de su producto ----------
+def seccion_rubro(p):
+    origen = f'producto-{p["rubro"]}'
+    li = "".join(f"<li>{e(x)}</li>" for x in p.get("incluye", []))
+    ver = {"planilla": "Ver la planilla", "software": "Ver el software", "guia": "Ver la guía"}[p.get("tipo", "planilla")]
+    if p["estado"] == "disponible" and p.get("precio"):
+        estado = f'<p><span class="pp-price">{money(p["precio"])}</span> · pago único</p>'
+        texto = ("Es un archivo listo para usar en Google Sheets o Excel, sin necesidad de contratar una web. "
+                 "Lo pagás una vez y es tuyo; si te trabás, te ayudamos por WhatsApp a dejarlo andando.")
+        botones = (f'<a class="btn" href="{wa("Hola, quiero comprar: " + p["nombre"] + " (" + origen + ")")}" rel="noopener">Comprar por WhatsApp</a>'
+                   f'<a class="btn l" href="{url(p)}">{ver}</a>')
+    else:
+        estado = '<p class="status">Producto digital en preparación</p>'
+        texto = ("Es un archivo listo para usar en Google Sheets o Excel, sin necesidad de contratar una web. "
+                 "Todavía no tiene precio publicado: anotate y te avisamos primero, con precio de lanzamiento.")
+        botones = (f'<a class="btn" href="{wa("Hola, quiero anotarme para: " + p["nombre"] + " (" + origen + ")")}" rel="noopener">Anotarme</a>'
+                   f'<a class="btn l" href="{url(p)}">{ver}</a>')
+    return (f'<section><div class="w"><h2>Para ordenar tu negocio desde hoy: {e(p["nombre"])}</h2>{estado}\n'
+            f'<p>{e(p["resumen"])}</p>\n<ul>{li}</ul>\n<p>{texto}</p>\n'
+            f'<div class="actions">{botones}</div></div></section>')
+
 for p in PRODS:
     if p["rubro"] == "general":
         continue
@@ -270,6 +291,8 @@ for p in PRODS:
     if f.exists():
         t = f.read_text(encoding="utf-8")
         t = t.replace('href="/productos-digitales/">Ver todos los productos digitales</a>', f'href="{url(p)}">Ver la planilla</a>')
+        t = re.sub(r'<section><div class="w"><h2>Para ordenar tu negocio desde hoy:.*?</div></section>',
+                   lambda m: seccion_rubro(p), t, count=1, flags=re.S)
         f.write_text(t, encoding="utf-8")
 
 # ---------- sitemap ----------

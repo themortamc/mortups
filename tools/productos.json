@@ -19,15 +19,16 @@
       "slug": "ventas-y-caja-diaria",
       "ancla": "ventas",
       "rubro": "general",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 8900,
       "mp": null,
       "destacado": true,
       "nombre": "Planilla de ventas y caja diaria",
       "resumen": "Anotás cada venta con su forma de pago y la planilla te da el total del día y el cierre de caja.",
       "incluye": [
         "Efectivo, transferencia, Mercado Pago y tarjeta",
-        "Total del día y del mes",
+        "Cierre de caja que te dice si sobra o falta efectivo",
+        "Total del día y resumen de cada mes con gráfico",
         "Se puede exportar a CSV"
       ],
       "vista": {
@@ -70,8 +71,8 @@
       "slug": "control-de-stock",
       "ancla": "stock",
       "rubro": "general",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 9900,
       "mp": null,
       "destacado": true,
       "nombre": "Control de stock con mínimos",
@@ -79,7 +80,8 @@
       "incluye": [
         "Cantidad actual y mínimo por producto",
         "Resalta lo que hay que reponer",
-        "Lista de reposición por proveedor"
+        "Lista de reposición por proveedor",
+        "Texto del pedido listo para mandar por WhatsApp"
       ],
       "vista": {
         "columnas": [
@@ -121,14 +123,15 @@
       "slug": "lista-de-precios",
       "ancla": "precios",
       "rubro": "general",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 8900,
       "mp": null,
       "destacado": true,
       "nombre": "Lista de precios con ajuste por porcentaje",
       "resumen": "Subís todos los precios, o solo los de un proveedor o rubro, con un porcentaje y sin tocar artículo por artículo.",
       "incluye": [
         "Vista previa antes de aplicar el ajuste",
+        "Ajuste por proveedor o por rubro, con redondeo",
         "Costo, margen y precio de venta",
         "Lista lista para imprimir o mandar"
       ],
@@ -172,8 +175,8 @@
       "slug": "presupuestos-con-tu-logo",
       "ancla": "presupuestos",
       "rubro": "general",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 7900,
       "mp": null,
       "destacado": true,
       "nombre": "Presupuestos con tu logo",
@@ -181,7 +184,8 @@
       "incluye": [
         "Logo y datos de tu negocio",
         "Total y validez calculados solos",
-        "Se descarga en PDF"
+        "Se descarga en PDF",
+        "Registro de presupuestos y cuántos se aceptan"
       ],
       "vista": {
         "columnas": [
@@ -222,15 +226,16 @@
       "tipo": "planilla",
       "slug": "lista-de-precios-ferreteria",
       "rubro": "ferreterias",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 12900,
       "mp": null,
       "nombre": "Lista de precios para ferretería",
       "resumen": "Cargás tu lista una vez y actualizás los precios por proveedor o por rubro con un porcentaje, sin tocar artículo por artículo.",
       "incluye": [
         "Ajuste masivo con vista previa antes de aplicarlo",
-        "Código, medida, proveedor y costo en cada artículo",
-        "Precio de venta calculado desde tu margen"
+        "Código, medida, marca, proveedor y bonificación",
+        "Precio final con margen e IVA, redondeado",
+        "Buscador por nombre, código o medida"
       ],
       "vista": {
         "columnas": [
@@ -271,13 +276,14 @@
       "tipo": "planilla",
       "slug": "stock-de-repuestos",
       "rubro": "repuestos",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 14900,
       "mp": null,
       "nombre": "Control de stock por código y ubicación",
       "resumen": "Una planilla para saber qué tenés, en qué estante está y qué hay que reponer.",
       "incluye": [
-        "Código, marca, ubicación y proveedor",
+        "Código, código OEM, aplicación, ubicación y proveedor",
+        "Buscador por código, OEM o vehículo",
         "Resalta los repuestos que bajan del mínimo",
         "Pedido de reposición armado por proveedor"
       ],
@@ -320,14 +326,15 @@
       "tipo": "planilla",
       "slug": "costeo-de-platos",
       "rubro": "restaurantes",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 12900,
       "mp": null,
       "nombre": "Costeo de platos y márgenes",
       "resumen": "Cargás los ingredientes de cada plato y la planilla te muestra el costo, el margen y el precio sugerido.",
       "incluye": [
-        "Costo por ingrediente y por porción",
-        "Margen objetivo que definís vos",
+        "Costo por ingrediente y por porción, con merma",
+        "Food cost objetivo que definís vos",
+        "Precio sugerido y aviso si tenés que subir",
         "Se recalcula cuando cambia el precio de un insumo"
       ],
       "vista": {
@@ -369,14 +376,15 @@
       "tipo": "planilla",
       "slug": "stock-por-talle-y-color",
       "rubro": "indumentaria",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 12900,
       "mp": null,
       "nombre": "Stock por talle y color",
       "resumen": "Una fila por modelo, con sus talles y colores, para saber qué se vendió y qué falta reponer.",
       "incluye": [
         "Cantidad por talle y color",
-        "Ventas que descuentan del stock",
+        "Ventas, ingresos y devoluciones que actualizan el stock",
+        "Grilla de colores por talles de cada modelo",
         "Resumen de lo que conviene reponer"
       ],
       "vista": {
@@ -418,15 +426,16 @@
       "tipo": "planilla",
       "slug": "caja-con-comision-por-barbero",
       "rubro": "barberias",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 11900,
       "mp": null,
       "nombre": "Caja diaria con comisión por barbero",
       "resumen": "Registrás cada servicio y la planilla calcula lo que le corresponde a cada barbero y el total del día.",
       "incluye": [
         "Lista de servicios con sus precios",
-        "Comisión de cada barbero calculada sola",
-        "Total del día por forma de pago"
+        "Comisión de cada barbero y propinas calculadas solas",
+        "Total del día por forma de pago",
+        "Liquidación semanal o por el período que elijas"
       ],
       "vista": {
         "columnas": [
@@ -467,15 +476,16 @@
       "tipo": "planilla",
       "slug": "caja-y-vencimientos-kiosco",
       "rubro": "kioscos",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 12900,
       "mp": null,
       "nombre": "Caja diaria y stock con vencimientos",
       "resumen": "Las ventas del día, los productos que hay que reponer y lo que está por vencer, en un solo archivo.",
       "incluye": [
         "Ventas del día por forma de pago",
         "Mínimo de stock por producto",
-        "Resalta lo que vence pronto"
+        "Lotes vencidos o por vencer, del más urgente al menos",
+        "Lista de lo que hay que reponer"
       ],
       "vista": {
         "columnas": [
@@ -516,14 +526,15 @@
       "tipo": "planilla",
       "slug": "presupuesto-de-taller",
       "rubro": "talleres-mecanicos",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 11900,
       "mp": null,
       "nombre": "Presupuesto de reparación por vehículo",
       "resumen": "Armás el presupuesto con los datos del auto, los repuestos y la mano de obra, y lo mandás por WhatsApp.",
       "incluye": [
         "Patente, marca, modelo y kilometraje",
         "Repuestos y mano de obra con total automático",
+        "Texto listo para mandar por WhatsApp",
         "Historial de arreglos por patente"
       ],
       "vista": {
@@ -565,15 +576,16 @@
       "tipo": "planilla",
       "slug": "cuotas-y-vencimientos-gimnasio",
       "rubro": "gimnasios",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 12900,
       "mp": null,
       "nombre": "Control de cuotas y vencimientos",
       "resumen": "Ves quién tiene la cuota al día y a quién le vence esta semana, sin revisar socio por socio.",
       "incluye": [
-        "Plan, fecha de alta y vencimiento de cada socio",
-        "Resalta los vencimientos de la semana",
-        "Total cobrado en el mes"
+        "Plan, alta y vencimiento de cada socio",
+        "Vencidas y por vencer, de la más urgente a la menos",
+        "Recordatorio listo para mandar por WhatsApp",
+        "Total cobrado por mes con gráfico"
       ],
       "vista": {
         "columnas": [
@@ -614,15 +626,16 @@
       "tipo": "planilla",
       "slug": "agenda-de-turnos",
       "rubro": "clinicas",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 11900,
       "mp": null,
       "nombre": "Agenda semanal de turnos",
       "resumen": "Una grilla por profesional y por día, con la lista del día para recepción. Es solo para turnos: no guarda historias clínicas.",
       "incluye": [
         "Grilla semanal por profesional",
-        "Lista del día para recepción",
-        "Texto de recordatorio listo para enviar por WhatsApp"
+        "Lista del día para recepción, ordenada por hora",
+        "Texto de recordatorio listo para enviar por WhatsApp",
+        "Estado de cada turno: confirmado, atendido o ausente"
       ],
       "vista": {
         "columnas": [
@@ -663,15 +676,16 @@
       "tipo": "planilla",
       "slug": "tablero-de-ventas-y-gastos",
       "rubro": "empresas",
-      "estado": "preparacion",
-      "precio": null,
+      "estado": "disponible",
+      "precio": 14900,
       "mp": null,
       "nombre": "Tablero mensual de ventas y gastos",
       "resumen": "Cargás ingresos y gastos y ves el resultado del mes y cómo viene respecto del anterior.",
       "incluye": [
         "Ingresos y gastos por categoría",
         "Resultado del mes comparado con el anterior",
-        "Gráficos que se arman solos"
+        "Gráficos que se arman solos",
+        "Margen y acumulado del año"
       ],
       "vista": {
         "columnas": [

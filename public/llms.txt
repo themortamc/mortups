@@ -26,10 +26,10 @@
 - **Clínicas:** Cartilla médica y canal de turnos.
 - **Empresas PYMEs:** Sitio corporativo con generación de leads.
 
-## Productos digitales (en preparación)
-- Planillas de Google Sheets y Excel listas para usar: ventas y caja diaria, control de stock con mínimos, lista de precios con ajuste por porcentaje y presupuestos.
-- Hay una versión pensada para cada rubro (ferreterías, repuestos, gastronomía, ropa, barberías, kioscos, talleres, gimnasios, clínicas y empresas).
-- Todavía sin precio publicado; las consultas y la lista de espera son por WhatsApp. Detalle: https://mortups.com.ar/productos-digitales/
+## Productos digitales
+- Planillas de Google Sheets y Excel listas para usar, con pago único: ventas y caja diaria, control de stock con mínimos, lista de precios con ajuste por porcentaje y presupuestos con tu logo.
+- Hay una versión pensada para cada rubro: lista de precios para ferretería, stock de repuestos por código y ubicación, costeo de platos, stock por talle y color, caja con comisión por barbero, caja y vencimientos para kioscos, presupuesto de taller, cuotas de gimnasio, agenda de turnos y tablero de ventas y gastos.
+- Precios entre $7.900 y $14.900 (pago único). Se compran por WhatsApp. Detalle y precios: https://mortups.com.ar/productos-digitales/
 
 ## Demostración Interactiva
 Una demostración en vivo del navegador del cliente muestra cómo funciona el sistema:
