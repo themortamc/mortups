@@ -56,7 +56,7 @@ ENTREGA = {
     "software": "Coordinamos el pago por WhatsApp y te explicamos cómo se instala o cómo entrás, paso a paso.",
     "guia": "Es un archivo PDF. Coordinamos el pago por WhatsApp y te lo mandamos para que lo leas en el celular, la compu o impreso.",
 }
-TITULO_SUF = {"planilla": "en Excel y Google Sheets", "software": "· software para tu negocio", "guia": "· guía en PDF"}
+TITULO_SUF = {"planilla": "en Excel y Sheets", "software": "· software para tu negocio", "guia": "· guía en PDF"}
 
 # --- partes compartidas tomadas de una página existente ---
 ref = (PUB / "catalogo-web" / "index.html").read_text(encoding="utf-8")
