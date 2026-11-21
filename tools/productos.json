@@ -29,7 +29,8 @@
         "Efectivo, transferencia, Mercado Pago y tarjeta",
         "Cierre de caja que te dice si sobra o falta efectivo",
         "Total del día y resumen de cada mes con gráfico",
-        "Se puede exportar a CSV"
+        "Se puede exportar a CSV",
+        "Panel del mes con meta, proyección y tu mejor día de venta"
       ],
       "vista": {
         "columnas": [
@@ -81,7 +82,8 @@
         "Cantidad actual y mínimo por producto",
         "Resalta lo que hay que reponer",
         "Lista de reposición por proveedor",
-        "Texto del pedido listo para mandar por WhatsApp"
+        "Texto del pedido listo para mandar por WhatsApp",
+        "Alerta de productos sin movimiento (la plata parada)"
       ],
       "vista": {
         "columnas": [
@@ -133,7 +135,8 @@
         "Vista previa antes de aplicar el ajuste",
         "Ajuste por proveedor o por rubro, con redondeo",
         "Costo, margen y precio de venta",
-        "Lista lista para imprimir o mandar"
+        "Lista lista para imprimir o mandar",
+        "Lista para mandar por WhatsApp e historial de aumentos"
       ],
       "vista": {
         "columnas": [
@@ -185,7 +188,8 @@
         "Logo y datos de tu negocio",
         "Total y validez calculados solos",
         "Se descarga en PDF",
-        "Registro de presupuestos y cuántos se aceptan"
+        "Registro de presupuestos y cuántos se aceptan",
+        "Recibo de pago y número de presupuesto sugerido"
       ],
       "vista": {
         "columnas": [
@@ -224,6 +228,217 @@
     },
     {
       "tipo": "planilla",
+      "slug": "cuentas-corrientes-fiado",
+      "ancla": "fiado",
+      "rubro": "general",
+      "estado": "disponible",
+      "precio": 9900,
+      "mp": null,
+      "destacado": false,
+      "nombre": "Cuentas corrientes de clientes (fiado)",
+      "resumen": "Anotás lo que cada cliente lleva a cuenta y lo que paga: ves quién te debe, cuánto y desde cuándo, y le mandás el aviso por WhatsApp.",
+      "incluye": [
+        "Saldo, última compra y último pago de cada cliente",
+        "Límite de crédito y aviso de atrasados",
+        "Lista de deudores del que más debe al que menos",
+        "Mensaje de cobro listo para WhatsApp",
+        "Estado de cuenta de cada cliente con saldo acumulado"
+      ],
+      "vista": {
+        "columnas": [
+          "Cliente",
+          "Saldo",
+          "Último pago",
+          "Estado"
+        ],
+        "filas": [
+          [
+            "Marta Ríos",
+            "$24.900",
+            "20/10",
+            "Atrasado"
+          ],
+          [
+            "Carlos Pérez",
+            "$12.800",
+            "-",
+            "Debe"
+          ],
+          [
+            "Familia Gómez",
+            "$34.300",
+            "15/11",
+            "Debe"
+          ],
+          [
+            "Luis Ortiz",
+            "$0",
+            "18/11",
+            "Al día"
+          ]
+        ]
+      }
+    },
+    {
+      "tipo": "planilla",
+      "slug": "calculadora-de-precios",
+      "ancla": "calculadora",
+      "rubro": "general",
+      "estado": "disponible",
+      "precio": 7900,
+      "mp": null,
+      "destacado": false,
+      "nombre": "Calculadora de precios con comisiones y cuotas",
+      "resumen": "Ponés el costo y la ganancia que querés, y te dice a cuánto vender en efectivo, con Mercado Pago, con tarjeta y en cuotas para que siempre te quede lo mismo.",
+      "incluye": [
+        "Comisiones de cada medio de pago que cargás vos",
+        "Recargo de cuotas, Ingresos Brutos e IVA",
+        "Cuánto te queda limpio en cada caso",
+        "Lista de todos tus productos con precio por medio de pago"
+      ],
+      "vista": {
+        "columnas": [
+          "Medio de pago",
+          "Precio",
+          "Por cuota",
+          "Te queda"
+        ],
+        "filas": [
+          [
+            "Efectivo",
+            "$15.700",
+            "",
+            "$15.150"
+          ],
+          [
+            "Débito",
+            "$16.300",
+            "",
+            "$15.200"
+          ],
+          [
+            "Crédito 3 cuotas",
+            "$18.900",
+            "$6.300",
+            "$15.190"
+          ],
+          [
+            "Crédito 6 cuotas",
+            "$20.500",
+            "$3.417",
+            "$15.120"
+          ]
+        ]
+      }
+    },
+    {
+      "tipo": "planilla",
+      "slug": "pedidos-por-whatsapp",
+      "ancla": "pedidos",
+      "rubro": "general",
+      "estado": "disponible",
+      "precio": 11900,
+      "mp": null,
+      "destacado": false,
+      "nombre": "Registro de pedidos por WhatsApp",
+      "resumen": "Cada pedido que te llega por WhatsApp queda anotado con sus productos, el envío, si pagó y en qué estado está.",
+      "incluye": [
+        "Total con costo de envío por zona",
+        "Estado del pedido y si está pagado",
+        "Mensaje de confirmación listo para mandar",
+        "Lista de lo que falta entregar",
+        "Ventas del mes y productos más pedidos"
+      ],
+      "vista": {
+        "columnas": [
+          "N°",
+          "Cliente",
+          "Total",
+          "Estado"
+        ],
+        "filas": [
+          [
+            "1",
+            "Laura Díaz",
+            "$33.700",
+            "Entregado"
+          ],
+          [
+            "2",
+            "Pedro Gil",
+            "$31.000",
+            "Confirmado"
+          ],
+          [
+            "3",
+            "Ana Sosa",
+            "$22.800",
+            "Nuevo"
+          ],
+          [
+            "4",
+            "Juan Paz",
+            "$18.500",
+            "Enviado"
+          ]
+        ]
+      }
+    },
+    {
+      "tipo": "planilla",
+      "slug": "cuentas-a-pagar-y-cobrar",
+      "ancla": "flujo",
+      "rubro": "general",
+      "estado": "disponible",
+      "precio": 12900,
+      "mp": null,
+      "destacado": false,
+      "nombre": "Cuentas a pagar y cobrar con flujo de caja",
+      "resumen": "Anotás facturas de proveedores y lo que te deben tus clientes: ves qué vence y cómo va a estar tu caja en las próximas 8 semanas.",
+      "incluye": [
+        "Facturas a pagar y a cobrar con su vencimiento",
+        "Pagos parciales y saldo de cada una",
+        "Vencimientos del más urgente al menos",
+        "Flujo de caja proyectado a 8 semanas con gráfico",
+        "Aviso si alguna semana te quedás sin plata"
+      ],
+      "vista": {
+        "columnas": [
+          "Semana",
+          "Cobros",
+          "Pagos",
+          "Saldo"
+        ],
+        "filas": [
+          [
+            "21/11",
+            "$1.100.000",
+            "$850.000",
+            "$1.750.000"
+          ],
+          [
+            "28/11",
+            "$0",
+            "$450.000",
+            "$1.300.000"
+          ],
+          [
+            "05/12",
+            "$410.000",
+            "$95.000",
+            "$1.615.000"
+          ],
+          [
+            "12/12",
+            "$0",
+            "$0",
+            "$1.615.000"
+          ]
+        ]
+      }
+    },
+    {
+      "tipo": "planilla",
       "slug": "lista-de-precios-ferreteria",
       "rubro": "ferreterias",
       "estado": "disponible",
@@ -235,7 +450,8 @@
         "Ajuste masivo con vista previa antes de aplicarlo",
         "Código, medida, marca, proveedor y bonificación",
         "Precio final con margen e IVA, redondeado",
-        "Buscador por nombre, código o medida"
+        "Buscador por nombre, código o medida",
+        "Lista por rubro lista para mandar por WhatsApp"
       ],
       "vista": {
         "columnas": [
@@ -285,7 +501,8 @@
         "Código, código OEM, aplicación, ubicación y proveedor",
         "Buscador por código, OEM o vehículo",
         "Resalta los repuestos que bajan del mínimo",
-        "Pedido de reposición armado por proveedor"
+        "Pedido de reposición armado por proveedor",
+        "Repuestos sin movimiento, ordenados por valor parado"
       ],
       "vista": {
         "columnas": [
@@ -335,7 +552,8 @@
         "Costo por ingrediente y por porción, con merma",
         "Food cost objetivo que definís vos",
         "Precio sugerido y aviso si tenés que subir",
-        "Se recalcula cuando cambia el precio de un insumo"
+        "Se recalcula cuando cambia el precio de un insumo",
+        "Simulador: qué platos ajustar si sube un insumo"
       ],
       "vista": {
         "columnas": [
@@ -385,7 +603,8 @@
         "Cantidad por talle y color",
         "Ventas, ingresos y devoluciones que actualizan el stock",
         "Grilla de colores por talles de cada modelo",
-        "Resumen de lo que conviene reponer"
+        "Resumen de lo que conviene reponer",
+        "Resumen por modelo con rotación y valor del stock"
       ],
       "vista": {
         "columnas": [
@@ -435,7 +654,8 @@
         "Lista de servicios con sus precios",
         "Comisión de cada barbero y propinas calculadas solas",
         "Total del día por forma de pago",
-        "Liquidación semanal o por el período que elijas"
+        "Liquidación semanal o por el período que elijas",
+        "Panel del mes: barbero del mes y servicio más pedido"
       ],
       "vista": {
         "columnas": [
@@ -485,7 +705,8 @@
         "Ventas del día por forma de pago",
         "Mínimo de stock por producto",
         "Lotes vencidos o por vencer, del más urgente al menos",
-        "Lista de lo que hay que reponer"
+        "Lista de lo que hay que reponer",
+        "Ganancia del día con el costo de cada producto"
       ],
       "vista": {
         "columnas": [
@@ -535,7 +756,8 @@
         "Patente, marca, modelo y kilometraje",
         "Repuestos y mano de obra con total automático",
         "Texto listo para mandar por WhatsApp",
-        "Historial de arreglos por patente"
+        "Historial de arreglos por patente",
+        "Orden de trabajo con la recepción del vehículo"
       ],
       "vista": {
         "columnas": [
@@ -585,7 +807,8 @@
         "Plan, alta y vencimiento de cada socio",
         "Vencidas y por vencer, de la más urgente a la menos",
         "Recordatorio listo para mandar por WhatsApp",
-        "Total cobrado por mes con gráfico"
+        "Total cobrado por mes con gráfico",
+        "Socios nuevos por mes y cuotas de socios activos"
       ],
       "vista": {
         "columnas": [
@@ -635,7 +858,8 @@
         "Grilla semanal por profesional",
         "Lista del día para recepción, ordenada por hora",
         "Texto de recordatorio listo para enviar por WhatsApp",
-        "Estado de cada turno: confirmado, atendido o ausente"
+        "Estado de cada turno: confirmado, atendido o ausente",
+        "Estadísticas de ausentismo por profesional"
       ],
       "vista": {
         "columnas": [
@@ -685,7 +909,8 @@
         "Ingresos y gastos por categoría",
         "Resultado del mes comparado con el anterior",
         "Gráficos que se arman solos",
-        "Margen y acumulado del año"
+        "Margen y acumulado del año",
+        "Meta mensual, proyección de fin de mes y mayor gasto"
       ],
       "vista": {
         "columnas": [
