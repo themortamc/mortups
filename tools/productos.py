@@ -172,7 +172,7 @@ FAQ = [
     ("¿Cómo se compran?", "Tocás el botón del producto y nos escribís por WhatsApp. Ahí coordinamos el pago y te mandamos lo que compraste."),
     ("¿Necesito saber de tecnología?", "No. Están pensados para usarlos sin experiencia. Si querés, te mostramos cómo se usan por WhatsApp."),
     ("¿Hay uno para mi rubro?", "Vamos sumando productos para cada rubro y actividad. Si el tuyo no está, escribinos y contanos qué te cuesta ordenar o qué querés aprender."),
-    ("¿Y si después quiero una web o un sistema propio?", "Podés pasar a los paquetes de mortups cuando quieras. Un catálogo web, un menú QR o un registro de ventas a medida parten de lo mismo que ya ordenaste."),
+    ("¿Y si después quiero una web o un sistema propio?", "Podés pasar a los paquetes de mortups cuando quieras, y si lo hacés dentro de los 60 días de comprar una planilla, te descontamos lo que pagaste. Un catálogo web, un menú QR o un registro de ventas a medida parten de lo mismo que ya ordenaste."),
 ]
 faq_html = "".join(f'<details class="qa"><summary>{q}</summary><p>{a}</p></details>' for q, a in FAQ)
 compra_alt = '' if prox_html else ' class="alt"'

@@ -16,6 +16,53 @@
   "productos": [
     {
       "tipo": "planilla",
+      "slug": "pack-3-planillas",
+      "ancla": "pack",
+      "rubro": "general",
+      "estado": "disponible",
+      "precio": 19900,
+      "mp": null,
+      "destacado": false,
+      "nombre": "Pack de 3 planillas a elección",
+      "resumen": "Elegís 3 planillas de la tienda, las que más te sirvan para tu negocio, y pagás $19.900 en vez de comprarlas sueltas.",
+      "incluye": [
+        "3 planillas a elección de toda la tienda",
+        "Ahorrás hasta $24.800 contra comprarlas por separado",
+        "Ideal: la de tu rubro + la calculadora de precios + fiado o pedidos",
+        "Te ayudamos por WhatsApp a dejarlas andando"
+      ],
+      "vista": {
+        "columnas": [
+          "Planilla",
+          "Suelta",
+          "En el pack"
+        ],
+        "filas": [
+          [
+            "La de tu rubro",
+            "$12.900",
+            ""
+          ],
+          [
+            "Calculadora de precios",
+            "$7.900",
+            ""
+          ],
+          [
+            "Cuentas a pagar y cobrar",
+            "$12.900",
+            ""
+          ],
+          [
+            "Total",
+            "$33.700",
+            "$19.900"
+          ]
+        ]
+      }
+    },
+    {
+      "tipo": "planilla",
       "slug": "ventas-y-caja-diaria",
       "ancla": "ventas",
       "rubro": "general",
