@@ -165,17 +165,18 @@ if pendientes:
         f'<div class="soon"><span class="soon-ic">{ico(TIPO_ICO[t])}</span><div><h3>{e(PROX[t]["titulo"])}</h3><p>{e(PROX[t]["texto"])}</p>'
         f'<a class="lnk" href="{wa("Hola, quiero que me avisen cuando salgan: " + PROX[t]["titulo"] + " (productos-proximamente)")}" rel="noopener">Avisarme cuando salgan{ico("arrow")}</a></div></div>'
         for t in pendientes)
-    prox_html = f'<section class="alt"><div class="w"><div class="sh"><h2>Lo que viene</h2><p class="sub">Además de las planillas, estamos preparando estos productos.</p></div><div class="soon-grid">{items}</div></div></section>'
+    prox_html = f'<section><div class="w"><div class="sh"><h2>Lo que viene</h2><p class="sub">Además de las planillas, estamos preparando estos productos.</p></div><div class="soon-grid">{items}</div></div></section>'
 
 FAQ = [
     ("¿En qué formato se entregan?", "Las planillas, en Google Sheets (una copia para tu cuenta) y en Excel. Las guías y libros, en PDF. El software, según cada producto: en su página te contamos cómo se instala o cómo entrás."),
     ("¿Cómo se compran?", "Tocás el botón del producto y nos escribís por WhatsApp. Ahí coordinamos el pago y te mandamos lo que compraste."),
     ("¿Necesito saber de tecnología?", "No. Están pensados para usarlos sin experiencia. Si querés, te mostramos cómo se usan por WhatsApp."),
     ("¿Hay uno para mi rubro?", "Vamos sumando productos para cada rubro y actividad. Si el tuyo no está, escribinos y contanos qué te cuesta ordenar o qué querés aprender."),
+    ("¿Se pueden combinar planillas o pedir una a medida?", "Sí. Podemos juntar 2 o 3 planillas en un solo archivo que comparte los datos (por ejemplo ventas, stock y fiado), desde $24.900. Y si necesitás algo distinto, la hacemos a pedido para cómo trabaja tu negocio, desde $39.900: te pasamos el precio exacto antes de empezar."),
     ("¿Y si después quiero una web o un sistema propio?", "Podés pasar a los paquetes de mortups cuando quieras, y si lo hacés dentro de los 60 días de comprar una planilla, te descontamos lo que pagaste. Un catálogo web, un menú QR o un registro de ventas a medida parten de lo mismo que ya ordenaste."),
 ]
 faq_html = "".join(f'<details class="qa"><summary>{q}</summary><p>{a}</p></details>' for q, a in FAQ)
-compra_alt = '' if prox_html else ' class="alt"'
+compra_alt = ' class="alt"' if prox_html else ''  # fondos alternados: tienda, a pedido (gris), lo que viene, compra (gris)
 body = f"""<section class="page-hero"><div class="w"><nav class="bc" aria-label="Ruta"><a href="/">Inicio</a> <span>/</span> Productos digitales</nav>
 <h1>Productos digitales para ordenar y hacer crecer tu negocio</h1>
 <p class="lead">Planillas de Excel y Google Sheets listas para usar, software para tu negocio y guías en PDF para aprender marketing y administración. Pensados para comercios, pymes y empresas de Argentina.</p>
@@ -184,6 +185,11 @@ body = f"""<section class="page-hero"><div class="w"><nav class="bc" aria-label=
 {f_tipo}{f_rubro}
 {grid}
 </div></section>
+<section class="alt" id="a-pedido"><div class="w"><div class="sh"><h2>¿No encontrás exactamente lo que necesitás?</h2><p class="sub">Las planillas se pueden combinar y también las hacemos a pedido.</p></div>
+<div class="medida-grid">
+<div class="medida"><span class="soon-ic">{ico("sheet")}</span><div><h3>Combinamos planillas</h3><p>Juntamos 2 o 3 planillas en un solo archivo que comparte los datos. Por ejemplo: ventas, stock y fiado, sin cargar lo mismo dos veces.</p><p class="desde">Desde $24.900</p><a class="btn l" href="{wa('Hola, quiero combinar planillas (productos-combinadas)')}" rel="noopener">{ico("chat")}Combinar planillas</a></div></div>
+<div class="medida"><span class="soon-ic">{ico("app")}</span><div><h3>Planillas a pedido</h3><p>La armamos desde cero para cómo trabaja tu negocio: tus columnas, tus cálculos y tus reportes. Te pasamos el precio exacto antes de empezar.</p><p class="desde">Desde $39.900</p><a class="btn l" href="{wa('Hola, quiero una planilla a pedido (productos-a-pedido)')}" rel="noopener">{ico("chat")}Pedir a medida</a></div></div>
+</div></div></section>
 {prox_html}
 <section{compra_alt}><div class="w"><h2>Cómo es la compra</h2>
 <ol class="steps three"><li><h3>Elegís el producto</h3><p>Mirás la vista de ejemplo y lo que incluye, y tocás el botón para escribirnos.</p></li><li><h3>Coordinamos el pago</h3><p>Por WhatsApp te pasamos el precio y la forma de pago.</p></li><li><h3>Lo recibís</h3><p>Te mandamos tu copia de la planilla, el PDF o el acceso al software, listo para usar.</p></li></ol></div></section>
@@ -229,7 +235,7 @@ for p in PRODS:
     rubro_rel = f'<a href="/para/{p["rubro"]}/">Soluciones para {e(rub.lower())}</a>' if p["rubro"] != "general" else ""
     body = f"""<section class="page-hero pp"><div class="w"><nav class="bc" aria-label="Ruta"><a href="/">Inicio</a> <span>/</span> <a href="/productos-digitales/">Productos digitales</a> <span>/</span> {e(p["nombre"])}</nav>
 <div class="pp-info"><h1>{e(p["nombre"])}</h1>{rubro_link}<p class="lead">{e(p["resumen"])}</p>
-<div class="pp-buy">{price_line(p)}</div><div class="actions">{ctas(p, "producto-" + p["slug"], big=True)}</div>{nota}</div>
+<div class="pp-buy">{price_line(p)}</div><div class="actions">{ctas(p, "producto-" + p["slug"], big=True)}</div>{nota}<p class="note">¿La querés combinada con otra planilla o adaptada a tu negocio? <a href="/productos-digitales/#a-pedido">También las hacemos a pedido</a>.</p></div>
 {fig}
 </div></section>
 <section><div class="w pp-grid"><div><h2>Qué incluye</h2><ul class="ck">{inc}</ul></div>
@@ -258,7 +264,7 @@ dest = [p for p in PRODS if p.get("destacado")][:4]
 sec = f"""<section id="productos"><div class="w">
  <div class="sh"><h2>Productos digitales listos para usar</h2><p class="sub">Planillas de Google Sheets y Excel ya armadas, software para tu negocio y guías en PDF para aprender marketing y administración. Vamos sumando uno para cada rubro y actividad.</p></div>
  <div class="shop four">{"".join(card(p, False) for p in dest)}</div>
- <div class="more"><p>{len(PRODS)} productos y sumando.</p><a class="btn l" href="/productos-digitales/">Ver todos los productos</a></div>
+ <div class="more"><p>{len(PRODS)} productos y sumando. También los combinamos o los hacemos a pedido.</p><a class="btn l" href="/productos-digitales/">Ver todos los productos</a></div>
 </div></section>"""
 s = re.sub(r'<section id="productos">.*?</section>', lambda m: sec, s, count=1, flags=re.S)
 home.write_text(s, encoding="utf-8")
