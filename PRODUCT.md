@@ -45,7 +45,7 @@ Primero la demo funcionando con los productos del propio negocio (24–72 h, sin
 ## Evidence on Hand
 
 - Casos reales online: Todo y Más (tienda, 236 productos, Mercado Pago y Go Cuotas, panel de ventas) y Repuestos San Isidro (~30.000 productos sincronizados). Capturas en `public/img/` (todoymas.webp, panel-todoymas.webp, repuestos.webp) y og.jpg.
-- Precios publicados (noviembre 2026): Presencia $120.000 pago único; Web $200.000 + $30.000/mes; Ventas $550.000 + $60.000/mes (lanzamiento $450.000 para los primeros 3 clientes hasta el 31/12/2026); Crecimiento a consultar.
+- Precios publicados (noviembre 2026): Presencia $120.000 pago único; Web $200.000 + $30.000/mes; Ventas $550.000 + $60.000/mes (lanzamiento $450.000 para los primeros 3 clientes hasta el 31/12/2026); Crecimiento a consultar; Administración de Meta Ads $90.000/mes sin pago inicial (primer mes $45.000 para los primeros 3 clientes), en /anuncios-meta/.
 - No hay testimonios de clientes todavía: no inventar testimonios, logos de clientes ni métricas.
 
 ## Product Principles
