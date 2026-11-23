@@ -26,6 +26,7 @@ TIPOS_PL = DATA["tipos_plural"]
 PROX = DATA.get("proximamente", {})
 PRODS = DATA["productos"]
 SITE = "https://mortups.com.ar"
+IMG = json.loads((ROOT / "tools" / "medidas_imagenes.json").read_text())  # slug -> [ancho, alto] de public/img/productos/<slug>.webp
 WA = "https://wa.me/5492634279451?text="
 HOY = datetime.date.today().isoformat()
 
@@ -69,7 +70,7 @@ FOOT = between(ref, '<footer class="ft">', "</footer>")
 FAB = between(ref, '<a class="btn fab"', "</a>")
 HEADCOMMON = between(ref, '<link rel="icon"', '<link rel="stylesheet" href="/site.css">')
 
-def page(title, desc, path, body, jsonld=(), scripts=("/track.js",)):
+def page(title, desc, path, body, jsonld=(), scripts=("/track.js",), og="/img/og.jpg"):
     ld = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in jsonld)
     sc = "".join(f'<script src="{s}" defer></script>\n' for s in scripts)
     return f"""<!DOCTYPE html>
@@ -81,7 +82,7 @@ def page(title, desc, path, body, jsonld=(), scripts=("/track.js",)):
 <meta name="description" content="{e(desc)}">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="canonical" href="{SITE}{path}">
-<meta property="og:type" content="website"><meta property="og:locale" content="es_AR"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}/img/og.jpg">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_AR"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}{og}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
 {HEADCOMMON}
@@ -114,6 +115,13 @@ def cover(p, size):
 def app(p, filas, cols, size):
     return (f'<div class="appshot {size}"><div class="appshot-side"><i></i><i></i><i></i><i></i></div>'
             f'<div class="appshot-main"><div class="appshot-top">{e(p["nombre"])}</div>{table(p, filas, cols, "sheet app")}</div></div>')
+
+def shot(p):
+    if p["slug"] not in IMG:
+        return media(p, big=True)
+    w, h = IMG[p["slug"]]
+    return (f'<img class="pp-shot" src="/img/productos/{p["slug"]}.webp" width="{w}" height="{h}" '
+            f'alt="Captura de la planilla {e(p["nombre"])} con datos de ejemplo" fetchpriority="high">')
 
 def media(p, big=False):
     t = p.get("tipo", "planilla")
@@ -228,8 +236,8 @@ for p in PRODS:
         fig = f'<figure class="pp-preview book">{cover(p, "big")}<figcaption>Portada</figcaption></figure>'
     else:
         bar_ico = "sheet" if t == "planilla" else "app"
-        fig = (f'<figure class="pp-preview"><div class="win"><div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">{ico(bar_ico)}{e(p["nombre"])}</div></div>{media(p, big=True)}</div>'
-               f'<figcaption>Vista de ejemplo con datos de muestra</figcaption></figure>')
+        fig = (f'<figure class="pp-preview"><div class="win"><div class="win-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">{ico(bar_ico)}{e(p["nombre"])}</div></div>{shot(p)}</div>'
+               f'<figcaption>{"Captura real de la planilla, con datos de ejemplo" if p["slug"] in IMG else "Vista de ejemplo con datos de muestra"}</figcaption></figure>')
     rel_html = ("<section class='alt'><div class='w'><h2>Otros productos que te pueden servir</h2><div class='shop'>"
                 + "".join(card(q, False) for q in rel) + "</div></div></section>") if rel else ""
     rubro_rel = f'<a href="/para/{p["rubro"]}/">Soluciones para {e(rub.lower())}</a>' if p["rubro"] != "general" else ""
@@ -250,12 +258,26 @@ for p in PRODS:
         item = {"@context": "https://schema.org", "@type": {"guia": "Book", "software": "SoftwareApplication"}.get(t, "Product"),
                 "name": p["nombre"], "description": p["resumen"],
                 "offers": {"@type": "Offer", "price": p["precio"], "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": SITE + url(p)}}
+        if p["slug"] in IMG:
+            item["image"] = SITE + f'/img/productos/{p["slug"]}.webp'
+        item["brand"] = {"@type": "Brand", "name": "mortups"}
+        # Producto digital: se entrega por WhatsApp/mail sin costo; devolución = arrepentimiento de 10 días (Ley 24.240).
+        item["offers"]["shippingDetails"] = {"@type": "OfferShippingDetails",
+            "shippingRate": {"@type": "MonetaryAmount", "value": 0, "currency": "ARS"},
+            "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "AR"},
+            "deliveryTime": {"@type": "ShippingDeliveryTime",
+                "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY"},
+                "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}}}
+        item["offers"]["hasMerchantReturnPolicy"] = {"@type": "MerchantReturnPolicy", "applicableCountry": "AR",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow", "merchantReturnDays": 10,
+            "returnFees": "https://schema.org/FreeReturn", "returnMethod": "https://schema.org/ReturnByMail"}
         if t == "software":
             item["applicationCategory"] = "BusinessApplication"
         ld.append(item)
     d = PUB / "productos-digitales" / p["slug"]
     d.mkdir(parents=True, exist_ok=True)
-    (d / "index.html").write_text(page(f'{p["nombre"]} {TITULO_SUF[t]} | mortups', p["resumen"], url(p), body, ld), encoding="utf-8")
+    og = f'/img/productos/{p["slug"]}.webp' if p["slug"] in IMG else "/img/og.jpg"
+    (d / "index.html").write_text(page(f'{p["nombre"]} {TITULO_SUF[t]} | mortups', p["resumen"], url(p), body, ld, og=og), encoding="utf-8")
 
 # ---------- portada: sección #productos ----------
 home = PUB / "index.html"

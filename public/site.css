@@ -507,6 +507,8 @@ details>p,details>div{padding:0 0 24px;color:var(--ink-2);max-width:68ch}
 .pp-rubro{margin-top:12px;color:var(--ink-3);font-size:15px}
 .pp-info .fine{margin-top:16px}
 .pp-preview .win{overflow-x:auto}
+.pp-shot{display:block;width:100%;min-width:560px;height:auto;background:#fff}
+.pp-preview,.pp-preview .win{min-width:0;max-width:100%}
 .pp-preview figcaption{margin-top:12px;font-size:13px;color:var(--ink-3)}
 .pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)}
 .pp-grid h2{font-size:28px}
