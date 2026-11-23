@@ -621,3 +621,5 @@ html[data-theme=dark] #mu-ck{border-color:rgba(241,238,246,.12)}
 html[data-theme=dark] #mu-ck button:hover{background:#25212D}
 .quick{align-items:center;margin-top:28px}.quick .lbl{font-weight:500;margin-right:4px}a.pill{text-decoration:none;transition:background-color .2s var(--ease),color .2s var(--ease)}a.pill:hover{background:var(--line);color:var(--ink)}.quick .pill{background:var(--bg);border:1px solid var(--line);color:var(--ink)}
 .medida-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.medida{display:flex;gap:16px;padding:28px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg)}.medida h3{margin-bottom:6px}.medida p{color:var(--ink-2)}.medida .desde{font-weight:600;color:var(--ink);margin:12px 0 16px}@media (max-width:760px){.medida-grid{grid-template-columns:1fr}}
+
+.quote{margin:1rem 0;padding:1rem 1.25rem;border-left:4px solid var(--brand);background:var(--brand-tint);border-radius:0 8px 8px 0}.quote p{margin:.5rem 0}.quote footer{margin-top:.5rem;font-weight:600;font-size:.95em}.quote-sm{font-size:.95em;padding:.75rem 1rem}
