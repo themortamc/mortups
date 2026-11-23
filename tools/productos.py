@@ -172,7 +172,7 @@ FAQ = [
     ("¿Cómo se compran?", "Tocás el botón del producto y nos escribís por WhatsApp. Ahí coordinamos el pago y te mandamos lo que compraste."),
     ("¿Necesito saber de tecnología?", "No. Están pensados para usarlos sin experiencia. Si querés, te mostramos cómo se usan por WhatsApp."),
     ("¿Hay uno para mi rubro?", "Vamos sumando productos para cada rubro y actividad. Si el tuyo no está, escribinos y contanos qué te cuesta ordenar o qué querés aprender."),
-    ("¿Se pueden combinar planillas o pedir una a medida?", "Sí. Podemos juntar 2 o 3 planillas en un solo archivo que comparte los datos (por ejemplo ventas, stock y fiado), desde $24.900. Y si necesitás algo distinto, la hacemos a pedido para cómo trabaja tu negocio, desde $39.900: te pasamos el precio exacto antes de empezar."),
+    ("¿Se pueden combinar planillas o pedir una a medida?", "Sí. Podemos juntar 2 o 3 planillas en un solo archivo que comparte los datos (por ejemplo ventas, stock y fiado), desde $29.900. Y si necesitás algo distinto, la hacemos a pedido para cómo trabaja tu negocio, desde $39.900: te pasamos el precio exacto antes de empezar."),
     ("¿Y si después quiero una web o un sistema propio?", "Podés pasar a los paquetes de mortups cuando quieras, y si lo hacés dentro de los 60 días de comprar una planilla, te descontamos lo que pagaste. Un catálogo web, un menú QR o un registro de ventas a medida parten de lo mismo que ya ordenaste."),
 ]
 faq_html = "".join(f'<details class="qa"><summary>{q}</summary><p>{a}</p></details>' for q, a in FAQ)
@@ -187,7 +187,7 @@ body = f"""<section class="page-hero"><div class="w"><nav class="bc" aria-label=
 </div></section>
 <section class="alt" id="a-pedido"><div class="w"><div class="sh"><h2>¿No encontrás exactamente lo que necesitás?</h2><p class="sub">Las planillas se pueden combinar y también las hacemos a pedido.</p></div>
 <div class="medida-grid">
-<div class="medida"><span class="soon-ic">{ico("sheet")}</span><div><h3>Combinamos planillas</h3><p>Juntamos 2 o 3 planillas en un solo archivo que comparte los datos. Por ejemplo: ventas, stock y fiado, sin cargar lo mismo dos veces.</p><p class="desde">Desde $24.900</p><a class="btn l" href="{wa('Hola, quiero combinar planillas (productos-combinadas)')}" rel="noopener">{ico("chat")}Combinar planillas</a></div></div>
+<div class="medida"><span class="soon-ic">{ico("sheet")}</span><div><h3>Combinamos planillas</h3><p>Juntamos 2 o 3 planillas en un solo archivo que comparte los datos. Por ejemplo: ventas, stock y fiado, sin cargar lo mismo dos veces.</p><p class="desde">Desde $29.900</p><a class="btn l" href="{wa('Hola, quiero combinar planillas (productos-combinadas)')}" rel="noopener">{ico("chat")}Combinar planillas</a></div></div>
 <div class="medida"><span class="soon-ic">{ico("app")}</span><div><h3>Planillas a pedido</h3><p>La armamos desde cero para cómo trabaja tu negocio: tus columnas, tus cálculos y tus reportes. Te pasamos el precio exacto antes de empezar.</p><p class="desde">Desde $39.900</p><a class="btn l" href="{wa('Hola, quiero una planilla a pedido (productos-a-pedido)')}" rel="noopener">{ico("chat")}Pedir a medida</a></div></div>
 </div></div></section>
 {prox_html}

@@ -30,7 +30,7 @@
 - Planillas de Google Sheets y Excel listas para usar, con pago único: ventas y caja diaria, control de stock con mínimos, lista de precios con ajuste por porcentaje y presupuestos con tu logo.
 - Hay una versión pensada para cada rubro: lista de precios para ferretería, stock de repuestos por código y ubicación, costeo de platos, stock por talle y color, caja con comisión por barbero, caja y vencimientos para kioscos, presupuesto de taller, cuotas de gimnasio, agenda de turnos y tablero de ventas y gastos.
 - También: cuentas corrientes de clientes (fiado), calculadora de precios con comisiones de Mercado Pago y cuotas, registro de pedidos por WhatsApp y cuentas a pagar y cobrar con flujo de caja.
-- Precios entre $7.900 y $14.900 (pago único), o un pack de 3 a elección por $19.900. También se combinan varias planillas en un solo archivo (desde $24.900) o se hacen a pedido (desde $39.900). Se compran por WhatsApp. Detalle y precios: https://mortups.com.ar/productos-digitales/
+- Precios entre $7.900 y $17.900 (pago único), o un pack de 3 a elección por $24.900. También se combinan varias planillas en un solo archivo (desde $29.900) o se hacen a pedido (desde $39.900). Se compran por WhatsApp. Detalle y precios: https://mortups.com.ar/productos-digitales/
 
 ## Demostración Interactiva
 Una demostración en vivo del navegador del cliente muestra cómo funciona el sistema:
