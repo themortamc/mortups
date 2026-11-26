@@ -636,3 +636,14 @@ html[data-theme=dark] #mu-ck button:hover{background:#25212D}
 .mini-proof li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:7px;border-left:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(-45deg)}
 .mini-proof a{color:inherit}
 @media (max-width:520px){.hero-proof{grid-template-columns:64px 1fr}.hero-proof img{width:64px;height:64px}}
+/* Hero compacto en compu: que el testimonio entre en la primera pantalla (2026-11-26) */
+@media (min-width:961px){
+.hero{padding-top:clamp(32px,3.5vw,56px)}
+.hero h1{font-size:clamp(38px,3.9vw,54px)}
+.hero .lead{margin-top:18px}
+.hero .actions{margin-top:24px}
+.hero .facts{margin-top:24px;padding-top:18px;gap:8px 24px}
+.hero-proof{margin-top:18px;padding:10px 12px;grid-template-columns:64px 1fr}
+.hero-proof img{width:64px;height:64px}
+.hero-proof .yo{margin-top:4px}
+}
