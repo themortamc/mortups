@@ -623,3 +623,16 @@ html[data-theme=dark] #mu-ck button:hover{background:#25212D}
 .medida-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.medida{display:flex;gap:16px;padding:28px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg)}.medida h3{margin-bottom:6px}.medida p{color:var(--ink-2)}.medida .desde{font-weight:600;color:var(--ink);margin:12px 0 16px}@media (max-width:760px){.medida-grid{grid-template-columns:1fr}}
 
 .quote{margin:1rem 0;padding:1rem 1.25rem;border-left:4px solid var(--brand);background:var(--brand-tint);border-radius:0 8px 8px 0}.quote p{margin:.5rem 0}.quote footer{margin-top:.5rem;font-weight:600;font-size:.95em}.quote-sm{font-size:.95em;padding:.75rem 1rem}
+/* Prueba social y garantía (2026-11-26) */
+.hero-proof{display:grid;grid-template-columns:84px 1fr;gap:14px;align-items:center;margin:28px 0 0;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--brand-tint)}
+.hero-proof img{width:84px;height:84px;object-fit:cover;border-radius:10px;display:block}
+.hero-proof blockquote{margin:0;font-weight:600;line-height:1.4}
+.hero-proof figcaption{font-size:13px;color:var(--ink-2);margin-top:4px}
+.hero-proof figcaption a{color:inherit}
+.hero-proof .yo{margin:8px 0 0;font-size:13px;color:var(--ink-2)}
+.garantia{margin:20px 0 0;padding:14px 16px;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:var(--r);background:var(--brand-tint)}
+.mini-proof{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:6px;font-size:14px;color:var(--ink-2)}
+.mini-proof li{padding-left:22px;position:relative}
+.mini-proof li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:7px;border-left:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(-45deg)}
+.mini-proof a{color:inherit}
+@media (max-width:520px){.hero-proof{grid-template-columns:64px 1fr}.hero-proof img{width:64px;height:64px}}
